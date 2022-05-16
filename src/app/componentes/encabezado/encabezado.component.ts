@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./encabezado.component.css']
 })
 export class EncabezadoComponent implements OnInit {
+  //MODELO
+  title = 'Soledad Sasia';
+  subtitle = 'Desarrolladora Web FullStack';
 
   constructor() { }
 
