@@ -5,12 +5,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EncabezadoComponent } from './componentes/encabezado/encabezado.component';
 import { SobreMiComponent } from './componentes/sobre-mi/sobre-mi.component';
+import { ExperienciaComponent } from './componentes/experiencia/experiencia.component';
+import { ProyectosComponent } from './componentes/proyectos/proyectos.component';
+import { ContactoComponent } from './componentes/contacto/contacto.component';
+import { ExperienciaYEducacionComponent } from './componentes/experiencia-y-educacion/experiencia-y-educacion.component';
+import { HabilidadesComponent } from './componentes/habilidades/habilidades.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EncabezadoComponent,
-    SobreMiComponent
+    SobreMiComponent,
+    ExperienciaComponent,
+    ProyectosComponent,
+    ContactoComponent,
+    ExperienciaYEducacionComponent,
+    HabilidadesComponent
   ],
   imports: [
     BrowserModule,
