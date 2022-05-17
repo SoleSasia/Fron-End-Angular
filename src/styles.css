@@ -1,13 +1,13 @@
+html {
+	font-family: "source sans pro", sans-serif;
+}
+
 h1 {
 	font-family: "julius sans one", sans-serif;
 }
 
 h2 {
 	font-family: "archivo narrow", sans-serif;
-}
-
-h3, h4, h5, h6, p {
-	font-family: "source sans pro", sans-serif;
 }
 
 .info-section {
