@@ -1,1 +1,20 @@
-/* You can add global styles to this file, and also import other style files */
+html {
+	font-family: "source sans pro", sans-serif;
+}
+
+h1 {
+	font-family: "julius sans one", sans-serif;
+}
+
+h2 {
+	font-family: "archivo narrow", sans-serif;
+}
+
+.info-section {
+	padding: 2rem 4rem;
+	margin: 1rem;
+}
+
+.title-section {
+	color:#304860
+}
