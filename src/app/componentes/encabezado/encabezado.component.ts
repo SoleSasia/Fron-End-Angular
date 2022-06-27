@@ -7,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EncabezadoComponent implements OnInit {
   //MODELO
-  title: string = 'Soledad Sasia';
-  subtitle: string = 'Desarrolladora Web FullStack';
+  nombre: string = 'Soledad Sasia';
+  ocupacion: string = 'Desarrolladora Web FullStack';
   backgroundImage = 'assets/triangles-gff33bab01_1280.png';
 
   constructor() { }
