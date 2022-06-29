@@ -8,14 +8,15 @@ import { PortfolioService } from 'src/app/servicios/portfolio.service';
 })
 export class SobreMiComponent implements OnInit {
 
-  miportfolio:any;
+  persona:any = {
+    descripcion: "Entusiasta, autodidacta, etc, etc",
+    url_foto: "/assets/perfil-bg_blue.png"
+  }
 
-  constructor(private datosPortfolio:PortfolioService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.datosPortfolio.obtenerDatos().subscribe(data =>{
-      this.miportfolio = data;
-    });
+    
   }
 
 }

@@ -19,6 +19,10 @@ h2 {
 	color:#304860
 }
 
+.edit-icon:hover {
+	cursor: pointer;
+}
+
 .bi {
     padding: 0.1rem;
 }

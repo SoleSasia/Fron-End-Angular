@@ -8,14 +8,28 @@ import { PortfolioService } from 'src/app/servicios/portfolio.service';
 })
 export class EncabezadoComponent implements OnInit {
   //MODELO
-  miportfolio:any;
 
-  constructor(private datosPortfolio:PortfolioService) { }
+  persona:any = {
+    nombre: "Soledad Sasia",
+    ocupacion: "Desarrolladora Web FullStack", 
+  }
+
+  constructor() { }
 
   ngOnInit(): void {
-    this.datosPortfolio.obtenerDatos().subscribe(data =>{
-      this.miportfolio = data;
-    });
+    
   }
+  /*
+      ------EJ MASTERCLASS MOD3 SERVICES
+      miportfolio:any;
+
+      constructor(private datosPortfolio:PortfolioService) { }
+
+      ngOnInit(): void {
+        this.datosPortfolio.obtenerDatos().subscribe(data =>{
+          this.miportfolio = data;
+        });
+      }
+  */
 
 }
