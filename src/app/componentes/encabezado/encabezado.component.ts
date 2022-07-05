@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PortfolioService } from 'src/app/servicios/portfolio.service';
 
 @Component({
   selector: 'app-encabezado',
@@ -7,13 +8,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EncabezadoComponent implements OnInit {
   //MODELO
-  title: string = 'Soledad Sasia';
-  subtitle: string = 'Desarrolladora Web FullStack';
-  backgroundImage = 'assets/triangles-gff33bab01_1280.png';
+
+  persona:any = {
+    nombre: "Soledad Sasia",
+    ocupacion: "Desarrolladora Web FullStack", 
+  }
 
   constructor() { }
 
   ngOnInit(): void {
+    
   }
+  /*
+      ------EJ MASTERCLASS MOD3 SERVICES
+      miportfolio:any;
+
+      constructor(private datosPortfolio:PortfolioService) { }
+
+      ngOnInit(): void {
+        this.datosPortfolio.obtenerDatos().subscribe(data =>{
+          this.miportfolio = data;
+        });
+      }
+  */
 
 }

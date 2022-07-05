@@ -18,3 +18,11 @@ h2 {
 .title-section {
 	color:#304860
 }
+
+.edit-icon:hover {
+	cursor: pointer;
+}
+
+.bi {
+    padding: 0.1rem;
+}

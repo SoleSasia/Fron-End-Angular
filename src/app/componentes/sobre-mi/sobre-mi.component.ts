@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PortfolioService } from 'src/app/servicios/portfolio.service';
 
 @Component({
   selector: 'app-sobre-mi',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SobreMiComponent implements OnInit {
 
+  persona:any = {
+    descripcion: "Entusiasta, autodidacta, etc, etc",
+    url_foto: "/assets/perfil-bg_blue.png"
+  }
+
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
 }
