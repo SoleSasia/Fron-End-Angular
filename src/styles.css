@@ -6,17 +6,28 @@ h1 {
 	font-family: "julius sans one", sans-serif;
 }
 
-h2 {
+h2, h3 {
 	font-family: "archivo narrow", sans-serif;
 }
 
 .info-section {
-	padding: 2rem 4rem;
+	padding: 1rem 4rem;
 	margin: 1rem;
+}
+
+@media (max-width: 575.98px) { 
+	.info-section {
+		padding: .5rem 2rem;
+		margin: 1rem
+ 	}
 }
 
 .title-section {
 	color:#304860
+}
+
+.edit-icon {
+	color: red;
 }
 
 .edit-icon:hover {
@@ -26,3 +37,8 @@ h2 {
 .bi {
     padding: 0.1rem;
 }
+
+.bi-plus-circle-fill {
+	margin-bottom: 0.5rem;
+}
+

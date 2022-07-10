@@ -7,11 +7,11 @@ import { PortfolioService } from 'src/app/servicios/portfolio.service';
   styleUrls: ['./encabezado.component.css']
 })
 export class EncabezadoComponent implements OnInit {
-  //MODELO
+  //VARIABLES DEL MODELO
 
   persona:any = {
     nombre: "Soledad Sasia",
-    ocupacion: "Desarrolladora Web FullStack", 
+    ocupacion: "Desarrolladora Web FullStack Jr.", 
   }
 
   constructor() { }
