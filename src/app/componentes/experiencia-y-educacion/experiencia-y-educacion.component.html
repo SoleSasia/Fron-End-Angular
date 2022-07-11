@@ -3,45 +3,35 @@
 
     <div class="title-section py-2 d-flex justify-content-between align-items-center">
         <span class="edit-icon">
-            <i class="bi bi-plus d-flex justify-content-end"></i>
+            <i class="bi bi-plus-circle-fill d-flex justify-content-end"></i>
         </span>
     
         <h2>Experiencia Laboral</h2>
     </div>
 
-
-    <div *ngFor="let e of experiencia" class="row justify-content-center list-unstyled mt-3">
+    <ul *ngFor="let exp of experiencia" class="row justify-content-center list-unstyled mt-3">
         
-        <li class="card mb-3">
+        <li class="card shadow mb-3">
             <div class="row">
                 <div class="col-sm-8 card-body">
                     <div class="card-title d-flex justify-content-between align-items-center">
-                        <h4 class="py-1">A Pedal</h4>
+                        <h4 class="py-1">{{exp.nombreOrganismo}}</h4>
                         <span class="edit-icon p-1 justify-content-between">
                             <i class="bi bi-pencil-fill"></i><i class="bi bi-x-circle-fill"></i>
                         </span>
                     </div>
                     <div>
-                        <h6>2020 - Actualidad</h6>
-                        <p class="card-text pt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt et porro totam sunt pariatur animi sit ullam, unde sapiente voluptate rerum illum placeat fugiat aliquam, voluptatibus nostrum inventore fugit. Nihil.</p>
+                        <h6>{{exp.fechaInicio}} - {{exp.fechaFin}}</h6>
+                        <p class="card-text pt-1">{{exp.descripcion}}</p>
                     </div>
                 </div>
                 <div class="col-sm-4 d-flex align-items-center">
-                    <img class="card-img img-fluid" src="../../../assets/unc.png" alt="">
+                    <img class="card-img m-1 img-fluid" [src]="exp.urlLogo" alt="">
                 </div>
             </div>
         </li>
         
-        <div class="card-section py-2 d-flex justify-content-between align-items-center">
-            <h4>{{e.nombreOrganismo}}</h4>
-            <h6>{{e.fechaInicio}}</h6>
-            <span class="edit-icon p-1">
-                <i class="bi bi-pencil-fill"></i>
-                <i class="bi bi-x-circle-fill"></i>
-            </span>
-        </div>
-        <p class="h5">{{e.descripcion}}</p>
-    </div>
+    </ul>
 
 </section>
 

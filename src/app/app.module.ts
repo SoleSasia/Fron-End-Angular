@@ -12,6 +12,9 @@ import { ExperienciaYEducacionComponent } from './componentes/experiencia-y-educ
 import { HabilidadesComponent } from './componentes/habilidades/habilidades.component';
 import { NavbarComponent } from './componentes/navbar/navbar.component';
 import { EducacionComponent } from './componentes/educacion/educacion.component';
+import { CommonModule } from '@angular/common';
+import { InicioComponent } from './componentes/inicio/inicio.component';
+
 
 @NgModule({
   declarations: [
@@ -24,11 +27,13 @@ import { EducacionComponent } from './componentes/educacion/educacion.component'
     HabilidadesComponent,
     NavbarComponent,
     EducacionComponent,
+    InicioComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

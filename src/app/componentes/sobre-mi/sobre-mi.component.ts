@@ -9,7 +9,7 @@ import { PortfolioService } from 'src/app/servicios/portfolio.service';
 export class SobreMiComponent implements OnInit {
 
   persona:any = {
-    descripcion: "Entusiasta, autodidacta, etc, etc",
+    descripcion: "Entusiasta, apasionada, detallista, autodidacta. Disfruto aprender, encontrar soluciones, trabajar en equipo. ",
     url_foto: "/assets/perfil-bg_blue.png"
   }
 

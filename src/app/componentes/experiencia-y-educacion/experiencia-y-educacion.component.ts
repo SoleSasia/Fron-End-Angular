@@ -14,8 +14,8 @@ export class ExperienciaYEducacionComponent implements OnInit {
       fechaInicio: "setiembre 2020", 
       fechaFin: "actualidad",
       puesto: "fundadora",
-      descripcion: "algo para decir...",
-      url_logo: ""
+      descripcion: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt et porro totam sunt pariatur animi sit ullam, unde sapiente voluptate rerum illum placeat fugiat aliquam, voluptatibus nostrum inventore fugit. Nihil.",
+      urlLogo: ""
     },
 
     {
