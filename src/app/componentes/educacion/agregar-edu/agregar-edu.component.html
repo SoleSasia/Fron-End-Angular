@@ -1,0 +1,27 @@
+ <!-- Modal Agregar Educacion -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">Agregar elemento a Educación</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <div class="mb-3">
+                <label for="nombreInstitucion" class="form-label">Nombre de la institución</label>
+                <input type="text" [(ngModel)]="nombreInstitucion" class="form-control" id="nombreInstitucion" placeholder="">
+            </div>
+            <div class="mb-3">
+                <label for="descripcion" class="form-label">Información adicional</label>
+                <textarea class="form-control" id="descripcion" rows="3" placeholder="Escriba su texto aquí..."></textarea>
+            </div>
+      
+        </div>
+        <div class="modal-footer">
+            <!--<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>-->
+            <button type="button" class="btn btn-secondary" id=botonAgregar (click)="doAgregar()">Agregar</button>
+        </div>
+        </div>
+    </div>
+</div>

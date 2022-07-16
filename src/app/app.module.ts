@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule} from '@angular/common/http';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +15,7 @@ import { NavbarComponent } from './componentes/navbar/navbar.component';
 import { EducacionComponent } from './componentes/educacion/educacion.component';
 import { CommonModule } from '@angular/common';
 import { InicioComponent } from './componentes/inicio/inicio.component';
+import { AgregarEduComponent } from './componentes/educacion/agregar-edu/agregar-edu.component';
 
 
 @NgModule({
@@ -28,12 +30,15 @@ import { InicioComponent } from './componentes/inicio/inicio.component';
     NavbarComponent,
     EducacionComponent,
     InicioComponent,
+    AgregarEduComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

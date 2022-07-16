@@ -32,4 +32,11 @@ export class EducacionComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  procesarAgregar(nombreInstitucion: string){
+    console.log(nombreInstitucion);
+    /*console.log("llega el mensaje del componente hijo");
+    
+    CREAR LÓGICA PARA QUE LA INFO SE AGREGE A LA BASE DE DATOS*/
+  }
+
 }
