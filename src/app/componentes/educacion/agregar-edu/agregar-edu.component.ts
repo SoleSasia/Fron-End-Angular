@@ -1,6 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
-
 @Component({
   selector: 'app-agregar-edu',
   templateUrl: './agregar-edu.component.html',
@@ -8,16 +7,23 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 })
 export class AgregarEduComponent implements OnInit {
 
-  @Output() agregarNombre = new EventEmitter<string>();
+  @Output() agregarEdu = new EventEmitter<any>();
 
-  nombreInstitucion:string="";
-
+  educacion:any = 
+    {
+      tituloEdu:"",
+      periodoEdu:"",
+      nombreInstituEdu:"",
+      descripcionEdu:"",
+      urlLogoEdu:""
+    };
+  
   constructor() { }
 
   ngOnInit(): void {
   }
 
   doAgregar(){
-    this.agregarNombre.emit(this.nombreInstitucion);
+    this.agregarEdu.emit(this.educacion);
   }
 }
