@@ -3,6 +3,21 @@
     "ocupacion": "Desarrolladora Web FullStack",
     "url_banner": "assets/triangles-gff33bab01_1280.png",
     "url_foto": "../../../assets/perfil-bg_blue.png",
-    "descripcion": "Entusiasta, curiosa, autodidacta..."
-
+    "descripcion": "Entusiasta, curiosa, autodidacta...",
+    "educacion":[
+        {
+            "tituloEdu":"Diplomatura en Introducción a la programación en Java",
+            "periodoEdu":"2021 julio - diciembre",
+            "nombreInstituEdu":"Universidad Tecnológica Nacional - Facultad Regional de Villa María",
+            "descripcionEdu":"Lorem ipsum dolor sit amet consectetur adipisicing elit",
+            "urlLogoEdu":"../../../assets/utn_frvm.png"
+        },
+        {
+            "tituloEdu":"Licenciatura en Composición Musical",
+            "periodoEdu":"2006 - 2010 (sin concluir)",
+            "nombreInstituEdu":"Universidad Nacional de Córdoba",
+            "descripcionEdu":"Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+            "urlLogoEdu":"../../../assets/unc.png"
+        }
+]
 }

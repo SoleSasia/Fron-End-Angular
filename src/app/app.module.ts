@@ -16,6 +16,8 @@ import { EducacionComponent } from './componentes/educacion/educacion.component'
 import { CommonModule } from '@angular/common';
 import { InicioComponent } from './componentes/inicio/inicio.component';
 import { AgregarEduComponent } from './componentes/educacion/agregar-edu/agregar-edu.component';
+import { ModificarEduComponent } from './componentes/educacion/modificar-edu/modificar-edu.component';
+import { EliminarEduComponent } from './componentes/educacion/eliminar-edu/eliminar-edu.component';
 
 
 @NgModule({
@@ -31,6 +33,8 @@ import { AgregarEduComponent } from './componentes/educacion/agregar-edu/agregar
     EducacionComponent,
     InicioComponent,
     AgregarEduComponent,
+    ModificarEduComponent,
+    EliminarEduComponent,
   ],
   imports: [
     BrowserModule,
