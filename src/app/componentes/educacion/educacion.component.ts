@@ -20,7 +20,7 @@ export class EducacionComponent implements OnInit {
     this.cargarEducaciones();
   }
 
-  procesarAgregar(educacion:any){
+  procesarAgregar(educacion:Educacion){
     //console.log(educacion);
     //console.log("llega el mensaje del componente hijo");
     /*TO-DO:CREAR LÓGICA PARA QUE LA INFO SE AGREGE A LA BASE DE DATOS*/
@@ -28,11 +28,13 @@ export class EducacionComponent implements OnInit {
     //console.log(this.listaEdu);
   }
 
-  procesarModificar(educacion:any){
+  procesarModificar(educacion:Educacion){
     console.log(educacion);
   }
 //TO-DO: lógica id para eliminar 
-  procesarEliminar(educacion:any){}
+  procesarEliminar(educacion:Educacion){
+    this.listaEdu;
+  }
 
   cargarEducaciones():void{
     this.datosPortfolio.obtenerDatos().subscribe(data => {
