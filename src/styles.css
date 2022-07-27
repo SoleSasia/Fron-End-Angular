@@ -23,9 +23,9 @@ h2, h3 {
 }
 
 .title-section {
-	color:#304860
+	color:#38536e
 }
-
+/*Estilo botones de edición*/
 .edit-icon {
 	color: red;
 }
@@ -42,3 +42,12 @@ h2, h3 {
 	margin-bottom: 0.5rem;
 }
 
+/*Sobre-escribo estilo modales*/
+.modal-title {
+	color:#38536e;
+}
+
+.modal-footer .btn-secondary {
+	background-color: #38536e;
+	border-color: #38536e;
+}
