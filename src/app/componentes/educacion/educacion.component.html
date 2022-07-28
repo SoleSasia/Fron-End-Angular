@@ -26,8 +26,9 @@
                             <i class="bi bi-x-circle-fill" data-bs-toggle="modal" data-bs-target="#eliminarEdu"></i>
                         </span>
                     </div>
-                    <app-modificar-edu (modificarEdu)="procesarModificar($event)"></app-modificar-edu>
-                    <app-eliminar-edu (eliminarEdu)="procesarEliminar($event)"></app-eliminar-edu>
+                    <!--TO DO: arreglar pasaje de info para que no repita en los modales -->
+                    <app-modificar-edu [educacion]="edu" (modificarEdu)="procesarModificar($event)"></app-modificar-edu>
+                    <app-eliminar-edu [eduId]="edu.id" (eliminarEdu)="procesarEliminar($event)"></app-eliminar-edu>
 
                     <div>
                         <h6>{{edu.periodoEdu}}</h6>

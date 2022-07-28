@@ -1,4 +1,5 @@
-import { Component, OnInit, EventEmitter, Output} from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input} from '@angular/core';
+import { Educacion } from 'src/app/model/educacion';
 
 @Component({
   selector: 'app-eliminar-edu',
@@ -9,14 +10,14 @@ export class EliminarEduComponent implements OnInit {
 
   @Output() eliminarEdu = new EventEmitter<any>();
 
-  educacion:any = 
-    {
+  @Input() eduId:any; 
+    /*{
       tituloEdu:"",
       periodoEdu:"",
       nombreInstituEdu:"",
       descripcionEdu:"",
       urlLogoEdu:""
-    };
+    };*/
   
 
   constructor() { }
@@ -24,7 +25,7 @@ export class EliminarEduComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  doEliminar(){
-    this.eliminarEdu.emit(this.educacion);
+  doEliminar(eduId:any){
+    this.eliminarEdu.emit(this.eduId);
   }
 }

@@ -25,6 +25,9 @@ export class AgregarEduComponent implements OnInit {
   }
 
   doAgregar(){
+    //emito evento y envío al componente padre el objeto educacion cargado en el modal
     this.agregarEdu.emit(this.educacion);
+    //limpio las propiedades cargadas para limpiar los campos del modal
+    this.educacion = {tituloEdu:"",periodoEdu:"",nombreInstituEdu:"",descripcionEdu:"",urlLogoEdu:""};
   }
 }

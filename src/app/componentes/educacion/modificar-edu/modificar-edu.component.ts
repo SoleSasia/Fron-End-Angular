@@ -1,4 +1,5 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
+import { Educacion } from 'src/app/model/educacion';
 
 @Component({
   selector: 'app-modificar-edu',
@@ -7,9 +8,7 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 })
 export class ModificarEduComponent implements OnInit {
 
-  @Output() modificarEdu = new EventEmitter<any>();
-
-  educacion:any = 
+  @Input() educacion:Educacion = 
     {
       tituloEdu:"",
       periodoEdu:"",
@@ -17,6 +16,8 @@ export class ModificarEduComponent implements OnInit {
       descripcionEdu:"",
       urlLogoEdu:""
     };
+  
+  @Output() modificarEdu = new EventEmitter<any>();
   
   constructor() { }
 
