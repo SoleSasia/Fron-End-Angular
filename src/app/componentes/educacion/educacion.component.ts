@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { findIndex } from 'rxjs';
+//import { error } from 'console';
+//import { findIndex } from 'rxjs';
 import { Educacion } from 'src/app/model/educacion';
-//import { ServEduService } from 'src/app/servicios/serv-edu.service';
-import { PortfolioService } from 'src/app/servicios/portfolio.service';
+import { ServEduService } from 'src/app/servicios/serv-edu.service';
+//import { PortfolioService } from 'src/app/servicios/portfolio.service';
 
 @Component({
   selector: 'app-educacion',
@@ -11,26 +12,36 @@ import { PortfolioService } from 'src/app/servicios/portfolio.service';
 })
 export class EducacionComponent implements OnInit {
   
-  //urlEdu: string = "http://localhost:8080/educacion/"
+  urlEdu: string = "http://localhost:8080/"
 
-  //VARIABLES DEL MODELO
   listaEdu: Educacion[] = []; 
   
-  constructor(private datosPortfolio:PortfolioService) { }
-  //constructor(private eduServ:ServEduService) { }
+  //constructor(private datosPortfolio:PortfolioService) { }
+  constructor(private eduServ:ServEduService) { }
 
   ngOnInit(): void {
     
-    //this.eduServ.verEducaciones().subscribe(data => {this.listaEdu = data});
+    this.verEducaciones();
 
-    this.datosPortfolio.obtenerDatos().subscribe(
+    /*this.datosPortfolio.obtenerDatos().subscribe(
       data => {this.listaEdu=data.educacion;
-    });
+    });*/
     
   }
 
+  verEducaciones(): void{
+    this.eduServ.verEducaciones().subscribe(data => {this.listaEdu = data})
+  }
+
   procesarAgregar(nuevaEdu:Educacion){
-    this.listaEdu.push(nuevaEdu);
+    this.eduServ.agregarEdu(nuevaEdu).subscribe(data => {
+      alert("Educación agregada correctamente");
+      this.listaEdu = data;
+      this.verEducaciones();
+      }, error =>{
+        alert("No se a cargado el elemento");
+      }
+    )
   }
 
   //TO-DO:enviar elemento modificado a la base de datos
@@ -43,12 +54,18 @@ export class EducacionComponent implements OnInit {
   }
 
   //recibo id del elemento desde el modal eliminar-edu
-  procesarEliminar(eduId:any){
+  procesarEliminar(eduId?:number){
     //lo elimino del array
-    this.listaEdu.splice(eduId,1);
-  }
-
-  cargarEducaciones():void{
-    
+    //this.listaEdu.splice(eduId,1);
+    if (eduId != undefined){
+      this.eduServ.borrarEdu(eduId)
+      /*subscribe(data => {
+        this.verEducaciones();
+        }, error => { 
+        alert("No se pudo eliminar el elemento");
+        }
+      )*/
+    }
+  
   }
 }

@@ -10,7 +10,7 @@ export class EliminarEduComponent implements OnInit {
 
   @Output() eliminarEdu = new EventEmitter<any>();
 
-  @Input() eduId:any; 
+  @Input() eduId: any; 
     /*{
       tituloEdu:"",
       periodoEdu:"",
