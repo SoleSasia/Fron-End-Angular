@@ -29,4 +29,9 @@ export class ServEduService {
     return this.http.put<any>(this.urlEdu + 'actualizar/${id}', edu);
   }
 
+  /*
+  public buscarEdu(id :number): Observable<any> {
+    return this.http.get<any>(this.urlEdu + 'ver/${id}');
+  }
+  */
 }

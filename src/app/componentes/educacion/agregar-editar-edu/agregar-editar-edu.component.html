@@ -1,0 +1,27 @@
+<div>
+    <div class="mb-3">
+        <label for="tituloEdu" class="form-label">Título</label>
+        <input type="text" [(ngModel)]="edu.tituloEdu" class="form-control" id="tituloEdu" placeholder="">
+    </div>
+    <div class="mb-3">
+        <label for="periodoEdu" class="form-label">Período</label>
+        <input type="text" [(ngModel)]="edu.periodoEdu" class="form-control" id="periodoEdu" placeholder="">
+    </div>
+    <div class="mb-3">
+        <label for="nombreInstituEdu" class="form-label">Nombre de la institución</label>
+        <input type="text" [(ngModel)]="edu.nombreInstituEdu" class="form-control" id="nombreInstituEdu" placeholder="">
+    </div>
+    <div class="mb-3">
+        <label for="descripcionEdu" class="form-label">Información adicional</label>
+        <textarea [(ngModel)]="edu.descripcionEdu" class="form-control" id="descripcionEdu" rows="3" placeholder="Breve descripción..."></textarea>
+    </div>
+    <div class="mb-3">
+        <label for="urlLogoEdu" class="form-label">Url del logotipo</label>
+        <input type="text" [(ngModel)]="edu.urlLogoEdu" class="form-control" id="urlLogoEdu" placeholder="">
+    </div>
+</div>
+<div class="modal-footer">
+    
+    <button (click)="agregarEdu()" *ngIf="edu.id==0" type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Agregar</button>
+    <button (click)="editarEdu()" *ngIf="edu.id!=0" type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Editar</button>
+</div>

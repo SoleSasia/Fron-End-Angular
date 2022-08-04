@@ -1,57 +1,91 @@
 import { Component, OnInit } from '@angular/core';
-//import { error } from 'console';
-//import { findIndex } from 'rxjs';
 import { Educacion } from 'src/app/model/educacion';
 import { ServEduService } from 'src/app/servicios/serv-edu.service';
-//import { PortfolioService } from 'src/app/servicios/portfolio.service';
 
 @Component({
   selector: 'app-educacion',
   templateUrl: './educacion.component.html',
   styleUrls: ['./educacion.component.css']
 })
+
 export class EducacionComponent implements OnInit {
   
   urlEdu: string = "http://localhost:8080/"
-
-  listaEdu: Educacion[] = []; 
+//TO DO: resolver login
+  isAdmin: boolean = true;
   
-  //constructor(private datosPortfolio:PortfolioService) { }
+  listaEdu: Educacion[] = [];
+  educacion: Educacion;
+  tituloModal: string = "";
+  agregarEditarActivado: boolean = false;
+  
+  
   constructor(private eduServ:ServEduService) { }
 
   ngOnInit(): void {
-    
-    this.verEducaciones();
-
-    /*this.datosPortfolio.obtenerDatos().subscribe(
-      data => {this.listaEdu=data.educacion;
-    });*/
-    
+      this.listarEducaciones();
   }
 
-  verEducaciones(): void{
-    this.eduServ.verEducaciones().subscribe(data => {this.listaEdu = data})
+  abrirModal(){
+    this.educacion = {id:0,tituloEdu:"",periodoEdu:"",nombreInstituEdu:"",descripcionEdu:"",urlLogoEdu:""};
+    this.tituloModal = "Agregar elemento a Educación";
+    this.agregarEditarActivado = true;
   }
 
   procesarAgregar(nuevaEdu:Educacion){
     this.eduServ.agregarEdu(nuevaEdu).subscribe(data => {
       alert("Educación agregada correctamente");
       this.listaEdu = data;
-      this.verEducaciones();
+      this.listarEducaciones();
       }, error =>{
         alert("No se a cargado el elemento");
       }
     )
   }
 
-  //TO-DO:enviar elemento modificado a la base de datos
-  procesarModificar(eduModificada:Educacion){
-    //busco el índice en donde está el elemento modificado en el modal
-    let idEduModificada = this.listaEdu.findIndex(n => n === eduModificada);
-    //usando el índice elimino elemento viejo y coloco el nuevo
-    this.listaEdu.splice(idEduModificada,1,eduModificada);
-    //console.log(this.listaEdu);
+  editarClick(edu: Educacion){
+    this.educacion=edu;
+    this.tituloModal = "Editar elemento en Educación";
+    this.agregarEditarActivado = true;
   }
+
+  procesarEditar(eduEditada:Educacion){
+
+    let idEduEditada: any = eduEditada.id;
+    this.eduServ.actualizarEdu(idEduEditada, eduEditada).subscribe(data => {
+      alert("Educación modificada correctamente");
+      this.listaEdu = data;
+      this.listarEducaciones();
+      }, error =>{
+        alert("No se a cargado el elemento");
+      }
+    )
+  }
+
+  eliminarClick(eduId:any){
+    if(eduId != undefined && confirm("¿Estás segura de querer eliminar este elemento?")){
+      this.eduServ.borrarEdu(eduId).subscribe(data => {
+        alert("Educación eliminada correctamente");
+        this.listarEducaciones();
+        }, error => { 
+        alert("No se pudo eliminar el elemento");
+        })
+    }
+  }
+
+  cerrarModal(){
+    this.agregarEditarActivado = false;
+    this.listarEducaciones();
+  }
+
+  listarEducaciones(): void{
+    this.eduServ.verEducaciones().subscribe(data => {this.listaEdu = data})
+  }
+ 
+}
+
+
+/*
 
   //recibo id del elemento desde el modal eliminar-edu
   procesarEliminar(eduId?:number){
@@ -64,8 +98,10 @@ export class EducacionComponent implements OnInit {
         }, error => { 
         alert("No se pudo eliminar el elemento");
         }
-      )*/
+      )
     }
   
   }
-}
+  */
+
+

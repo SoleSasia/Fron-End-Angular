@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 //importo mis componentes
-import { EncabezadoComponent } from './componentes/encabezado/encabezado.component'
 import { SobreMiComponent } from './componentes/sobre-mi/sobre-mi.component'
 import { ExperienciaYEducacionComponent } from './componentes/experiencia-y-educacion/experiencia-y-educacion.component'
 import { HabilidadesComponent } from './componentes/habilidades/habilidades.component'
