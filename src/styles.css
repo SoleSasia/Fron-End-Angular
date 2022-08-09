@@ -25,20 +25,21 @@ h2, h3 {
 .title-section {
 	color:#38536e
 }
-/*Estilo botones de edición*/
-.edit-icon {
-	color: red;
-}
 
-.edit-icon:hover {
-	cursor: pointer;
+/*Estilo botones de edición*/
+
+.edit-icon button{
+	border: #dc3545;
+	border-radius: 50%;
+	background-color: #fff;
+    padding: .3rem;
 }
 
 .bi {
     padding: 0.1rem;
 }
 
-.bi-plus-circle-fill {
+/*.bi-plus-circle-fill {
 	margin-bottom: 0.5rem;
 }
 
