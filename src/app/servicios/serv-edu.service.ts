@@ -13,20 +13,20 @@ export class ServEduService {
 
   constructor(private http:HttpClient) { }
 
-  public verEducaciones(): Observable<Educacion[]>{
-    return this.http.get<Educacion[]>(this.urlEdu + 'ver')
+  public listarEducaciones(): Observable<Educacion[]>{
+    return this.http.get<Educacion[]>(this.urlEdu + 'listaEdu')
   };
 
   public agregarEdu(edu:Educacion): Observable<any> {
-    return this.http.post<any>(this.urlEdu + 'nueva', edu);    
+    return this.http.post<any>(this.urlEdu + 'nuevaEdu', edu);    
   }
 
   public borrarEdu(id :number): Observable<any> {
-    return this.http.delete<any>(this.urlEdu + 'borrar/${id}');
+    return this.http.delete<any>(this.urlEdu + `borrarEdu/${id}`);
   }
 
-  public actualizarEdu(id :number, edu :Educacion): Observable<any> {
-    return this.http.put<any>(this.urlEdu + 'actualizar/${id}', edu);
+  public editarEdu(id :number, edu :Educacion): Observable<any> {
+    return this.http.put<any>(this.urlEdu + `editarEdu/${id}`, edu);
   }
 
   /*

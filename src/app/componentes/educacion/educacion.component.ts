@@ -27,7 +27,8 @@ export class EducacionComponent implements OnInit {
   }
 
   abrirModal(){
-    this.educacion = {id:0,tituloEdu:"",periodoEdu:"",nombreInstituEdu:"",descripcionEdu:"",urlLogoEdu:""};
+    let edu = {id:0,tituloEdu:"",periodoEdu:"",nombreInstituEdu:"",descripcionEdu:"",urlLogoEdu:""};
+    this.educacion = edu;
     this.tituloModal = "Agregar elemento a Educación";
     this.agregarEditarActivado = true;
   }
@@ -40,11 +41,12 @@ export class EducacionComponent implements OnInit {
       }, error =>{
         alert("No se a cargado el elemento");
       }
-    )
+    );
+    this.cerrarModal();
   }
 
   editarClick(edu: Educacion){
-    this.educacion=edu;
+    this.educacion = edu;
     this.tituloModal = "Editar elemento en Educación";
     this.agregarEditarActivado = true;
   }
@@ -52,14 +54,15 @@ export class EducacionComponent implements OnInit {
   procesarEditar(eduEditada:Educacion){
 
     let idEduEditada: any = eduEditada.id;
-    this.eduServ.actualizarEdu(idEduEditada, eduEditada).subscribe(data => {
+    this.eduServ.editarEdu(idEduEditada, eduEditada).subscribe(data => {
       alert("Educación modificada correctamente");
       this.listaEdu = data;
       this.listarEducaciones();
       }, error =>{
         alert("No se a cargado el elemento");
       }
-    )
+    );
+    this.cerrarModal();
   }
 
   eliminarClick(eduId:any){
@@ -79,29 +82,9 @@ export class EducacionComponent implements OnInit {
   }
 
   listarEducaciones(): void{
-    this.eduServ.verEducaciones().subscribe(data => {this.listaEdu = data})
+    this.eduServ.listarEducaciones().subscribe(data => {this.listaEdu = data})
   }
  
 }
-
-
-/*
-
-  //recibo id del elemento desde el modal eliminar-edu
-  procesarEliminar(eduId?:number){
-    //lo elimino del array
-    //this.listaEdu.splice(eduId,1);
-    if (eduId != undefined){
-      this.eduServ.borrarEdu(eduId)
-      /*subscribe(data => {
-        this.verEducaciones();
-        }, error => { 
-        alert("No se pudo eliminar el elemento");
-        }
-      )
-    }
-  
-  }
-  */
 
 

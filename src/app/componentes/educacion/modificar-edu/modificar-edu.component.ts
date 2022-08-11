@@ -36,7 +36,7 @@ export class ModificarEduComponent implements OnInit {
   */
 
   doModificar(){
-    this.eduServ.actualizarEdu(this.id, this.educacion).subscribe(data => {
+    this.eduServ.editarEdu(this.id, this.educacion).subscribe(data => {
       this.router.navigate([""]);
     }, err => {alert("No se ha podido modificar este elemento");
     })
