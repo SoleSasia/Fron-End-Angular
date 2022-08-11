@@ -10,6 +10,7 @@ h2, h3 {
 	font-family: "archivo narrow", sans-serif;
 }
 
+/*SECCIONES*/
 .info-section {
 	padding: 1rem 4rem;
 	margin: 1rem;
@@ -25,24 +26,30 @@ h2, h3 {
 .title-section {
 	color:#38536e
 }
-/*Estilo botones de edición*/
-.edit-icon {
-	color: red;
-}
 
-.edit-icon:hover {
-	cursor: pointer;
+/*Estilo botones de edición*/
+
+.edit-icon button{
+	border: #dc3545;
+	border-radius: 50%;
+	background-color: #fff;
+    padding: .3rem;
 }
 
 .bi {
     padding: 0.1rem;
 }
 
-.bi-plus-circle-fill {
-	margin-bottom: 0.5rem;
+/*Sobre-escribo estilo modales*/
+
+/*Tamaño modales en mobile*/
+@media (max-width: 575.98px) { 
+	.modal-dialog {
+		max-width: 340px;
+		margin: 1.75rem auto;
+ 	}
 }
 
-/*Sobre-escribo estilo modales*/
 .modal-title {
 	color:#38536e;
 }

@@ -1,6 +1,21 @@
+#fotoPerfil {
+    border-radius: .25rem;
+}
+
 @media (max-width: 575.98px ) {
     #fotoPerfil {
         padding-left: 2rem;
         padding-right: 2rem;
     }
+}
+
+/*Posicionamos el boton de editar foto sobre la foto*/
+.foto-perfil{
+    position:relative;
+}
+
+#edicionFotoPerfil{
+    position: absolute;
+    top: 1.25rem;
+    right:  1.25rem;
 }
