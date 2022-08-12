@@ -15,8 +15,6 @@ import { NavbarComponent } from './componentes/navbar/navbar.component';
 import { EducacionComponent } from './componentes/educacion/educacion.component';
 import { CommonModule } from '@angular/common';
 import { InicioComponent } from './componentes/inicio/inicio.component';
-import { ModificarEduComponent } from './componentes/educacion/modificar-edu/modificar-edu.component';
-import { EliminarEduComponent } from './componentes/educacion/eliminar-edu/eliminar-edu.component';
 import { AgregarEditarEduComponent } from './componentes/educacion/agregar-editar-edu/agregar-editar-edu.component';
 
 
@@ -33,8 +31,6 @@ import { AgregarEditarEduComponent } from './componentes/educacion/agregar-edita
     NavbarComponent,
     EducacionComponent,
     InicioComponent,
-    ModificarEduComponent,
-    EliminarEduComponent,
     AgregarEditarEduComponent,
   ],
   imports: [
