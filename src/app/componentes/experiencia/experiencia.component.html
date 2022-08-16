@@ -14,7 +14,7 @@
         
     </div>
 
-    <!-- Modal Agregar/Editar Educación-->
+    <!-- Modal Agregar/Editar Experiencia-->
     <div class="modal fade" id="agregarEditarModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -34,13 +34,13 @@
         </div>
     </div>  
 
-    <ul *ngFor="let exp of experiencia" class="row justify-content-center list-unstyled mt-3">
+    <ul *ngFor="let expe of listaExpe" class="row justify-content-center list-unstyled mt-3">
         
         <li class="card shadow mb-3">
             <div class="row">
                 <div class="col-sm-8 card-body">
                     <div class="card-title d-flex justify-content-between align-items-center">
-                        <h4 class="py-1">{{exp.nombreOrganismo}}</h4>
+                        <h4 class="py-1">{{expe.organismoExpe}}</h4>
                         <span class="edit-icon p-1 justify-content-between">
                             <button class="btn-outline-danger">
                                 <i class="bi bi-pencil-fill"></i>
@@ -51,12 +51,12 @@
                         </span>
                     </div>
                     <div>
-                        <h6>{{exp.fechaInicio}} - {{exp.fechaFin}}</h6>
-                        <p class="card-text pt-1">{{exp.descripcion}}</p>
+                        <h6>{{expe.periodoExpe}}</h6>
+                        <p class="card-text pt-1">{{expe.descripcionExpe}}</p>
                     </div>
                 </div>
                 <div class="col-sm-4 d-flex align-items-center">
-                    <img class="card-img m-1 img-fluid" [src]="exp.urlLogo" alt="">
+                    <img class="card-img m-1 img-fluid" [src]="expe.urlLogoExpe" alt="">
                 </div>
             </div>
         </li>

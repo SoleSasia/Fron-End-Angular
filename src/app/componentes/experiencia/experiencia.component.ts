@@ -42,7 +42,7 @@ export class ExperienciaComponent implements OnInit {
     this.agregarEditarActivado = true;
   }
 
-  procesarAgregar(nuevaExpe:Experiencia){
+  procesarAgregar(nuevaExpe:any){
     this.portfolioServ.agregarExpe(nuevaExpe).subscribe(data => {
       alert("Experiencia agregada correctamente");
       this.listaExpe = data;
@@ -60,7 +60,7 @@ export class ExperienciaComponent implements OnInit {
     this.agregarEditarActivado = true;
   }
 
-  procesarEditar(expeEditada:Experiencia){
+  procesarEditar(expeEditada:any){
 
     let idExpeEditada: any = expeEditada.id;
     this.portfolioServ.editarExpe(idExpeEditada, expeEditada).subscribe(data => {
