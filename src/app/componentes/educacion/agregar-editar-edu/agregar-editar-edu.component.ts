@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Educacion } from 'src/app/dto/educacion';
-import { ServEduService } from 'src/app/servicios/serv-edu.service';
+import { PortfolioService } from 'src/app/servicios/portfolio.service';
 
 @Component({
   selector: 'app-agregar-editar-edu',
@@ -16,7 +16,8 @@ export class AgregarEditarEduComponent implements OnInit {
 
   edu: Educacion;
   
-  constructor(private eduServ:ServEduService) { }
+  //constructor(private portfolioServ : PortfolioService) { }
+  constructor(){}
 
   ngOnInit(): void {
     this.edu=this.educacion;

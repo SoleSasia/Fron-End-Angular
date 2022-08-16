@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Experiencia } from 'src/app/dto/experiencia';
+import { PortfolioService } from 'src/app/servicios/portfolio.service';
 
 @Component({
   selector: 'app-experiencia',
@@ -19,8 +20,7 @@ export class ExperienciaComponent implements OnInit {
   agregarEditarActivado: boolean = false;
 
  
-
-  constructor() { }
+  constructor(private portfolioServ : PortfolioService) { }
 
   ngOnInit(): void {
   }

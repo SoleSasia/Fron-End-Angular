@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Educacion } from 'src/app/dto/educacion';
-import { ServEduService } from 'src/app/servicios/serv-edu.service';
+import { PortfolioService } from 'src/app/servicios/portfolio.service';
 
 @Component({
   selector: 'app-educacion',
@@ -19,14 +19,14 @@ export class EducacionComponent implements OnInit {
   agregarEditarActivado: boolean = false;
   
   
-  constructor(private eduServ:ServEduService) { }
+  constructor(private portfolioServ : PortfolioService) { }
 
   ngOnInit(): void {
       this.listarEducaciones();
   }
 
   listarEducaciones(): void{
-    this.eduServ.listarEducaciones().subscribe(data => {this.listaEdu = data})
+    this.portfolioServ.listarEducaciones().subscribe(data => {this.listaEdu = data})
   }
 
   abrirModal(){
@@ -37,7 +37,7 @@ export class EducacionComponent implements OnInit {
   }
 
   procesarAgregar(nuevaEdu:Educacion){
-    this.eduServ.agregarEdu(nuevaEdu).subscribe(data => {
+    this.portfolioServ.agregarEdu(nuevaEdu).subscribe(data => {
       alert("Educación agregada correctamente");
       this.listaEdu = data;
       this.listarEducaciones();
@@ -57,7 +57,7 @@ export class EducacionComponent implements OnInit {
   procesarEditar(eduEditada:Educacion){
 
     let idEduEditada: any = eduEditada.id;
-    this.eduServ.editarEdu(idEduEditada, eduEditada).subscribe(data => {
+    this.portfolioServ.editarEdu(idEduEditada, eduEditada).subscribe(data => {
       alert("Educación modificada correctamente");
       this.listaEdu = data;
       this.listarEducaciones();
@@ -70,7 +70,7 @@ export class EducacionComponent implements OnInit {
 
   eliminarClick(eduId:any){
     if(eduId != undefined && confirm("¿Estás segura de querer eliminar este elemento?")){
-      this.eduServ.borrarEdu(eduId).subscribe(data => {
+      this.portfolioServ.borrarEdu(eduId).subscribe(data => {
         alert("Educación eliminada correctamente");
         this.listarEducaciones();
         }, error => { 
