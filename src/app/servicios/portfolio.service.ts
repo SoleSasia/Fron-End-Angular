@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Educacion } from '../dto/educacion';
+import { Experiencia } from '../dto/experiencia';
 
 @Injectable({
   providedIn: 'root'
@@ -43,4 +44,23 @@ export class PortfolioService {
     return this.http.get<any>(this.urlEdu + 'ver/${id}');
   }
   */
+
+ // ABM Experiencia //
+
+  //TODO: borrar e integrar a obtenerDatos (en el backend)
+  public listarExperiencias(): Observable<Experiencia[]>{
+    return this.http.get<Experiencia[]>(this.urlBackend + 'listaExpe')
+  };
+
+  public agregarExpe(expe:Experiencia): Observable<Experiencia> {
+    return this.http.post<Experiencia>(this.urlBackend + 'nuevaExpe', expe);    
+  }
+
+    public editarExpe(id :number, expe :Experiencia): Observable<any> {
+    return this.http.put<any>(this.urlBackend + `editarExpe/${id}`, expe);
+  }
+
+  public borrarExpe(id :number): Observable<any> {
+    return this.http.delete<any>(this.urlBackend + `borrarExpe/${id}`);
+  }
 }

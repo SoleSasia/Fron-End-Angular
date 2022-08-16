@@ -23,43 +23,72 @@ export class ExperienciaComponent implements OnInit {
   constructor(private portfolioServ : PortfolioService) { }
 
   ngOnInit(): void {
+    /*//TODO: revisar e implementar obtenerDatos
+    this.portfolioServ.obtenerDatos().subscribe(data => {
+      this.listaExpe = data.experiencia;
+    })*/
+
+    this.listarExperiencias();
   }
 
+  listarExperiencias() : void{
+    this.portfolioServ.listarExperiencias().subscribe(data => {this.listaExpe = data})
+  }
 
+  abrirModal(){
+    let expe = {id:0,puestoExpe:"",periodoExpe:"",organismoExpe:"",descripcionExpe:"",urlLogoExpe:""};
+    this.experiencia = expe;
+    this.tituloModal = "Agregar elemento a Experiencia";
+    this.agregarEditarActivado = true;
+  }
 
+  procesarAgregar(nuevaExpe:Experiencia){
+    this.portfolioServ.agregarExpe(nuevaExpe).subscribe(data => {
+      alert("Experiencia agregada correctamente");
+      this.listaExpe = data;
+      this.listarExperiencias();
+      }, error =>{
+        alert("No se a cargado el elemento");
+      }
+    );
+    this.cerrarModal();
+  }
 
+  editarClick(expe: Experiencia){
+    this.experiencia = expe;
+    this.tituloModal = "Editar elemento en Experiencia";
+    this.agregarEditarActivado = true;
+  }
 
+  procesarEditar(expeEditada:Experiencia){
 
+    let idExpeEditada: any = expeEditada.id;
+    this.portfolioServ.editarExpe(idExpeEditada, expeEditada).subscribe(data => {
+      alert("Experiencia modificada correctamente");
+      this.listaExpe = data;
+      this.listarExperiencias();
+      }, error =>{
+        alert("No se a cargado el elemento");
+      }
+    );
+    this.cerrarModal();
+  }
 
+  eliminarClick(expeId:any){
+    if(expeId != undefined && confirm("¿Estás segura de querer eliminar este elemento?")){
+      this.portfolioServ.borrarExpe(expeId).subscribe(data => {
+        alert("Experiencia eliminada correctamente");
+        this.listarExperiencias();
+        }, error => { 
+        alert("No se pudo eliminar el elemento");
+        })
+    }
+  }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  cerrarModal(){
+    this.agregarEditarActivado = false;
+    this.listarExperiencias();
+  }
 
 
 
