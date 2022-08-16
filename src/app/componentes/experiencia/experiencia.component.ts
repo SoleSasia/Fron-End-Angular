@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Experiencia } from 'src/app/dto/experiencia';
 
 @Component({
   selector: 'app-experiencia',
@@ -12,11 +13,58 @@ export class ExperienciaComponent implements OnInit {
   //TODO: resolver login
   isAdmin: boolean = true;
   
- // listaExpe: Experiencia[] = [];//revisar y crear dto portfolio
- // experiencia: Experiencia;
+  listaExpe: Experiencia[] = [];//revisar y crear dto portfolio
+  experiencia: Experiencia;
   tituloModal: string = "";
   agregarEditarActivado: boolean = false;
 
+ 
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   /*
   //VARIABLES DEL MODELO
   experiencia:any = [
     {
@@ -37,10 +85,5 @@ export class ExperienciaComponent implements OnInit {
       url_logo: ""
     },
   ];
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  */
 }

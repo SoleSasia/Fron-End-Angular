@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Educacion } from 'src/app/model/educacion';
+import { Educacion } from 'src/app/dto/educacion';
 import { ServEduService } from 'src/app/servicios/serv-edu.service';
 
 @Component({
@@ -9,8 +9,6 @@ import { ServEduService } from 'src/app/servicios/serv-edu.service';
 })
 
 export class EducacionComponent implements OnInit {
-  
-  //urlBackend: string = "http://localhost:8080/"
   
   //TODO: resolver login
   isAdmin: boolean = true;
@@ -27,8 +25,12 @@ export class EducacionComponent implements OnInit {
       this.listarEducaciones();
   }
 
+  listarEducaciones(): void{
+    this.eduServ.listarEducaciones().subscribe(data => {this.listaEdu = data})
+  }
+
   abrirModal(){
-    let edu = {id:0,tituloEdu:"",periodoEdu:"",nombreInstituEdu:"",descripcionEdu:"",urlLogoEdu:""};
+    let edu = {id:0,tituloEdu:"",periodoEdu:"",institucionEdu:"",descripcionEdu:"",urlLogoEdu:""};
     this.educacion = edu;
     this.tituloModal = "Agregar elemento a Educación";
     this.agregarEditarActivado = true;
@@ -82,10 +84,6 @@ export class EducacionComponent implements OnInit {
     this.listarEducaciones();
   }
 
-  listarEducaciones(): void{
-    this.eduServ.listarEducaciones().subscribe(data => {this.listaEdu = data})
-  }
- 
 }
 
 

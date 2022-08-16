@@ -1,14 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Educacion } from '../model/educacion';
+import { Educacion } from '../dto/educacion';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ServEduService {
 
-  //esta url sale del @RequestMapping del EduController del backend "http://localhost:8080/educacion"
+  //TODO: renombrar a PortfolioService y utilizar sólo un servicio
+
+  //esta url sale del @RequestMapping del EduController del backend "http://localhost:8080"
   urlEdu:string = "http://localhost:8080/"
 
   constructor(private http:HttpClient) { }
