@@ -3,7 +3,7 @@
     <div class="title-section py-2 d-flex justify-content-between align-items-center">
         <h2>Educación</h2>
         
-        <!-- Boton modal agregarEdu-->
+    <!-- Boton modal agregar Edu-->
         <span *ngIf="isAdmin" class="edit-icon">
             <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#agregarEditarModal">
                 <i class="bi bi-plus-circle-fill d-flex justify-content-end" (click)="abrirModal()"></i>
@@ -44,10 +44,11 @@
                     <div class="card-title d-flex justify-content-between align-items-center">
                         <h4 class="py-1">{{edu.tituloEdu}}</h4>
                         <span *ngIf="isAdmin" class="edit-icon p-1 justify-content-between" >
-                            <!-- Boton modal editarEdu-->
+                <!-- Boton modal editar Edu-->
                             <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#agregarEditarModal" (click)="editarClick(edu)">
                                 <i class="bi bi-pencil-fill"></i>
                             </button>
+                <!-- Boton eliminar Edu-->
                             <button type="button" class="btn btn-light" (click)="eliminarClick(edu.id)">
                                 <i class="bi bi-x-circle-fill"></i>
                             </button>   

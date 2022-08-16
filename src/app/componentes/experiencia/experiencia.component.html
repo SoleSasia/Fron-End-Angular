@@ -2,14 +2,37 @@
     
 
     <div class="title-section py-2 d-flex justify-content-between align-items-center">
-        <span class="edit-icon">
-            <button class="btn-outline-danger">
-                <i class="bi bi-plus-circle-fill d-flex justify-content-end"></i>
+        
+    <!-- Boton modal agregar Expe-->
+        <span *ngIf="isAdmin" class="edit-icon">
+            <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#agregarEditarModal">
+                <i class="bi bi-plus-circle-fill d-flex justify-content-end" (click)="abrirModal()"></i>
             </button>
         </span>
-    
+
         <h2>Experiencia Laboral</h2>
+        
     </div>
+
+    <!-- Modal Agregar/Editar Educación-->
+    <div class="modal fade" id="agregarEditarModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">{{tituloModal}}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"(click)="cerrarModal()"></button>
+                </div>
+                <div class="modal-body">
+                    <app-agregar-editar-expe
+                        [experiencia]="experiencia" 
+                        *ngIf="agregarEditarActivado"
+                        (agregandoEdu)="procesarAgregar($event)"
+                        (editandoEdu)="procesarEditar($event)">
+                    </app-agregar-editar-expe>
+                </div>
+            </div>
+        </div>
+    </div>  
 
     <ul *ngFor="let exp of experiencia" class="row justify-content-center list-unstyled mt-3">
         

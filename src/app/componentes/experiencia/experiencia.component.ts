@@ -1,11 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-experiencia-y-educacion',
-  templateUrl: './experiencia-y-educacion.component.html',
-  styleUrls: ['./experiencia-y-educacion.component.css']
+  selector: 'app-experiencia',
+  templateUrl: './experiencia.component.html',
+  styleUrls: ['./experiencia.component.css']
 })
-export class ExperienciaYEducacionComponent implements OnInit {
+export class ExperienciaComponent implements OnInit {
+
+  //urlBackend: string = "http://localhost:8080/"
+  
+  //TODO: resolver login
+  isAdmin: boolean = true;
+  
+ // listaExpe: Experiencia[] = [];//revisar y crear dto portfolio
+ // experiencia: Experiencia;
+  tituloModal: string = "";
+  agregarEditarActivado: boolean = false;
 
   //VARIABLES DEL MODELO
   experiencia:any = [

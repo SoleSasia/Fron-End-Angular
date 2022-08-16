@@ -9,7 +9,7 @@ import { EncabezadoComponent } from './componentes/encabezado/encabezado.compone
 import { SobreMiComponent } from './componentes/sobre-mi/sobre-mi.component';
 import { ProyectosComponent } from './componentes/proyectos/proyectos.component';
 import { ContactoComponent } from './componentes/contacto/contacto.component';
-import { ExperienciaYEducacionComponent } from './componentes/experiencia-y-educacion/experiencia-y-educacion.component';
+import { ExperienciaComponent } from './componentes/experiencia/experiencia.component';
 import { HabilidadesComponent } from './componentes/habilidades/habilidades.component';
 import { NavbarComponent } from './componentes/navbar/navbar.component';
 import { EducacionComponent } from './componentes/educacion/educacion.component';
@@ -26,7 +26,7 @@ import { AgregarEditarEduComponent } from './componentes/educacion/agregar-edita
     SobreMiComponent,
     ProyectosComponent,
     ContactoComponent,
-    ExperienciaYEducacionComponent,
+    ExperienciaComponent,
     HabilidadesComponent,
     NavbarComponent,
     EducacionComponent,

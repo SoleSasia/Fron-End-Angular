@@ -10,8 +10,9 @@ import { ServEduService } from 'src/app/servicios/serv-edu.service';
 
 export class EducacionComponent implements OnInit {
   
-  urlEdu: string = "http://localhost:8080/"
-//TO DO: resolver login
+  //urlBackend: string = "http://localhost:8080/"
+  
+  //TODO: resolver login
   isAdmin: boolean = true;
   
   listaEdu: Educacion[] = [];
