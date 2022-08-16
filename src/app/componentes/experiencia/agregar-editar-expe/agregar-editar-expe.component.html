@@ -1,0 +1,27 @@
+<div>
+    <div class="mb-3">
+        <label for="puestoExpe" class="form-label">Puesto</label>
+        <input type="text" [(ngModel)]="expe.puestoExpe" class="form-control" required id="puestoExpe" placeholder="Ingresar el nombre del puesto">
+    </div>
+    <div class="mb-3">
+        <label for="periodoExpe" class="form-label">Período</label>
+        <input type="text" [(ngModel)]="expe.periodoExpe" class="form-control" id="periodoExpe" placeholder="Ingresar el período de trabajo">
+    </div>
+    <div class="mb-3">
+        <label for="organismoExpe" class="form-label">Nombre del organismo</label>
+        <input type="text" [(ngModel)]="expe.organismoExpe" class="form-control" id="organismoExpe" placeholder="Ingresar el nombre del organismo">
+    </div>
+    <div class="mb-3">
+        <label for="descripcionExpe" class="form-label">Información adicional</label>
+        <textarea [(ngModel)]="expe.descripcionExpe" class="form-control" id="descripcionExpe" rows="3" placeholder="Ingresar breve descripción..."></textarea>
+    </div>
+    <div class="mb-3">
+        <label for="urlLogoExpe" class="form-label">Url del logotipo</label>
+        <input type="text" [(ngModel)]="expe.urlLogoExpe" class="form-control" id="urlLogoExpe" placeholder="Ingresar url del logotipo">
+    </div>
+</div>
+<div class="modal-footer">
+    
+    <button (click)="agregarExpe()" *ngIf="expe.id==0" type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Agregar</button>
+    <button (click)="editarExpe()" *ngIf="expe.id!=0" type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Editar</button>
+</div>

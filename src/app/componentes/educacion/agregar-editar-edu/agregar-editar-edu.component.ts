@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Educacion } from 'src/app/dto/educacion';
-import { PortfolioService } from 'src/app/servicios/portfolio.service';
+//import { PortfolioService } from 'src/app/servicios/portfolio.service';
 
 @Component({
   selector: 'app-agregar-editar-edu',
@@ -29,15 +29,7 @@ export class AgregarEditarEduComponent implements OnInit {
 
   editarEdu(){
     this.editandoEdu.emit(this.edu);
-    
   }
-
-
-
-
-
-
-
 
 
   /*
