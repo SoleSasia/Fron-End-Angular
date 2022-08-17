@@ -1,6 +1,6 @@
 <section id="heroBanner" class="hero-container d-flex align-items-center">
 
-    <form [formGroup]="form" class="shadow col-sm-6 p-4 m-auto">
+    <form [formGroup]="loginForm" (ngSubmit)="ingresar()" id="loginForm" class="shadow col-sm-6 p-4 m-auto">
 
         <div class="modal-body">
             <div class="my-3">
@@ -27,7 +27,7 @@
         </div>
 
         <div class="modal-footer">
-            <button type="close" class="btn btn-outline-secondary">Cancelar</button>
+            <button routerLink="/inicio" type="close" class="btn btn-outline-secondary">Cancelar</button>
             <button type="submit" class="btn btn-secondary">Entrar</button>
         </div>
 

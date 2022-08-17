@@ -8,10 +8,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-  form: FormGroup;
+  loginForm: FormGroup;
 
   constructor(private formBuilder : FormBuilder) {
-    this.form = this.formBuilder.group({
+    this.loginForm = this.formBuilder.group({
       username:['',[Validators.required, Validators.minLength(4)]],
       password: ['', Validators.required, Validators.minLength(6)]
     })
@@ -22,11 +22,30 @@ export class LoginComponent implements OnInit {
 
   //Declaro propiedades para obtener username y password
   get Username(){
-    return this.form.get("username")
+    return this.loginForm.get("username")
   }
 
   get Password(){
-    return this.form.get("password")
+    return this.loginForm.get("password")
+  }
+
+  ingresar() {
+    let userLogged = 'invalid_form';
+    console.log('Valores del form --> ', this.loginForm.value);
+    /* if(this.loginForm.valid) {
+      if (this.loginForm.value.username === 'sole' && this.loginForm.value.password === '123456') {
+        userLogged = 'login_valid';
+      } else {
+        userLogged = 'login_invalid';
+      }
+      console.log('Respuesta del servicio de login --> ', userLogged);
+    }
+    console.log("usarLogged es: " + userLogged);
+    return userLogged;*/
+  }
+
+  cerrarSesion(){
+
   }
 
 }
