@@ -52,8 +52,8 @@ export class PortfolioService {
     return this.http.get<Experiencia[]>(this.urlBackend + 'listaExpe')
   };
 
-  public agregarExpe(expe:Experiencia): Observable<Experiencia> {
-    return this.http.post<Experiencia>(this.urlBackend + 'nuevaExpe', expe);    
+  public agregarExpe(expe:Experiencia): Observable<any> {
+    return this.http.post<any>(this.urlBackend + 'nuevaExpe', expe);    
   }
 
     public editarExpe(id :number, expe :Experiencia): Observable<any> {

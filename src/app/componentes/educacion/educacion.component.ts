@@ -43,11 +43,10 @@ export class EducacionComponent implements OnInit {
 
   procesarAgregar(nuevaEdu:Educacion){
     this.portfolioServ.agregarEdu(nuevaEdu).subscribe(data => {
-      alert("Educación agregada correctamente");
-      this.listaEdu = data;
+      alert("Educación agregada con éxito");
       this.listarEducaciones();
       }, error =>{
-        alert("No se a cargado el elemento");
+        alert("Ha ocurrido un error");
       }
     );
     this.cerrarModal();
@@ -63,11 +62,10 @@ export class EducacionComponent implements OnInit {
 
     let idEduEditada: any = eduEditada.id;
     this.portfolioServ.editarEdu(idEduEditada, eduEditada).subscribe(data => {
-      alert("Educación modificada correctamente");
-      this.listaEdu = data;
+      alert("Educación editada con éxito");
       this.listarEducaciones();
       }, error =>{
-        alert("No se a cargado el elemento");
+        alert("Ha ocurrido un error");
       }
     );
     this.cerrarModal();
@@ -76,11 +74,9 @@ export class EducacionComponent implements OnInit {
   eliminarClick(eduId:any){
     if(eduId != undefined && confirm("¿Estás segura de querer eliminar este elemento?")){
       this.portfolioServ.borrarEdu(eduId).subscribe(data => {
-        alert("Educación eliminada correctamente");
+        alert("Educación eliminada con éxito");
         this.listarEducaciones();
-        }, error => { 
-        alert("No se pudo eliminar el elemento");
-        })
+        });
     }
   }
 
