@@ -44,7 +44,7 @@ export class EducacionComponent implements OnInit {
   procesarAgregar(nuevaEdu:Educacion){
     this.portfolioServ.agregarEdu(nuevaEdu).subscribe(data => {
       alert("Educación agregada con éxito");
-      this.listarEducaciones();
+     this.listarEducaciones();
       }, error =>{
         alert("Ha ocurrido un error");
       }
