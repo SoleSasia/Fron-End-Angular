@@ -44,10 +44,10 @@ export class EducacionComponent implements OnInit {
   procesarAgregar(nuevaEdu:Educacion){
     this.portfolioServ.agregarEdu(nuevaEdu).subscribe(data => {
       alert("Educación agregada correctamente");
-      this.listaEdu = data;
+      //this.listaEdu = data;
       this.listarEducaciones();
       }, error =>{
-        alert("No se a cargado el elemento");
+        alert("Ha ocurrido un error");
       }
     );
     this.cerrarModal();
@@ -67,7 +67,7 @@ export class EducacionComponent implements OnInit {
       this.listaEdu = data;
       this.listarEducaciones();
       }, error =>{
-        alert("No se a cargado el elemento");
+        alert("Ha ocurrido un error");
       }
     );
     this.cerrarModal();
@@ -78,9 +78,7 @@ export class EducacionComponent implements OnInit {
       this.portfolioServ.borrarEdu(eduId).subscribe(data => {
         alert("Educación eliminada correctamente");
         this.listarEducaciones();
-        }, error => { 
-        alert("No se pudo eliminar el elemento");
-        })
+        });
     }
   }
 
