@@ -8,15 +8,18 @@ import { HabilidadesComponent } from './componentes/habilidades/habilidades.comp
 import { ProyectosComponent } from './componentes/proyectos/proyectos.component'
 import { ContactoComponent } from './componentes/contacto/contacto.component'
 import { InicioComponent } from './componentes/inicio/inicio.component';
+import { LoginComponent } from './componentes/login/login.component';
 
 //defino mis rutas
 const routes: Routes = [
-  {path: '', component: InicioComponent },
+  {path: 'inicio', component: InicioComponent},
   {path: 'sobre-mi', component: SobreMiComponent},
   {path: 'experiencia', component: ExperienciaComponent},
   {path: 'habilidades', component: HabilidadesComponent},
   {path: 'proyectos', component: ProyectosComponent},
   {path: 'contacto', component: ContactoComponent},
+  {path: 'ingresar', component: LoginComponent},
+  {path: '', redirectTo:'inicio', pathMatch:'full'},
 ];
 
 @NgModule({

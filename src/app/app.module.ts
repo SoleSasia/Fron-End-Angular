@@ -17,6 +17,7 @@ import { CommonModule } from '@angular/common';
 import { InicioComponent } from './componentes/inicio/inicio.component';
 import { AgregarEditarEduComponent } from './componentes/educacion/agregar-editar-edu/agregar-editar-edu.component';
 import { AgregarEditarExpeComponent } from './componentes/experiencia/agregar-editar-expe/agregar-editar-expe.component';
+import { LoginComponent } from './componentes/login/login.component';
 
 
 
@@ -34,6 +35,7 @@ import { AgregarEditarExpeComponent } from './componentes/experiencia/agregar-ed
     InicioComponent,
     AgregarEditarEduComponent,
     AgregarEditarExpeComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
