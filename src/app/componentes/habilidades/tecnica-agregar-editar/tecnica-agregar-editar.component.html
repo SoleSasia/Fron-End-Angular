@@ -1,0 +1,24 @@
+<div>
+    <div class="mb-3">
+        <label for="nombreHabilidad" class="form-label">Nombre de la tecnología o herramienta</label>
+        <input type="text" [(ngModel)]="habTecnica.nombreHabilidad" class="form-control" required id="nombreHabilidad" placeholder="Ej.: Html5">
+    </div>
+    <div class="mb-3">
+        <label for="nivelId" class="form-label">Nivel (selecciona uno)</label>
+        <select [(ngModel)]="habTecnica.nivelId" class="form-select" required id="nivelId">
+            <option value="0" selected>Selecciona uno</option>
+            <option value="1">Avanzado</option>
+            <option value="2">Intermedio</option>
+            <option value="3">Básico</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="urlIcono" class="form-label">Icono</label>
+        <input type="text" [(ngModel)]="habTecnica.urlIcono" class="form-control" id="urlIcono" placeholder="Ej.:'fa-brands fa-html5'">
+    </div>
+</div>
+<div class="modal-footer">
+    
+    <button (click)="agregarHabTecnica()" *ngIf="habTecnica.id==0" type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Agregar</button>
+    <button (click)="editarHabTecnica()" *ngIf="habTecnica.id!=0" type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Editar</button>
+</div>
