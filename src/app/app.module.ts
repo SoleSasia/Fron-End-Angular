@@ -18,6 +18,8 @@ import { InicioComponent } from './componentes/inicio/inicio.component';
 import { AgregarEditarEduComponent } from './componentes/educacion/agregar-editar-edu/agregar-editar-edu.component';
 import { AgregarEditarExpeComponent } from './componentes/experiencia/agregar-editar-expe/agregar-editar-expe.component';
 import { LoginComponent } from './componentes/login/login.component';
+import { TecnicaAgregarEditarComponent } from './componentes/habilidades/tecnica-agregar-editar/tecnica-agregar-editar.component';
+import { BlandaAgregarEditarComponent } from './componentes/habilidades/blanda-agregar-editar/blanda-agregar-editar.component';
 
 
 
@@ -36,6 +38,8 @@ import { LoginComponent } from './componentes/login/login.component';
     AgregarEditarEduComponent,
     AgregarEditarExpeComponent,
     LoginComponent,
+    TecnicaAgregarEditarComponent,
+    BlandaAgregarEditarComponent,
   ],
   imports: [
     BrowserModule,

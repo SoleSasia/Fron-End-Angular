@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Educacion } from '../dto/educacion';
 import { Experiencia } from '../dto/experiencia';
+import { HabBlanda } from '../dto/habBlanda';
+import { HabTecnica } from '../dto/habTecnica';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +22,7 @@ export class PortfolioService {
     return this.http.get<any>(this.urlBackend);
   }
   
-// ABM Educacion //
+ // ABM Educacion //
 
   //TODO: borrar e integrar a obtenerDatos (en el backend)
   public listarEducaciones(): Observable<Educacion[]>{
@@ -31,7 +33,7 @@ export class PortfolioService {
     return this.http.post<any>(this.urlBackend + 'nuevaEdu', edu);    
   }
 
-    public editarEdu(id :number, edu :Educacion): Observable<any> {
+  public editarEdu(id :number, edu :Educacion): Observable<any> {
     return this.http.put<any>(this.urlBackend + `editarEdu/${id}`, edu);
   }
 
@@ -56,11 +58,51 @@ export class PortfolioService {
     return this.http.post<any>(this.urlBackend + 'nuevaExpe', expe);    
   }
 
-    public editarExpe(id :number, expe :Experiencia): Observable<any> {
+  public editarExpe(id :number, expe :Experiencia): Observable<any> {
     return this.http.put<any>(this.urlBackend + `editarExpe/${id}`, expe);
   }
 
   public borrarExpe(id :number): Observable<any> {
     return this.http.delete<any>(this.urlBackend + `borrarExpe/${id}`);
   }
+
+ // ABM Habilidad Tecnica //
+
+  //TODO: borrar e integrar a obtenerDatos (en el backend)
+  public listarHabTecnicas(): Observable<HabTecnica[]>{
+    return this.http.get<HabTecnica[]>(this.urlBackend + 'listaHabTecnicas')
+  };
+
+  public agregarHabTecnica(habTec: HabTecnica): Observable<any> {
+    return this.http.post<any>(this.urlBackend + 'nuevaHabTecnica', habTec);    
+  }
+
+  public editarHabTecnica(id: number, habTec :HabTecnica): Observable<any> {
+    return this.http.put<any>(this.urlBackend + `editarHabTecnica/${id}`, habTec);
+  }
+
+  public borrarHabTecnica(id: number): Observable<any> {
+    return this.http.delete<any>(this.urlBackend + `borrarHabTecnica/${id}`);
+  }
+
+  // ABM Habilidad Blanda //
+
+  //TODO: borrar e integrar a obtenerDatos (en el backend)
+  public listarHabBlandas(): Observable<HabBlanda[]>{
+    return this.http.get<HabBlanda[]>(this.urlBackend + 'listaHabBlandas')
+  };
+
+  public agregarHabBlanda(habBlan: HabBlanda): Observable<any> {
+    return this.http.post<any>(this.urlBackend + 'nuevaHabBlanda', habBlan);    
+  }
+
+  public editarHabBlanda(id: number, habBlan :HabBlanda): Observable<any> {
+    return this.http.put<any>(this.urlBackend + `editarHabBlanda/${id}`, habBlan);
+  }
+
+  public borrarHabBlanda(id: number): Observable<any> {
+    return this.http.delete<any>(this.urlBackend + `borrarHabBlanda/${id}`);
+  }
+
+
 }
