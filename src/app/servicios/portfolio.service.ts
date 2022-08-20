@@ -5,10 +5,12 @@ import { Educacion } from '../dto/educacion';
 import { Experiencia } from '../dto/experiencia';
 import { HabBlanda } from '../dto/habBlanda';
 import { HabTecnica } from '../dto/habTecnica';
+import { Proyecto } from '../dto/proyecto';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class PortfolioService {
   
   //esta url sale del @RequestMapping del Controller del backend "http://localhost:8080/"
@@ -16,18 +18,18 @@ export class PortfolioService {
 
   constructor(private http:HttpClient) { }
 
-  obtenerDatos():Observable<any>{
+  /*obtenerDatos():Observable<any>{
     //console.log("El servicio está siendo inyectado");
     //return this.http.get<any>('./assets/data/data.json');
     return this.http.get<any>(this.urlBackend);
-  }
+  }*/
   
  // ABM Educacion //
 
   //TODO: borrar e integrar a obtenerDatos (en el backend)
   public listarEducaciones(): Observable<Educacion[]>{
     return this.http.get<Educacion[]>(this.urlBackend + 'listaEdu')
-  };
+  }
 
   public agregarEdu(edu:Educacion): Observable<any> {
     return this.http.post<any>(this.urlBackend + 'nuevaEdu', edu);    
@@ -52,7 +54,7 @@ export class PortfolioService {
   //TODO: borrar e integrar a obtenerDatos (en el backend)
   public listarExperiencias(): Observable<Experiencia[]>{
     return this.http.get<Experiencia[]>(this.urlBackend + 'listaExpe')
-  };
+  }
 
   public agregarExpe(expe:Experiencia): Observable<any> {
     return this.http.post<any>(this.urlBackend + 'nuevaExpe', expe);    
@@ -71,7 +73,7 @@ export class PortfolioService {
   //TODO: borrar e integrar a obtenerDatos (en el backend)
   public listarHabTecnicas(): Observable<HabTecnica[]>{
     return this.http.get<HabTecnica[]>(this.urlBackend + 'listaHabTecnicas')
-  };
+  }
 
   public agregarHabTecnica(habTec: HabTecnica): Observable<any> {
     return this.http.post<any>(this.urlBackend + 'nuevaHabTecnica', habTec);    
@@ -90,7 +92,7 @@ export class PortfolioService {
   //TODO: borrar e integrar a obtenerDatos (en el backend)
   public listarHabBlandas(): Observable<HabBlanda[]>{
     return this.http.get<HabBlanda[]>(this.urlBackend + 'listaHabBlandas')
-  };
+  }
 
   public agregarHabBlanda(habBlan: HabBlanda): Observable<any> {
     return this.http.post<any>(this.urlBackend + 'nuevaHabBlanda', habBlan);    
@@ -104,5 +106,11 @@ export class PortfolioService {
     return this.http.delete<any>(this.urlBackend + `borrarHabBlanda/${id}`);
   }
 
+  // ABM Proyecto //
+
+  //TODO: borrar e integrar a obtenerDatos (en el backend)
+  public listarProyectos(): Observable<Proyecto[]>{
+    return this.http.get<Proyecto[]>(this.urlBackend + 'listaProyectos');
+  }
 
 }

@@ -19,5 +19,21 @@
             "descripcionEdu":"Lorem ipsum dolor sit amet consectetur adipisicing elit.",
             "urlLogoEdu":"../../../assets/unc.png"
         }
-]
+    ],
+    "listaProyectos" : [
+        {
+          "nombreProyecto" : "Portfolio personal",
+          "descripcionProyecto" : "Trabajo final para la segunda etapa de Argentina Programa #YoProgramo. Aplicación web de arquitectura distribuida. Angular paraf front, Spring-boot para back y MySQL como gestor de base de datos.",
+          "imgUrl" : "../../../assets/Proyecto1.png",
+          "repoUrl" : "https://",
+          "liveUrl" : "https:"
+        },
+        {
+          "nombreProyecto" : "Murales Telúrbicos",
+          "descripcionProyecto" : "Sitio web construido a medida para les artistes José Sasia y Geourgina Ravassi",
+          "imgUrl" : "../../../assets/Proyecto1.png",
+          "repoUrl" : "https://",
+          "liveUrl" : "https:"
+        }
+      ]
 }

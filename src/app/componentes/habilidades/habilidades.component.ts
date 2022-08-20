@@ -13,10 +13,10 @@ import { PortfolioService } from 'src/app/servicios/portfolio.service';
 export class HabilidadesComponent implements OnInit {
 
   //TODO: resolver login
-  isAdmin: boolean = true;
+  isLogged: boolean = true;
   
   listaHabTecnica: HabTecnica[] = [
-    {
+    /*{
       id:1,
       nombreHabilidad: 'Java',
       urlIcono: 'fa-brands fa-java',
@@ -39,23 +39,28 @@ export class HabilidadesComponent implements OnInit {
       nombreHabilidad: 'Javascript',
       urlIcono: 'fa-brands fa-js-square',
       nivelId: 2
-        }
+        }*/
   ];
+
   habTecnica: HabTecnica;
+
   listaNiveles: NivelHabilidad[] = [
-    { id : 1, nombreNivel : "Avanzado", style : "width: 75%" },
+    /*{ id : 1, nombreNivel : "Avanzado", style : "width: 75%" },
     { id : 2, nombreNivel : "Intermedio", style : "width: 50%" },
-    { id : 3, nombreNivel : "Básico", style : "width: 25%" }
+    { id : 3, nombreNivel : "Básico", style : "width: 25%" }*/
   ];
 
   listaHabBlanda: HabBlanda[] = [];
   habBlanda: HabBlanda;
 
   tituloModal: string = "";
-  agregarEditarActivado: boolean = false;
-  
-  esHabTecnica: boolean = false;
 
+  //variable para mostrar el modal
+  agregarEditarActivado: boolean = false;
+
+  //variable para mostrar contenido del modal segun tipo de habilidad
+  esHabTecnica: boolean = false;
+  
   constructor(private portfolioServ : PortfolioService) { }
 
   ngOnInit(): void {
@@ -65,15 +70,15 @@ export class HabilidadesComponent implements OnInit {
       this.listaHabTecnica = data.habilidadTecnica;
     })*/
 
-    //this.listarHabTecnicas();
-    //this.listarHabBlandas();
+    this.listarHabTecnicas();
+    this.listarHabBlandas();
   }
   
-  listarHabTecnicas(): void {
+  listarHabTecnicas() {
     this.portfolioServ.listarHabTecnicas().subscribe(data => {this.listaHabTecnica = data})
   }
 
-  listarHabBlandas(): void {
+  listarHabBlandas() {
     this.portfolioServ.listarHabBlandas().subscribe(data => {this.listaHabBlanda = data})
   }
 
@@ -83,20 +88,54 @@ export class HabilidadesComponent implements OnInit {
       let habTec = {id:0,nombreHabilidad:"",urlIcono:"",nivelId:0};
       this.habTecnica = habTec;
       this.tituloModal = "Agregar elemento a Habilidades Técnicas";
+      this.agregarEditarActivado = true;
       
-    } else if (!this.esHabTecnica){
+    } else if (!this.esHabTecnica){ //probar comentando este if
         let habBlan = {id:0,nombreHabilidad:"",urlIcono:""};
         this.habBlanda = habBlan;
         this.tituloModal = "Agregar elemento a Habilidades Blandas";
-        
+        this.agregarEditarActivado = true;        
       }
   }
 
-  //comparar por tipo de objeto que recibe
-  procesarAgregar(nuevaHabTec:HabTecnica) : void {
-    this.portfolioServ.agregarHabTecnica(nuevaHabTec).subscribe(data => {
-      alert("Habilidad agregada con éxito");
-     this.listarHabTecnicas();
+  procesarAgregarTecnica(nuevaHabTecnica:HabTecnica) : void { 
+    this.portfolioServ.agregarHabTecnica(nuevaHabTecnica).subscribe(data => {alert("Habilidad agregada con éxito");
+    this.listarHabTecnicas();
+    }, error =>{alert("Ha ocurrido un error");
+    })
+    this.cerrarModal();
+  } 
+
+  procesarAgregarBlanda(nuevaHabBlanda:HabBlanda) : void {
+
+    this.portfolioServ.agregarHabBlanda(nuevaHabBlanda).subscribe(data => {alert("Habilidad agregada con éxito");
+    this.listarHabBlandas();
+    }, error =>{alert("Ha ocurrido un error");
+    })
+    this.cerrarModal();
+  }
+  
+  editarHabTecnica(habTec: HabTecnica): void {
+
+    this.habTecnica = habTec;
+    this.tituloModal = "Editar elemento en Habilidades Técnicas";
+    this.agregarEditarActivado = true;
+    
+  }
+
+  editarHabBlanda(habBlan: HabBlanda): void {
+
+    this.habBlanda = habBlan;
+    this.tituloModal = "Editar elemento en Habilidades Blandas";
+    this.agregarEditarActivado = true;
+  }
+
+  procesarEditarTecnica(habTecEditada: HabTecnica): void {
+
+    let idHabTecEditada: any = habTecEditada.id;
+    this.portfolioServ.editarHabTecnica(idHabTecEditada, habTecEditada).subscribe(data => {
+      alert("Habilidad editada con éxito");
+      this.listarHabTecnicas();
       }, error =>{
         alert("Ha ocurrido un error");
       }
@@ -104,18 +143,12 @@ export class HabilidadesComponent implements OnInit {
     this.cerrarModal();
   }
 
-  editarClick(habTec: HabTecnica): void {
-    this.habTecnica = habTec;
-    this.tituloModal = "Editar elemento en Habilidades Técnicas";
-    this.agregarEditarActivado = true;
-  }
+  procesarEditarBlanda(habBlanEditada: HabBlanda): void {
 
-  procesarEditar(habTecEditada: HabTecnica): void {
-
-    let idHabTecEditada: any = habTecEditada.id;
-    this.portfolioServ.editarHabTecnica(idHabTecEditada, habTecEditada).subscribe(data => {
+    let idHabBlanEditada: any = habBlanEditada.id;
+    this.portfolioServ.editarHabBlanda(idHabBlanEditada, habBlanEditada).subscribe(data => {
       alert("Habilidad editada con éxito");
-      this.listarHabTecnicas();
+      this.listarHabBlandas();
       }, error =>{
         alert("Ha ocurrido un error");
       }
@@ -134,8 +167,9 @@ export class HabilidadesComponent implements OnInit {
 
   cerrarModal(): void {
     this.esHabTecnica =false;
+    this.agregarEditarActivado = false;
     this.listarHabTecnicas();
-    //this.listarHabBlandas
+    this.listarHabBlandas();
 
   }
 }
