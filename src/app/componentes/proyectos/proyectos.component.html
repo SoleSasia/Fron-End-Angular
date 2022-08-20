@@ -1,4 +1,4 @@
-<section id="Proyectos" class="info-section container-fluid">
+<section id="proyectos" class="info-section container-fluid">
 
     <div class="title-section py-2 d-flex justify-content-between align-items-center">
         <span class="edit-icon">
@@ -11,15 +11,15 @@
     </div>
     <p>Algo de lo que hago</p>
 
-    <div class="row justify-content-center mt-3">
-        <div class="col-sm-8">
+    <ul *ngFor="let proye of listaProyectos" class="row justify-content-center mt-3">
+        <li class="col-sm-8">
             <div class="card shadow">
                 <div class="">
-                    <img class="card-img img-fluid" src="../../../assets/Proyecto1.png" alt="Portfolio personal">
+                    <img class="card-img img-fluid" [src]="proye.imgUrl" alt="Portfolio personal">
                 </div>
                 <div class="card-body">
                     <div class="card-title d-flex justify-content-between align-items-center">
-                        <h5 class="col-sm-10 fw-bold">Proyecto Argentina Programa #YoProgramo</h5>
+                        <h5 class="col-sm-10 fw-bold">{{proye.nombreProyecto}}</h5>
                         <span class="col-sm-2 edit-icon p-1 justify-content-between">
                             <button class="btn-outline-danger">
                                 <i class="bi bi-pencil-fill"></i>
@@ -29,14 +29,14 @@
                             </button>
                         </span>
                     </div>
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt et porro totam sunt pariatur animi sit ullam, unde sapiente voluptate rerum illum placeat fugiat aliquam, voluptatibus nostrum inventore fugit</p>
+                    <p class="card-text">{{proye.descripcionProyecto}}</p>
                     <div class="gap-2 d-flex justify-content-end">
-                        <a href="https:" target="_BLANK" class="btn btn-outline-dark">Al sitio</a>
-                        <a href="https://" target="_BLANK" class="btn btn-outline-secondary">Repositorio</a>
+                        <a [href]="proye.liveUrl" target="_BLANK" class="btn btn-outline-dark">Live</a>
+                        <a [href]="proye.repoUrl" target="_BLANK" class="btn btn-outline-secondary">Source</a>
                     </div>
-                    </div>
+                </div>
             </div>
-        </div>       
-    </div>
+        </li>       
+    </ul>
     
 </section>
