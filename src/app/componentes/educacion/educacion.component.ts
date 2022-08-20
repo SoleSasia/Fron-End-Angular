@@ -30,8 +30,8 @@ export class EducacionComponent implements OnInit {
       this.listarEducaciones();
   }
 
-  listarEducaciones(): void{
-    this.portfolioServ.listarEducaciones().subscribe(data => {this.listaEdu = data})
+  listarEducaciones() {
+    this.portfolioServ.listarEducaciones().subscribe(data => {this.listaEdu = data});
   }
 
   abrirModal(){
