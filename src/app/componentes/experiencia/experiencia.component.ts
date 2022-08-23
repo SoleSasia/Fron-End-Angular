@@ -28,7 +28,7 @@ export class ExperienciaComponent implements OnInit {
       this.listaExpe = data.experiencias;
     })*/
 
-    this.listarExperiencias();
+    //this.listarExperiencias();
   }
 
   listarExperiencias() : void{

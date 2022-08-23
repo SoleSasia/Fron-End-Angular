@@ -28,7 +28,7 @@ export class EducacionComponent implements OnInit {
       this.listaEdu = data.educacion;
     })*/
 
-    this.listarEducaciones();
+   // this.listarEducaciones();
   }
 
   /*listarEducaciones() {

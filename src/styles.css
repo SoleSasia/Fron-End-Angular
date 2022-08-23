@@ -59,7 +59,7 @@ h2, h3 {
 	border-color: #38536e;
 }
 
-.btn-secondary:hover {
+.modal-footer .btn-secondary:hover {
     color: #fff;
     background-color: #3e75ac;
     border-color: #3e75ac;

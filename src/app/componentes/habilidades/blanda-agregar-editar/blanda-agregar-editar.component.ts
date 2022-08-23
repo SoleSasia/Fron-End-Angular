@@ -17,7 +17,9 @@ export class BlandaAgregarEditarComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.habBlanda = this.habilidadBlanda;
+    console.log("iniciando componenteblanda-agregar");
+    console.log("esto llega del padre: ");
+   //this.habBlanda = this.habilidadBlanda;
   }
 
   agregarHabBlanda(){

@@ -60,42 +60,40 @@ export class HabilidadesComponent implements OnInit {
 
   //variable para mostrar contenido del modal segun tipo de habilidad
   esHabTecnica: boolean = false;
-  
+  esHabBlanda: boolean =false;
+
   constructor(private portfolioServ : PortfolioService) { }
 
   ngOnInit(): void {
 
     /*//TODO: revisar e implementar obtenerDatos
-    this.portfolioServ.obtenerDatos().subscribe(data => {
-      this.listaHabTecnica = data.habilidadTecnica;
+    this.portfolioServ.obtenerDatos().subscribe(data => {this.listaHabTecnica = data.habilidadTecnica;
     })*/
 
-    this.listarHabTecnicas();
-    this.listarHabBlandas();
+    //this.listarHabTecnicas();
+    //this.listarHabBlandas();
   }
   
-  listarHabTecnicas() {
-    this.portfolioServ.listarHabTecnicas().subscribe(data => {this.listaHabTecnica = data})
+  listarHabTecnicas(){
+    this.portfolioServ.obtenerDatos().subscribe(data => {this.listaHabTecnica = data.habilidadesTecnicas})
   }
-
-  listarHabBlandas() {
-    this.portfolioServ.listarHabBlandas().subscribe(data => {this.listaHabBlanda = data})
+  
+  listarHabBlandas(){
+    this.portfolioServ.obtenerDatos().subscribe(data => {this.listaHabBlanda = data.habilidadesBlandas})
   }
 
   abrirModal() : void {
-
-    if (this.esHabTecnica){
+    if (this.esHabBlanda){
+      let habBlan = {id:0,nombreHabilidad:"",urlIcono:""};
+      this.habBlanda = habBlan;
+      this.tituloModal = "Agregar elemento a Habilidades Blandas";
+      this.agregarEditarActivado = true; 
+    } else if (this.esHabTecnica){
       let habTec = {id:0,nombreHabilidad:"",urlIcono:"",nivelId:0};
       this.habTecnica = habTec;
       this.tituloModal = "Agregar elemento a Habilidades Técnicas";
       this.agregarEditarActivado = true;
-      
-    } else if (!this.esHabTecnica){ //probar comentando este if
-        let habBlan = {id:0,nombreHabilidad:"",urlIcono:""};
-        this.habBlanda = habBlan;
-        this.tituloModal = "Agregar elemento a Habilidades Blandas";
-        this.agregarEditarActivado = true;        
-      }
+    }
   }
 
   procesarAgregarTecnica(nuevaHabTecnica:HabTecnica) : void { 
@@ -166,7 +164,8 @@ export class HabilidadesComponent implements OnInit {
   }
 
   cerrarModal(): void {
-    this.esHabTecnica =false;
+    this.esHabTecnica = false;
+    this.esHabBlanda = false;
     this.agregarEditarActivado = false;
     this.listarHabTecnicas();
     this.listarHabBlandas();

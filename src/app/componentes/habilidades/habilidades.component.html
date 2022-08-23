@@ -21,7 +21,7 @@
                     <!-- Cuerpo del Modal Habilidad Blanda-->
                     <app-blanda-agregar-editar
                         [habilidadBlanda]="habBlanda"
-                        *ngIf="!esHabTecnica"
+                        *ngIf="esHabBlanda"
                         (agregandoHabBlanda)="procesarAgregarBlanda($event)"
                         (editandoHabBlanda)="procesarEditarBlanda($event)">
                     </app-blanda-agregar-editar>
@@ -148,7 +148,7 @@
 
         <!-- Boton modal Agregar Habilidad Blanda-->
         <span *ngIf="isLogged" class="edit-icon">
-            <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalHabilidades" (click)="abrirModal()">
+            <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalHabilidades" (click)="esHabBlanda = true;abrirModal()">
                 <i class="bi bi-plus-circle-fill d-flex justify-content-end"></i>
             </button>
         </span>
