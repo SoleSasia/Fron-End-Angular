@@ -25,14 +25,15 @@ export class ExperienciaComponent implements OnInit {
   ngOnInit(): void {
     /*//TODO: revisar e implementar obtenerDatos
     this.portfolioServ.obtenerDatos().subscribe(data => {
-      this.listaExpe = data.experiencia;
+      this.listaExpe = data.experiencias;
     })*/
 
     this.listarExperiencias();
   }
 
   listarExperiencias() : void{
-    this.portfolioServ.listarExperiencias().subscribe(data => {this.listaExpe = data})
+    this.portfolioServ.obtenerDatos().subscribe(data => {this.listaExpe = data.experiencias});
+    //this.portfolioServ.listarExperiencias().subscribe(data => {this.listaExpe = data})
   }
 
   abrirModal(){

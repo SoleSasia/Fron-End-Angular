@@ -1,19 +1,20 @@
 export class Proyecto {
 
     id? : number;
-    nombreProyecto : string;
-    descripcionProyecto : string;
+    nombreProye : string;
+    descripcionProye : string;
     imgUrl : string;
     repoUrl : string;
     liveUrl : string;
-    //personaId : number;
+    personaId : number;
     
-    constructor( nombreProyecto : string, descripcionProyecto : string, imgUrl : string, repoUrl : string, liveUrl : string) {
-        this.nombreProyecto = nombreProyecto;
-        this.descripcionProyecto = descripcionProyecto;
+    constructor( nombreProye : string, descripcionProye : string, imgUrl : string, repoUrl : string, liveUrl : string, personaId : number) {
+        this.nombreProye = nombreProye;
+        this.descripcionProye = descripcionProye;
         this.imgUrl = imgUrl;
         this.repoUrl = repoUrl;
         this.liveUrl = liveUrl;
+        this.personaId = personaId;
     }
 
 }

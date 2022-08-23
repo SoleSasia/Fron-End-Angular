@@ -15,6 +15,7 @@ export class EducacionComponent implements OnInit {
   
   listaEdu: Educacion[] = [];
   educacion: Educacion;
+  
   tituloModal: string = "";
   agregarEditarActivado: boolean = false;
   
@@ -27,11 +28,15 @@ export class EducacionComponent implements OnInit {
       this.listaEdu = data.educacion;
     })*/
 
-      this.listarEducaciones();
+    this.listarEducaciones();
   }
 
-  listarEducaciones() {
+  /*listarEducaciones() {
     this.portfolioServ.listarEducaciones().subscribe(data => {this.listaEdu = data});
+  }*/
+
+  listarEducaciones() {
+    this.portfolioServ.obtenerDatos().subscribe(data => {this.listaEdu = data.educaciones})
   }
 
   abrirModal(){
