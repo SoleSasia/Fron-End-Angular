@@ -12,14 +12,17 @@ import { Proyecto } from '../dto/proyecto';
 })
 
 export class PortfolioService {
-  
+
+  //DATA JSON
+  //urlBackend: string = "src/assets/data/data.json";
+
   //esta url sale del @RequestMapping del Controller del backend "http://localhost:8080/"
   urlBackend: string = "http://localhost:8080/"
 
   constructor(private http:HttpClient) { }
 
   public obtenerDatos():Observable<any>{
-    console.log("El servicio obtener datos está siendo inyectado");
+    //console.log("El servicio obtener datos está siendo inyectado");
     //return this.http.get<any>('./assets/data/data.json');
     return this.http.get<any>(this.urlBackend + 'portfolio');
   }
@@ -112,5 +115,17 @@ export class PortfolioService {
   public listarProyectos(): Observable<Proyecto[]>{
     return this.http.get<Proyecto[]>(this.urlBackend + 'listaProyectos');
   }*/
+
+  public agregarProyecto(proye:Proyecto): Observable<any> {
+    return this.http.post<any>(this.urlBackend + 'nuevoProyecto', proye);    
+  }
+
+  public editarProyecto(id :number, proye :Proyecto): Observable<any> {
+    return this.http.put<any>(this.urlBackend + `editarProyecto/${id}`, proye);
+  }
+
+  public borrarProyecto(id :number): Observable<any> {
+    return this.http.delete<any>(this.urlBackend + `borrarProyecto/${id}`);
+  }
 
 }

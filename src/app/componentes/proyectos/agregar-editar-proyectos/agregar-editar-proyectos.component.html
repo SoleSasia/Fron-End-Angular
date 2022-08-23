@@ -1,0 +1,27 @@
+<div>
+    <div class="mb-3">
+        <label for="nombreProye" class="form-label">Nombre del proyecto</label>
+        <input type="text" [(ngModel)]="proye.nombreProye" class="form-control" required id="nombreProye" placeholder="">
+    </div>
+    <div class="mb-3">
+        <label for="descripcionProye" class="form-label">Descripción</label>
+        <textarea [(ngModel)]="proye.descripcionProye" class="form-control" id="descripcionProye" rows="3" placeholder="Breve descripción..."></textarea>
+    </div>
+    <div class="mb-3">
+        <label for="imgUrl" class="form-label">Url de la imagen</label>
+        <input type="text" [(ngModel)]="proye.imgUrl" class="form-control" id="imgUrl" placeholder="">
+    </div>
+    <div class="mb-3">
+        <label for="repoUrl" class="form-label">Url del repositorio</label>
+        <input type="text" [(ngModel)]="proye.repoUrl" class="form-control" id="repoUrl" placeholder="">
+    </div>
+    <div class="mb-3">
+        <label for="liveUrl" class="form-label">Url del live/sitio</label>
+        <input type="text" [(ngModel)]="proye.liveUrl" class="form-control" id="liveUrl" placeholder="">
+    </div>
+</div>
+<div class="modal-footer">
+    
+    <button (click)="agregarProye()" *ngIf="proye.id==0" type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Agregar</button>
+    <button (click)="editarProye()" *ngIf="proye.id!=0" type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Editar</button>
+</div>

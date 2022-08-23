@@ -20,6 +20,7 @@ import { AgregarEditarExpeComponent } from './componentes/experiencia/agregar-ed
 import { LoginComponent } from './componentes/login/login.component';
 import { TecnicaAgregarEditarComponent } from './componentes/habilidades/tecnica-agregar-editar/tecnica-agregar-editar.component';
 import { BlandaAgregarEditarComponent } from './componentes/habilidades/blanda-agregar-editar/blanda-agregar-editar.component';
+import { AgregarEditarProyectosComponent } from './componentes/proyectos/agregar-editar-proyectos/agregar-editar-proyectos.component';
 
 
 
@@ -40,6 +41,7 @@ import { BlandaAgregarEditarComponent } from './componentes/habilidades/blanda-a
     LoginComponent,
     TecnicaAgregarEditarComponent,
     BlandaAgregarEditarComponent,
+    AgregarEditarProyectosComponent,
   ],
   imports: [
     BrowserModule,

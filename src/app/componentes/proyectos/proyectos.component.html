@@ -1,19 +1,40 @@
 <section id="proyectos" class="info-section container-fluid">
 
     <div class="title-section py-2 d-flex justify-content-between align-items-center">
-        <span class="edit-icon">
-            <button class="btn-outline-danger">
+        <!-- Boton modal Agregar Proyectos-->
+        <span *ngIf="isAdmin" class="edit-icon">
+            <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalProyectos" (click)="abrirModal()">
                 <i class="bi bi-plus-circle-fill d-flex justify-content-end"></i>
             </button>
-            
         </span>
+
         <h2>Proyectos</h2>
     </div>
-    <p>Algo de lo que hago</p>
+    <p>Aquí algunos de los proyectos en los que he estado trabajando.</p>
+
+    <!-- Modal Agregar/Editar Proyectos-->
+    <div class="modal fade" id="modalProyectos" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">{{tituloModal}}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"(click)="cerrarModal()"></button>
+                </div>
+                <div class="modal-body">
+                    <app-agregar-editar-proyectos
+                        [proyecto]="proyecto" 
+                        *ngIf="agregarEditarActivado"
+                        (agregandoProye)="procesarAgregar($event)"
+                        (editandoProye)="procesarEditar($event)">
+                    </app-agregar-editar-proyectos>
+                </div>
+            </div>
+        </div>
+    </div>  
 
     <ul class="row justify-content-center list-unstyled mt-3">
         
-        <li *ngFor="let proye of listaProyectos" class="col-sm-6">
+        <li *ngFor="let proye of listaProyectos" class="col-sm-6 my-3">
             <div class="card shadow">
                 
                 <div class="">
@@ -23,16 +44,21 @@
                     
                     <div class="card-title d-flex justify-content-between align-items-center">
                         <h5 class="col-sm-10 fw-bold">{{proye.nombreProye}}</h5>
-                        <span class="col-sm-2 edit-icon p-1 justify-content-between">
-                            <button class="btn-outline-danger">
+                        
+                        <span *ngIf="isAdmin" class="edit-icon p-1 justify-content-between" >
+                            <!-- Boton modal Editar Proyectos-->
+                            <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalProyectos" (click)="editarClick(proye)">
                                 <i class="bi bi-pencil-fill"></i>
                             </button>
-                            <button class="btn-outline-danger">
+                            <!-- Boton Eliminar Proyectos-->
+                            <button type="button" class="btn btn-outline-danger" (click)="eliminarClick(proye.id)">
                                 <i class="bi bi-x-circle-fill"></i>
-                            </button>
+                            </button>   
                         </span>
                     </div>
+
                     <p class="card-text">{{proye.descripcionProye}}</p>
+                    
                     <div class="gap-2 d-flex justify-content-end">
                         <a [href]="proye.liveUrl" target="_BLANK" class="btn btn-outline-secondary">Live</a>
                         <a [href]="proye.repoUrl" target="_BLANK" class="btn btn-secondary"><i class="bi bi-github"></i> Repo</a>
