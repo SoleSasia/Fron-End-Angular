@@ -8,7 +8,6 @@ import { AppComponent } from './app.component';
 import { EncabezadoComponent } from './componentes/encabezado/encabezado.component';
 import { SobreMiComponent } from './componentes/sobre-mi/sobre-mi.component';
 import { ProyectosComponent } from './componentes/proyectos/proyectos.component';
-import { ContactoComponent } from './componentes/contacto/contacto.component';
 import { ExperienciaComponent } from './componentes/experiencia/experiencia.component';
 import { HabilidadesComponent } from './componentes/habilidades/habilidades.component';
 import { NavbarComponent } from './componentes/navbar/navbar.component';
@@ -30,7 +29,6 @@ import { AgregarEditarProyectosComponent } from './componentes/proyectos/agregar
     EncabezadoComponent,
     SobreMiComponent,
     ProyectosComponent,
-    ContactoComponent,
     ExperienciaComponent,
     HabilidadesComponent,
     NavbarComponent,
