@@ -9,13 +9,16 @@ import { PortfolioService } from 'src/app/servicios/portfolio.service';
 })
 export class PortfolioComponent implements OnInit {
 
-  portfolio : PortfolioDTO;
+  miPortfolio : PortfolioDTO;
 
   constructor(private portfolioServ : PortfolioService) { }
 
   ngOnInit(): void {
+    
     this.portfolioServ.obtenerDatos().subscribe(
-      data => {this.portfolio = data})
+      data => {
+        console.log("llegando data desde getPortfolio() a miPortfolio"); 
+        this.miPortfolio = data})
 
   }
 

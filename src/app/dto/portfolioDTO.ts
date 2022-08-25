@@ -7,11 +7,25 @@ import { Proyecto } from "./proyecto";
 
 export class PortfolioDTO {
 
-    private persona : Persona;
-    private educaciones : Educacion [];
-    private experiencias : Experiencia [];
-    private habilidadesTecnicas : HabTecnica [];
-    private habilidadesBlandas : HabBlanda [];
-    private proyectos : Proyecto [];
+    persona : Persona;
+    educaciones : Educacion [];
+    experiencias : Experiencia [];
+    habilidadesTecnicas : HabTecnica [];
+    habilidadesBlandas : HabBlanda [];
+    proyectos : Proyecto [];
 
+    constructor(persona: Persona , 
+                educaciones: Educacion[], 
+                experiencias: Experiencia[],
+                habilidadesTecnicas: HabTecnica[],
+                habilidadesBlandas: HabBlanda[],
+                proyectos: Proyecto[]){
+
+        this.persona = persona;
+        this.educaciones = educaciones;
+        this.experiencias = experiencias;
+        this.habilidadesTecnicas = habilidadesTecnicas;
+        this.habilidadesBlandas = habilidadesBlandas;
+        this.proyectos = proyectos;   
+    }
 }

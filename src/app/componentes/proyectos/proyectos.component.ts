@@ -22,7 +22,7 @@ export class ProyectosComponent implements OnInit {
   constructor(private portfolioServ : PortfolioService) { }
 
   ngOnInit(): void {
-    
+    console.log("llegando data a proyecto");
     this.listarProyectos();
   }
 

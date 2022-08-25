@@ -8,10 +8,13 @@
 <app-sobre-mi></app-sobre-mi>
 
 <!--Sección Experiencia-->
-<app-experiencia></app-experiencia>
+<app-experiencia
+    [listaExpe]="miPortfolio.experiencias"></app-experiencia>
 
 <!--Sección Educación-->
-<app-educacion></app-educacion>
+<app-educacion
+    [listaEdu]="miPortfolio.educaciones">
+</app-educacion>
 
 <!--Sección Habilidades-->
 <app-habilidades></app-habilidades>

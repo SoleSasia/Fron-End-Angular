@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Experiencia } from 'src/app/dto/experiencia';
 import { PortfolioService } from 'src/app/servicios/portfolio.service';
 
@@ -14,7 +14,7 @@ export class ExperienciaComponent implements OnInit {
   //TODO: resolver login
   isAdmin: boolean = true;
   
-  listaExpe: Experiencia[] = [];//revisar y crear dto portfolio
+  @Input() listaExpe: Experiencia[] = [];//revisar y crear dto portfolio
   experiencia: Experiencia;
   tituloModal: string = "";
   agregarEditarActivado: boolean = false;
@@ -23,15 +23,12 @@ export class ExperienciaComponent implements OnInit {
   constructor(private portfolioServ : PortfolioService) { }
 
   ngOnInit(): void {
-    /*//TODO: revisar e implementar obtenerDatos
-    this.portfolioServ.obtenerDatos().subscribe(data => {
-      this.listaExpe = data.experiencias;
-    })*/
-
+    console.log("llegando datos a expe desde miPortfolio")
     //this.listarExperiencias();
   }
 
   listarExperiencias() : void{
+    console.log("llegando data de experiencia");
     this.portfolioServ.obtenerDatos().subscribe(data => {this.listaExpe = data.experiencias});
     //this.portfolioServ.listarExperiencias().subscribe(data => {this.listaExpe = data})
   }

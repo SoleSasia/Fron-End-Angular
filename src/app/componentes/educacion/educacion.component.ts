@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Educacion } from 'src/app/dto/educacion';
 import { PortfolioService } from 'src/app/servicios/portfolio.service';
+import { PortfolioComponent } from '../portfolio/portfolio.component';
 
 @Component({
   selector: 'app-educacion',
@@ -13,7 +14,8 @@ export class EducacionComponent implements OnInit {
   //TODO: resolver login
   isAdmin: boolean = true;
   
-  listaEdu: Educacion[] = [];
+  @Input() listaEdu: Educacion[] = [];
+
   educacion: Educacion;
   
   tituloModal: string = "";
@@ -23,7 +25,8 @@ export class EducacionComponent implements OnInit {
   constructor(private portfolioServ : PortfolioService) { }
 
   ngOnInit(): void {
-    this.listarEducaciones();
+   
+    //this.listarEducaciones();
   }
 
   listarEducaciones() {
