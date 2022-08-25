@@ -13,7 +13,6 @@ import { HabilidadesComponent } from './componentes/habilidades/habilidades.comp
 import { NavbarComponent } from './componentes/navbar/navbar.component';
 import { EducacionComponent } from './componentes/educacion/educacion.component';
 import { CommonModule } from '@angular/common';
-import { InicioComponent } from './componentes/inicio/inicio.component';
 import { AgregarEditarEduComponent } from './componentes/educacion/agregar-editar-edu/agregar-editar-edu.component';
 import { AgregarEditarExpeComponent } from './componentes/experiencia/agregar-editar-expe/agregar-editar-expe.component';
 import { LoginComponent } from './componentes/login/login.component';
@@ -21,6 +20,7 @@ import { TecnicaAgregarEditarComponent } from './componentes/habilidades/tecnica
 import { BlandaAgregarEditarComponent } from './componentes/habilidades/blanda-agregar-editar/blanda-agregar-editar.component';
 import { AgregarEditarProyectosComponent } from './componentes/proyectos/agregar-editar-proyectos/agregar-editar-proyectos.component';
 import { FooterComponent } from './componentes/footer/footer.component';
+import { PortfolioComponent } from './componentes/portfolio/portfolio.component';
 
 
 
@@ -34,7 +34,6 @@ import { FooterComponent } from './componentes/footer/footer.component';
     HabilidadesComponent,
     NavbarComponent,
     EducacionComponent,
-    InicioComponent,
     AgregarEditarEduComponent,
     AgregarEditarExpeComponent,
     LoginComponent,
@@ -42,6 +41,7 @@ import { FooterComponent } from './componentes/footer/footer.component';
     BlandaAgregarEditarComponent,
     AgregarEditarProyectosComponent,
     FooterComponent,
+    PortfolioComponent,
   ],
   imports: [
     BrowserModule,
