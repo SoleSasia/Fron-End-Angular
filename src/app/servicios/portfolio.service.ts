@@ -6,6 +6,7 @@ import { Experiencia } from '../dto/experiencia';
 import { HabBlanda } from '../dto/habBlanda';
 import { HabTecnica } from '../dto/habTecnica';
 import { Proyecto } from '../dto/proyecto';
+import { RespuestaDTO } from '../dto/respuestaDTO';
 
 @Injectable({
   providedIn: 'root'
@@ -34,8 +35,8 @@ export class PortfolioService {
     return this.http.get<Educacion[]>(this.urlBackend + 'listaEdu')
   }*/
 
-  public agregarEdu(edu:Educacion): Observable<any> {
-    return this.http.post<any>(this.urlBackend + 'nuevaEdu', edu);    
+  public agregarEdu(edu:Educacion): Observable<RespuestaDTO> {
+    return this.http.post<RespuestaDTO>(this.urlBackend + 'nuevaEdu', edu);    
   }
 
   public editarEdu(id :number, edu :Educacion): Observable<any> {
