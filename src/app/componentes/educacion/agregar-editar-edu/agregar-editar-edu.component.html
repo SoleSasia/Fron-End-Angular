@@ -1,7 +1,21 @@
 <div>
     <div class="mb-3">
         <label for="tituloEdu" class="form-label">Título</label>
-        <input type="text" [(ngModel)]="edu.tituloEdu" class="form-control" required id="tituloEdu" placeholder="">
+        <input type="text" 
+        [(ngModel)]="edu.tituloEdu" 
+        #tituloEdu="ngModel" 
+        class="form-control" 
+        required
+        [ngClass]="{'is-invalid': tituloEdu?.errors && tituloEdu?.touched}" 
+        id="tituloEdu" 
+        placeholder="">
+    
+        <div *ngIf="tituloEdu.invalid && (tituloEdu.dirty || tituloEdu.touched)">
+            <!--<div *ngIf="edu.tituloEdu?.errors.['required']" class="text-danger">El nombre de usuario es requerido</div>
+-->            <p *ngIf="tituloEdu?.hasError('required')" class="text-danger">El título es requerido</p>
+
+        </div>
+
     </div>
     <div class="mb-3">
         <label for="periodoEdu" class="form-label">Período</label>
@@ -21,8 +35,8 @@
     </div>
 </div>
 
-<div class="text-center">
-    <p *ngIf="mostrarMsj && respta.msj==''">Cargando datos...</p>
+<div *ngIf="mostrarMsj" [ngClass]="!respta.salioBien? 'alert alert-danger': 'alert alert-success'" role="alert" >
+    <p *ngIf="respta.msj==''">Enviando datos...</p>
     <p *ngIf="respta.msj!=''">{{respta.msj}}</p>
 </div>
 
