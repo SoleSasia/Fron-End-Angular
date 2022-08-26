@@ -23,8 +23,7 @@
                     <app-agregar-editar-edu
                         [educacion]="educacion" 
                         *ngIf="agregarEditarActivado"
-                        
-                        (editandoEdu)="procesarEditar($event)">
+                        (cerrandoModal)="cerrarModal()">
                     </app-agregar-editar-edu>
                 </div>
             </div>

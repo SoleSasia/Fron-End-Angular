@@ -40,34 +40,10 @@ export class EducacionComponent implements OnInit {
     this.agregarEditarActivado = true;
   }
 
-  procesarAgregar(nuevaEdu:Educacion){
-    this.portfolioServ.agregarEdu(nuevaEdu).subscribe(data => {
-      alert("Educación agregada con éxito");
-     this.listarEducaciones();
-      }, error =>{
-        alert("Ha ocurrido un error");
-      }
-    );
-    this.cerrarModal();
-  }
-
   editarClick(edu: Educacion){
     this.educacion = edu;
     this.tituloModal = "Editar elemento en Educación";
     this.agregarEditarActivado = true;
-  }
-
-  procesarEditar(eduEditada:Educacion){
-
-    let idEduEditada: any = eduEditada.id;
-    this.portfolioServ.editarEdu(idEduEditada, eduEditada).subscribe(data => {
-      alert("Educación editada con éxito");
-      this.listarEducaciones();
-      }, error =>{
-        alert("Ha ocurrido un error");
-      }
-    );
-    this.cerrarModal();
   }
 
   eliminarClick(eduId:any){

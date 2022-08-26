@@ -12,8 +12,8 @@ import { PortfolioService } from 'src/app/servicios/portfolio.service';
 export class AgregarEditarEduComponent implements OnInit {
 
   @Input() educacion: Educacion;
-  //@Output() agregandoEdu = new EventEmitter<Educacion>();
-  @Output() editandoEdu = new EventEmitter<Educacion>();
+  @Output() cerrandoModal = new EventEmitter<any>();
+  //@Output() editandoEdu = new EventEmitter<Educacion>();
 
   edu: Educacion;
   respta: RespuestaDTO = {salioBien: false, msj: ""};
@@ -26,17 +26,30 @@ export class AgregarEditarEduComponent implements OnInit {
   }
 
   agregarEdu(nuevaEdu:Educacion){
+    this.mostrarMsj = true;
     this.portfolioServ.agregarEdu(nuevaEdu).subscribe(data => {
-      console.log(data);
       this.respta = data;
-      console.log("imprimiendo respta: " + this.respta);
-      console.log("msj: "+this.respta.msj + ";" + "isOk: "+this.respta.salioBien);
       }
     );
   }
 
-  editarEdu(){
-    this.editandoEdu.emit(this.edu);
+  editarEdu(eduEditada:Educacion){
+    this.mostrarMsj = true;
+    let idEduEditada: any = eduEditada.id;
+    this.portfolioServ.editarEdu(idEduEditada, eduEditada).subscribe(data => {
+      console.log(data);
+      this.respta = data;
+      console.log("imprimiendo respta: " + this.respta);
+      console.log("msj: "+this.respta.msj + ";" + "salioBien: "+this.respta.salioBien);
+      }
+    );
+  }
+
+  cerrarModal(){
+    this.mostrarMsj=false
+    this.respta = {salioBien: false, msj: ""};
+    //recargar vista
+    this.cerrandoModal.emit();
   }
 
 }
