@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Educacion } from 'src/app/dto/educacion';
+import { EduDTO } from 'src/app/dto/eduDTO';
 import { PortfolioService } from 'src/app/servicios/portfolio.service';
 
 @Component({
@@ -13,9 +13,9 @@ export class EducacionComponent implements OnInit {
   //TODO: resolver login
   isAdmin: boolean = true;
   
-  @Input() listaEdu: Educacion[] = [];
+  @Input() listaEdu: EduDTO[] = [];
   @Input() IdPerso : number;
-  educacion: Educacion;
+  educacion: EduDTO;
   
   tituloModal: string = "";
   agregarEditarActivado: boolean = false;
@@ -31,13 +31,13 @@ export class EducacionComponent implements OnInit {
 
   abrirModalAgregar(){
     
-    let edu = {id:0,tituloEdu:"",periodoEdu:"",institucionEdu:"",descripcionEdu:"",urlLogoEdu:"", personaId:this.IdPerso};
+    let edu = {id:0,personaId:this.IdPerso, tituloEdu:"",periodoEdu:"",institucionEdu:"",descripcionEdu:"",urlLogoEdu:""};
     this.educacion = edu;
     this.tituloModal = "Agregar elemento a Educación";
     this.agregarEditarActivado = true;
   }
 
-  abrirModalEditar(edu: Educacion){
+  abrirModalEditar(edu: EduDTO){
     this.educacion = edu;
     this.tituloModal = "Editar elemento en Educación";
     this.agregarEditarActivado = true;

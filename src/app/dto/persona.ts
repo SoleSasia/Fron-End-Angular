@@ -9,8 +9,7 @@ export class Persona {
     private githubUrl : string;
     private descripcion : string;
     private imgUrl : string;
-    private username : string;
-    private password : string;
+    
 
     constructor (   id : number,
                     nombre : string,
@@ -21,8 +20,7 @@ export class Persona {
                     githubUrl : string,
                     descripcion : string,
                     imgUrl : string,
-                    username : string,
-                    password : string) 
+                    ) 
         {
         this.id = id,
         this.nombre = nombre,
@@ -32,9 +30,7 @@ export class Persona {
         this.linkedinUrl = linkedinUrl,
         this.githubUrl = githubUrl,
         this.descripcion = descripcion,
-        this.imgUrl = imgUrl,
-        this.username = username,
-        this.password = password;
+        this.imgUrl = imgUrl
     }
 
 }

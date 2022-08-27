@@ -1,10 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Educacion } from '../dto/educacion';
+import { EduDTO } from '../dto/eduDTO';
 import { Experiencia } from '../dto/experiencia';
 import { HabBlanda } from '../dto/habBlanda';
-import { HabTecnica } from '../dto/habTecnica';
+import { HabTecnicaDTO } from '../dto/habTecnicaDTO';
 import { Proyecto } from '../dto/proyecto';
 import { RespuestaDTO } from '../dto/respuestaDTO';
 
@@ -30,35 +30,19 @@ export class PortfolioService {
   
  // ABM Educacion //
 
-  /*TODO: borrar e integrar a obtenerDatos (en el backend)
-  public listarEducaciones(): Observable<Educacion[]>{
-    return this.http.get<Educacion[]>(this.urlBackend + 'listaEdu')
-  }*/
-
-  public agregarEdu(edu:Educacion): Observable<RespuestaDTO> {
+  public agregarEdu(edu:EduDTO): Observable<RespuestaDTO> {
     return this.http.post<RespuestaDTO>(this.urlBackend + 'nuevaEdu', edu);    
   }
 
-  public editarEdu(id :number, edu :Educacion): Observable<any> {
-    return this.http.put<any>(this.urlBackend + `editarEdu/${id}`, edu);
+  public editarEdu(id :number, edu :EduDTO): Observable<RespuestaDTO> {
+    return this.http.put<RespuestaDTO>(this.urlBackend + `editarEdu/${id}`, edu);
   }
 
   public borrarEdu(id :number): Observable<any> {
     return this.http.delete<any>(this.urlBackend + `borrarEdu/${id}`);
   }
 
-  /* TODO: verificar si es necesario
-  public buscarEdu(id :number): Observable<any> {
-    return this.http.get<any>(this.urlEdu + 'ver/${id}');
-  }
-  */
-
- // ABM Experiencia //
-
-  /*TODO: borrar e integrar a obtenerDatos (en el backend)
-  public listarExperiencias(): Observable<Experiencia[]>{
-    return this.http.get<Experiencia[]>(this.urlBackend + 'listaExpe')
-  }*/
+  // ABM Experiencia //
 
   public agregarExpe(expe:Experiencia): Observable<any> {
     return this.http.post<any>(this.urlBackend + 'nuevaExpe', expe);    
@@ -74,29 +58,19 @@ export class PortfolioService {
 
  // ABM Habilidad Tecnica //
 
-  /*TODO: borrar e integrar a obtenerDatos (en el backend)
-  public listarHabTecnicas(): Observable<HabTecnica[]>{
-    return this.http.get<HabTecnica[]>(this.urlBackend + 'listaHabTecnicas')
-  }*/
-
-  public agregarHabTecnica(habTec: HabTecnica): Observable<any> {
-    return this.http.post<any>(this.urlBackend + 'nuevaHabTecnica', habTec);    
+  public agregarHabTecnica(habTec: HabTecnicaDTO): Observable<RespuestaDTO> {
+    return this.http.post<RespuestaDTO>(this.urlBackend + 'nuevaHabTecnica', habTec);    
   }
 
-  public editarHabTecnica(id: number, habTec :HabTecnica): Observable<any> {
-    return this.http.put<any>(this.urlBackend + `editarHabTecnica/${id}`, habTec);
+  public editarHabTecnica(id: number, habTec :HabTecnicaDTO): Observable<RespuestaDTO> {
+    return this.http.put<RespuestaDTO>(this.urlBackend + `editarHabTecnica/${id}`, habTec);
   }
 
   public borrarHabTecnica(id: number): Observable<any> {
     return this.http.delete<any>(this.urlBackend + `borrarHabTecnica/${id}`);
   }
 
-  // ABM Habilidad Blanda //
-
-  /*TODO: borrar e integrar a obtenerDatos (en el backend)
-  public listarHabBlandas(): Observable<HabBlanda[]>{
-    return this.http.get<HabBlanda[]>(this.urlBackend + 'listaHabBlandas')
-  }*/
+ // ABM Habilidad Blanda //
 
   public agregarHabBlanda(habBlan: HabBlanda): Observable<any> {
     return this.http.post<any>(this.urlBackend + 'nuevaHabBlanda', habBlan);    

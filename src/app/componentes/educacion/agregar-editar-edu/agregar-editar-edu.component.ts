@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Educacion } from 'src/app/dto/educacion';
+import { EduDTO } from 'src/app/dto/eduDTO';
 import { RespuestaDTO } from 'src/app/dto/respuestaDTO';
 import { PortfolioService } from 'src/app/servicios/portfolio.service';
 
@@ -11,10 +11,10 @@ import { PortfolioService } from 'src/app/servicios/portfolio.service';
 
 export class AgregarEditarEduComponent implements OnInit {
 
-  @Input() educacion: Educacion;
+  @Input() educacion: EduDTO;
   @Output() cerrandoModal = new EventEmitter<any>();
 
-  edu: Educacion;
+  edu: EduDTO;
   //respuesta que viene del Backend
   respta: RespuestaDTO = {salioBien: false, msj: ""};
   //variable que permite la vista del msj de la respuesta
@@ -26,7 +26,7 @@ export class AgregarEditarEduComponent implements OnInit {
     this.edu=this.educacion;
   }
 
-  agregarEdu(nuevaEdu:Educacion){
+  agregarEdu(nuevaEdu:EduDTO){
     if (nuevaEdu.tituloEdu != ""){
       this.mostrarMsj = true;
       this.portfolioServ.agregarEdu(nuevaEdu).subscribe(data => {
@@ -39,7 +39,7 @@ export class AgregarEditarEduComponent implements OnInit {
     }
   }
 
-  editarEdu(eduEditada:Educacion){
+  editarEdu(eduEditada:EduDTO){
     if (eduEditada.tituloEdu != ""){
       this.mostrarMsj = true;
       let idEduEditada: any = eduEditada.id;

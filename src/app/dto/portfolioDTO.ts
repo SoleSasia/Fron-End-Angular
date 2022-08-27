@@ -1,23 +1,23 @@
-import { Educacion } from "./educacion";
+import { EduDTO } from "./eduDTO";
 import { Experiencia } from "./experiencia";
 import { HabBlanda } from "./habBlanda";
-import { HabTecnica } from "./habTecnica";
+import { HabTecnicaDTO } from "./habTecnicaDTO";
 import { Persona } from "./persona";
 import { Proyecto } from "./proyecto";
 
 export class PortfolioDTO {
 
     persona : Persona;
-    educaciones : Educacion [];
+    educaciones : EduDTO [];
     experiencias : Experiencia [];
-    habilidadesTecnicas : HabTecnica [];
+    habilidadesTecnicas : HabTecnicaDTO [];
     habilidadesBlandas : HabBlanda [];
     proyectos : Proyecto [];
 
     constructor(persona: Persona , 
-                educaciones: Educacion[], 
+                educaciones: EduDTO[], 
                 experiencias: Experiencia[],
-                habilidadesTecnicas: HabTecnica[],
+                habilidadesTecnicas: HabTecnicaDTO[],
                 habilidadesBlandas: HabBlanda[],
                 proyectos: Proyecto[]){
 

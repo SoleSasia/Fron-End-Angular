@@ -7,9 +7,10 @@ import { PortfolioService } from 'src/app/servicios/portfolio.service';
   templateUrl: './portfolio.component.html',
   styleUrls: ['./portfolio.component.css']
 })
+
 export class PortfolioComponent implements OnInit {
 
-  miPortfolio : PortfolioDTO;
+  miPort : PortfolioDTO;
   IdPersona : number = 1;
 
   constructor(private portfolioServ : PortfolioService) { }
@@ -19,7 +20,7 @@ export class PortfolioComponent implements OnInit {
     this.portfolioServ.obtenerDatos().subscribe(
       data => {
         console.log("llegando data desde getPortfolio() a miPortfolio"); 
-        this.miPortfolio = data})
+        this.miPort = data})
 
   }
 
