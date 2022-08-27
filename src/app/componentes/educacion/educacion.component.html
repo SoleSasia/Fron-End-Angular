@@ -5,7 +5,7 @@
         
     <!-- Boton modal Agregar Educación-->
         <span *ngIf="isAdmin" class="edit-icon">
-            <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalEducacion" (click)="abrirModal()">
+            <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalEducacion" (click)="abrirModalAgregar()">
                 <i class="bi bi-plus-circle-fill d-flex justify-content-end"></i>
             </button>
         </span>
@@ -44,11 +44,11 @@
                         <h4 class="py-1">{{edu.tituloEdu}}</h4>
                         <span *ngIf="isAdmin" class="edit-icon p-1 justify-content-between" >
                             <!-- Boton modal Editar Educación-->
-                            <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalEducacion" (click)="editarClick(edu)">
+                            <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalEducacion" (click)="abrirModalEditar(edu)">
                                 <i class="bi bi-pencil-fill"></i>
                             </button>
                             <!-- Boton Eliminar Educación-->
-                            <button type="button" class="btn btn-outline-danger" (click)="eliminarClick(edu.id)">
+                            <button type="button" class="btn btn-outline-danger" (click)="eliminarEdu(edu.id)">
                                 <i class="bi bi-x-circle-fill"></i>
                             </button>   
                         </span>

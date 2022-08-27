@@ -2,33 +2,32 @@
     <div class="mb-3">
         <label for="tituloEdu" class="form-label">Título</label>
         <input type="text" 
-        [(ngModel)]="edu.tituloEdu" 
-        #tituloEdu="ngModel" 
-        class="form-control" 
-        required
-        [ngClass]="{'is-invalid': tituloEdu?.errors && tituloEdu?.touched}" 
-        id="tituloEdu" 
-        placeholder="">
-    
+            [(ngModel)]="edu.tituloEdu"  
+            class="form-control" 
+            required
+            #tituloEdu="ngModel"
+            [ngClass]="{'is-invalid': tituloEdu?.errors && tituloEdu?.touched}"  
+            placeholder="">
         <div *ngIf="tituloEdu.invalid && (tituloEdu.dirty || tituloEdu.touched)">
-            <!--<div *ngIf="edu.tituloEdu?.errors.['required']" class="text-danger">El nombre de usuario es requerido</div>
--->            <p *ngIf="tituloEdu?.hasError('required')" class="text-danger">El título es requerido</p>
-
+            <p *ngIf="tituloEdu?.hasError('required')" class="text-danger">El título es requerido</p>
         </div>
-
     </div>
+
     <div class="mb-3">
         <label for="periodoEdu" class="form-label">Período</label>
         <input type="text" [(ngModel)]="edu.periodoEdu" class="form-control" id="periodoEdu" placeholder="">
     </div>
+
     <div class="mb-3">
         <label for="institucionEdu" class="form-label">Nombre de la institución</label>
         <input type="text" [(ngModel)]="edu.institucionEdu" class="form-control" id="institucionEdu" placeholder="">
     </div>
+
     <div class="mb-3">
         <label for="descripcionEdu" class="form-label">Información adicional</label>
         <textarea [(ngModel)]="edu.descripcionEdu" class="form-control" id="descripcionEdu" rows="3" placeholder="Breve descripción..."></textarea>
     </div>
+    
     <div class="mb-3">
         <label for="urlLogoEdu" class="form-label">Url del logotipo</label>
         <input type="text" [(ngModel)]="edu.urlLogoEdu" class="form-control" id="urlLogoEdu" placeholder="">

@@ -2,7 +2,6 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Educacion } from 'src/app/dto/educacion';
 import { RespuestaDTO } from 'src/app/dto/respuestaDTO';
 import { PortfolioService } from 'src/app/servicios/portfolio.service';
-import { Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-agregar-editar-edu',
@@ -48,7 +47,6 @@ export class AgregarEditarEduComponent implements OnInit {
         this.respta = data;
         }
       );
-      
     } else {
       this.mostrarMsj = true;
       this.respta.msj = "No se puede modificar un elemento sin título";      

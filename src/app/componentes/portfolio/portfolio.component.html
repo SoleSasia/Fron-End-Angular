@@ -5,22 +5,23 @@
 <app-encabezado></app-encabezado>
 
 <!--Sección Sobre Mí-->
-<app-sobre-mi></app-sobre-mi>
+<app-sobre-mi ></app-sobre-mi>
 
 <!--Sección Experiencia-->
-<app-experiencia
-    [listaExpe]="miPortfolio.experiencias"></app-experiencia>
+<app-experiencia [listaExpe]="miPortfolio.experiencias"></app-experiencia>
 
 <!--Sección Educación-->
-<app-educacion
-    [listaEdu]="miPortfolio.educaciones">
+<app-educacion [listaEdu]="miPortfolio.educaciones"
+                [IdPerso]="IdPersona">
 </app-educacion>
 
 <!--Sección Habilidades-->
-<app-habilidades></app-habilidades>
+<app-habilidades [listaHabTecnica]="miPortfolio.habilidadesTecnicas"
+                 [listaHabBlanda]="miPortfolio.habilidadesBlandas">
+</app-habilidades>
 
 <!--Sección Proyectos-->
-<app-proyectos></app-proyectos>
+<app-proyectos [listaProyectos]="miPortfolio.proyectos"></app-proyectos>
 
 <!--Pie de página-->
 <app-footer></app-footer>

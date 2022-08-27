@@ -1,6 +1,6 @@
 export class Persona {
 
-    private id? : number;
+    private id : number;
     private nombre : string;
     private ocupacion : string;
     private bannerUrl : string;
@@ -12,7 +12,8 @@ export class Persona {
     private username : string;
     private password : string;
 
-    constructor (   nombre : string,
+    constructor (   id : number,
+                    nombre : string,
                     ocupacion : string,
                     bannerUrl : string,
                     email : string,
@@ -23,6 +24,7 @@ export class Persona {
                     username : string,
                     password : string) 
         {
+        this.id = id,
         this.nombre = nombre,
         this.ocupacion = ocupacion,
         this.bannerUrl = bannerUrl,

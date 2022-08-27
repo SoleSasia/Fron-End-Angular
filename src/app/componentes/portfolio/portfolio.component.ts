@@ -10,6 +10,7 @@ import { PortfolioService } from 'src/app/servicios/portfolio.service';
 export class PortfolioComponent implements OnInit {
 
   miPortfolio : PortfolioDTO;
+  IdPersona : number = 1;
 
   constructor(private portfolioServ : PortfolioService) { }
 

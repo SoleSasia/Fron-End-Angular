@@ -6,13 +6,14 @@ export class Educacion {
     institucionEdu : string;
     descripcionEdu : string;
     urlLogoEdu : string;  
-    //personaId??  
+    personaId : number;  
     
-    constructor(tituloEdu : string, periodoEdu : string, institucionEdu : string, descripcionEdu : string, urlLogoEdu : string) {
+    constructor(tituloEdu : string, periodoEdu : string, institucionEdu : string, descripcionEdu : string, urlLogoEdu : string, personaId : number) {
         this.tituloEdu = tituloEdu;
         this.periodoEdu = periodoEdu;
         this.institucionEdu = institucionEdu;
         this.descripcionEdu = descripcionEdu;
         this.urlLogoEdu = urlLogoEdu;
+        this.personaId = personaId;
     }
 }
