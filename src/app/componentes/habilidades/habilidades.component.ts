@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { HabBlanda } from 'src/app/dto/habBlanda';
-import { HabTecnica } from 'src/app/dto/habTecnica';
+import { HabTecnicaDTO } from 'src/app/dto/habTecnicaDTO';
 import { NivelHabilidad } from 'src/app/dto/nivelHabilidad';
 import { PortfolioService } from 'src/app/servicios/portfolio.service';
 
@@ -15,49 +15,24 @@ export class HabilidadesComponent implements OnInit {
   //TODO: resolver login
   isLogged: boolean = true;
   
-  listaHabTecnica: HabTecnica[] = [
-    /*{
-      id:1,
-      nombreHabilidad: 'Java',
-      urlIcono: 'fa-brands fa-java',
-      nivelId: 1
-        },
-        {
-      id:2,
-      nombreHabilidad: 'Html5',
-      urlIcono: 'fa-brands fa-html5',
-      nivelId: 2
-        },
-        {
-      id:3,
-      nombreHabilidad: 'CSS3',
-      urlIcono: 'fa-brands fa-css3-alt',
-      nivelId: 2
-        },
-        {
-      id:4,
-      nombreHabilidad: 'Javascript',
-      urlIcono: 'fa-brands fa-js-square',
-      nivelId: 2
-        }*/
-  ];
+  @Input() IdPerso : number;
+  @Input() listaHabTecnica: HabTecnicaDTO[] = [];
+  habTecnica: HabTecnicaDTO;
 
-  habTecnica: HabTecnica;
-
+  //TODO: armar NIvelDTO
   listaNiveles: NivelHabilidad[] = [
     /*{ id : 1, nombreNivel : "Avanzado", style : "width: 75%" },
     { id : 2, nombreNivel : "Intermedio", style : "width: 50%" },
     { id : 3, nombreNivel : "Básico", style : "width: 25%" }*/
   ];
 
-  listaHabBlanda: HabBlanda[] = [];
+  @Input() listaHabBlanda: HabBlanda[] = [];
+  //TODO: armar HabBlandaDTO
   habBlanda: HabBlanda;
 
   tituloModal: string = "";
-
   //variable para mostrar el modal
   agregarEditarActivado: boolean = false;
-
   //variable para mostrar contenido del modal segun tipo de habilidad
   esHabTecnica: boolean = false;
   esHabBlanda: boolean =false;
@@ -65,13 +40,6 @@ export class HabilidadesComponent implements OnInit {
   constructor(private portfolioServ : PortfolioService) { }
 
   ngOnInit(): void {
-
-    /*//TODO: revisar e implementar obtenerDatos
-    this.portfolioServ.obtenerDatos().subscribe(data => {this.listaHabTecnica = data.habilidadTecnica;
-    })*/
-
-    //this.listarHabTecnicas();
-    //this.listarHabBlandas();
   }
   
   listarHabTecnicas(){
@@ -82,21 +50,21 @@ export class HabilidadesComponent implements OnInit {
     this.portfolioServ.obtenerDatos().subscribe(data => {this.listaHabBlanda = data.habilidadesBlandas})
   }
 
-  abrirModal() : void {
+  abrirModalAgregar() : void {
     if (this.esHabBlanda){
       let habBlan = {id:0,nombreHabilidad:"",urlIcono:""};
       this.habBlanda = habBlan;
       this.tituloModal = "Agregar elemento a Habilidades Blandas";
       this.agregarEditarActivado = true; 
     } else if (this.esHabTecnica){
-      let habTec = {id:0,nombreHabilidad:"",urlIcono:"",nivelId:0};
+      let habTec = {id:0,personaId:this.IdPerso,nivelId:0, nombreHabilidad:"",urlIcono:""};
       this.habTecnica = habTec;
       this.tituloModal = "Agregar elemento a Habilidades Técnicas";
       this.agregarEditarActivado = true;
     }
   }
 
-  procesarAgregarTecnica(nuevaHabTecnica:HabTecnica) : void { 
+  procesarAgregarTecnica(nuevaHabTecnica:HabTecnicaDTO) : void { 
     this.portfolioServ.agregarHabTecnica(nuevaHabTecnica).subscribe(data => {alert("Habilidad agregada con éxito");
     this.listarHabTecnicas();
     }, error =>{alert("Ha ocurrido un error");
@@ -113,7 +81,7 @@ export class HabilidadesComponent implements OnInit {
     this.cerrarModal();
   }
   
-  editarHabTecnica(habTec: HabTecnica): void {
+  editarHabTecnica(habTec: HabTecnicaDTO): void {
 
     this.habTecnica = habTec;
     this.tituloModal = "Editar elemento en Habilidades Técnicas";
@@ -128,7 +96,7 @@ export class HabilidadesComponent implements OnInit {
     this.agregarEditarActivado = true;
   }
 
-  procesarEditarTecnica(habTecEditada: HabTecnica): void {
+  procesarEditarTecnica(habTecEditada: HabTecnicaDTO): void {
 
     let idHabTecEditada: any = habTecEditada.id;
     this.portfolioServ.editarHabTecnica(idHabTecEditada, habTecEditada).subscribe(data => {

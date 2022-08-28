@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { HabTecnica } from 'src/app/dto/habTecnica';
+import { HabTecnicaDTO } from 'src/app/dto/habTecnicaDTO';
 
 @Component({
   selector: 'app-tecnica-agregar-editar',
@@ -8,11 +8,11 @@ import { HabTecnica } from 'src/app/dto/habTecnica';
 })
 export class TecnicaAgregarEditarComponent implements OnInit {
 
-  @Input() habilidadTecnica: HabTecnica;
-  @Output() agregandoHabTecnica = new EventEmitter<HabTecnica>();
-  @Output() editandoHabTecnica = new EventEmitter<HabTecnica>();
+  @Input() habilidadTecnica: HabTecnicaDTO;
+  @Output() agregandoHabTecnica = new EventEmitter<HabTecnicaDTO>();
+  @Output() editandoHabTecnica = new EventEmitter<HabTecnicaDTO>();
 
-  habTecnica: HabTecnica;
+  habTecnica: HabTecnicaDTO;
 
   constructor() { }
 
