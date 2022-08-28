@@ -2,30 +2,54 @@ import { EduDTO } from "./eduDTO";
 import { Experiencia } from "./experiencia";
 import { HabBlanda } from "./habBlanda";
 import { HabTecnicaDTO } from "./habTecnicaDTO";
-import { Persona } from "./persona";
 import { Proyecto } from "./proyecto";
 
 export class PortfolioDTO {
 
-    persona : Persona;
-    educaciones : EduDTO [];
-    experiencias : Experiencia [];
-    habilidadesTecnicas : HabTecnicaDTO [];
-    habilidadesBlandas : HabBlanda [];
-    proyectos : Proyecto [];
+    id: number;
+    nombre: string;
+    ocupacion: string;
+    bannerUrl : string;
+    email: string;
+    linkedinUrl : string;
+    githubUrl : string;
+    descripcion : string;
+    imgUrl : string;
+    educaciones: EduDTO[]; 
+    experiencias: Experiencia[];
+    habilidadesTecnicas: HabTecnicaDTO[];
+    habilidadesBlandas: HabBlanda[];
+    proyectos: Proyecto[];
 
-    constructor(persona: Persona , 
+    constructor(
+                id: number,
+                nombre: string,
+                ocupacion: string,
+                bannerUrl : string,
+                email: string,
+                linkedinUrl : string,
+                githubUrl : string,
+                descripcion : string,
+                imgUrl : string,
                 educaciones: EduDTO[], 
                 experiencias: Experiencia[],
                 habilidadesTecnicas: HabTecnicaDTO[],
                 habilidadesBlandas: HabBlanda[],
-                proyectos: Proyecto[]){
-
-        this.persona = persona;
+                proyectos: Proyecto[]){ 
+        
+        this.id = id;
+        this.nombre = nombre;
+        this.ocupacion = ocupacion;
+        this.bannerUrl = bannerUrl;
+        this.email = email;
+        this.linkedinUrl = linkedinUrl;
+        this.githubUrl = githubUrl;
+        this.descripcion = descripcion;
+        this.imgUrl = imgUrl;
         this.educaciones = educaciones;
         this.experiencias = experiencias;
         this.habilidadesTecnicas = habilidadesTecnicas;
         this.habilidadesBlandas = habilidadesBlandas;
-        this.proyectos = proyectos;   
+        this.proyectos = proyectos;
     }
 }

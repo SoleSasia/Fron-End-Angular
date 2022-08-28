@@ -38,7 +38,7 @@
         <!-- Boton modal Agregar Habilidad Tecnica-->
         <span *ngIf="isLogged" class="edit-icon">
             <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalHabilidades">
-                <i class="bi bi-plus-circle-fill d-flex justify-content-end" (click)="esHabTecnica = true; abrirModal()"></i>
+                <i class="bi bi-plus-circle-fill d-flex justify-content-end" (click)="esHabTecnica = true; abrirModalAgregar()"></i>
             </button>
         </span>
 
@@ -148,7 +148,7 @@
 
         <!-- Boton modal Agregar Habilidad Blanda-->
         <span *ngIf="isLogged" class="edit-icon">
-            <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalHabilidades" (click)="esHabBlanda = true;abrirModal()">
+            <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalHabilidades" (click)="esHabBlanda = true;abrirModalAgregar()">
                 <i class="bi bi-plus-circle-fill d-flex justify-content-end"></i>
             </button>
         </span>

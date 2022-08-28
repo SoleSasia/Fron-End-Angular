@@ -11,7 +11,7 @@ import { PortfolioService } from 'src/app/servicios/portfolio.service';
 export class PortfolioComponent implements OnInit {
 
   miPort : PortfolioDTO;
-  IdPersona : number = 1;
+  isLogged : boolean = false;
 
   constructor(private portfolioServ : PortfolioService) { }
 

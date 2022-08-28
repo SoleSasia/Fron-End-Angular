@@ -5,6 +5,7 @@ import { EduDTO } from '../dto/eduDTO';
 import { Experiencia } from '../dto/experiencia';
 import { HabBlanda } from '../dto/habBlanda';
 import { HabTecnicaDTO } from '../dto/habTecnicaDTO';
+import { PersoDTO } from '../dto/persoDTO';
 import { Proyecto } from '../dto/proyecto';
 import { RespuestaDTO } from '../dto/respuestaDTO';
 
@@ -22,13 +23,17 @@ export class PortfolioService {
 
   constructor(private http:HttpClient) { }
 
+  // LM Porfolio //
+
   public obtenerDatos():Observable<any>{
-    //console.log("El servicio obtener datos está siendo inyectado");
-    //return this.http.get<any>('./assets/data/data.json');
     return this.http.get<any>(this.urlBackend + 'portfolio');
   }
+
+  public editarPersona(perso: PersoDTO) : Observable<RespuestaDTO>{
+    return this.http.put<RespuestaDTO>(this.urlBackend + 'editarPersona', perso);
+  }
   
- // ABM Educacion //
+  // ABM Educacion //
 
   public agregarEdu(edu:EduDTO): Observable<RespuestaDTO> {
     return this.http.post<RespuestaDTO>(this.urlBackend + 'nuevaEdu', edu);    
@@ -56,7 +61,7 @@ export class PortfolioService {
     return this.http.delete<any>(this.urlBackend + `borrarExpe/${id}`);
   }
 
- // ABM Habilidad Tecnica //
+  // ABM Habilidad Tecnica //
 
   public agregarHabTecnica(habTec: HabTecnicaDTO): Observable<RespuestaDTO> {
     return this.http.post<RespuestaDTO>(this.urlBackend + 'nuevaHabTecnica', habTec);    
@@ -70,7 +75,7 @@ export class PortfolioService {
     return this.http.delete<any>(this.urlBackend + `borrarHabTecnica/${id}`);
   }
 
- // ABM Habilidad Blanda //
+  // ABM Habilidad Blanda //
 
   public agregarHabBlanda(habBlan: HabBlanda): Observable<any> {
     return this.http.post<any>(this.urlBackend + 'nuevaHabBlanda', habBlan);    
@@ -85,11 +90,6 @@ export class PortfolioService {
   }
 
   // ABM Proyecto //
-
-  /*TODO: borrar e integrar a obtenerDatos (en el backend)
-  public listarProyectos(): Observable<Proyecto[]>{
-    return this.http.get<Proyecto[]>(this.urlBackend + 'listaProyectos');
-  }*/
 
   public agregarProyecto(proye:Proyecto): Observable<any> {
     return this.http.post<any>(this.urlBackend + 'nuevoProyecto', proye);    
