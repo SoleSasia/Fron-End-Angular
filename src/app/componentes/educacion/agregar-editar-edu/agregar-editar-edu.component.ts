@@ -41,8 +41,6 @@ export class AgregarEditarEduComponent implements OnInit {
 
   editarEdu(eduEditada:EduDTO){
     if (eduEditada.tituloEdu != ""){
-      //control
-      console.log("al back va esta idEduEditada: "+eduEditada.id);
       this.mostrarMsj = true;
       let idEduEditada: any = eduEditada.id;
       this.portfolioServ.editarEdu(idEduEditada, eduEditada).subscribe(data => {

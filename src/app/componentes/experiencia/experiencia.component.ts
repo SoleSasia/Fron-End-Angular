@@ -8,13 +8,12 @@ import { PortfolioService } from 'src/app/servicios/portfolio.service';
   styleUrls: ['./experiencia.component.css']
 })
 export class ExperienciaComponent implements OnInit {
-
-  //urlBackend: string = "http://localhost:8080/"
   
   //TODO: resolver login
   isAdmin: boolean = true;
-  
-  @Input() listaExpe: Experiencia[] = [];//revisar y crear dto portfolio
+
+  @Input() idPerso : number;
+  @Input() listaExpe: Experiencia[] = [];
   experiencia: Experiencia;
   tituloModal: string = "";
   agregarEditarActivado: boolean = false;
@@ -23,8 +22,7 @@ export class ExperienciaComponent implements OnInit {
   constructor(private portfolioServ : PortfolioService) { }
 
   ngOnInit(): void {
-    console.log("llegando datos a expe desde miPortfolio")
-    //this.listarExperiencias();
+    
   }
 
   listarExperiencias() : void{
@@ -88,29 +86,4 @@ export class ExperienciaComponent implements OnInit {
     this.listarExperiencias();
   }
 
-
-
-
-   /*
-  //VARIABLES DEL MODELO
-  experiencia:any = [
-    {
-      nombreOrganismo: "A Pedal", 
-      fechaInicio: "setiembre 2020", 
-      fechaFin: "actualidad",
-      puesto: "fundadora",
-      descripcion: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt et porro totam sunt pariatur animi sit ullam, unde sapiente voluptate rerum illum placeat fugiat aliquam, voluptatibus nostrum inventore fugit. Nihil.",
-      urlLogo: ""
-    },
-
-    {
-      nombreOrganismo: "Centro Vipassana", 
-      fechaInicio: "agosto 2019", 
-      fechaFin: "agosto 2020",
-      puesto: "manager",
-      descripcion: "sin palabras...",
-      url_logo: ""
-    },
-  ];
-  */
 }

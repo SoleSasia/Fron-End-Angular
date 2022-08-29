@@ -8,21 +8,30 @@
 <app-sobre-mi ></app-sobre-mi>
 
 <!--Sección Experiencia-->
-<app-experiencia [listaExpe]="miPort.experiencias"></app-experiencia>
+<app-experiencia
+    [listaExpe]="miPortfolio.experiencias"
+    [idPerso]="miPortfolio.id">
+</app-experiencia>
 
 <!--Sección Educación-->
 <app-educacion 
-    [listaEdu]="miPort.educaciones"
-    [idPerso]="miPort.id">
+    [listaEdu]="miPortfolio.educaciones"
+    [idPerso]="miPortfolio.id"
+    (recargandoPortfolio)="cargarVista()">
 </app-educacion>
 
 <!--Sección Habilidades-->
-<app-habilidades [listaHabTecnica]="miPort.habilidadesTecnicas"
-                 [listaHabBlanda]="miPort.habilidadesBlandas">
+<app-habilidades 
+    [listaHabTecnica]="miPortfolio.habilidadesTecnicas"
+    [listaHabBlanda]="miPortfolio.habilidadesBlandas"
+    [idPerso]="miPortfolio.id">
 </app-habilidades>
 
 <!--Sección Proyectos-->
-<app-proyectos [listaProyectos]="miPort.proyectos"></app-proyectos>
+<app-proyectos
+    [listaProyectos]="miPortfolio.proyectos"
+    [idPerso]="miPortfolio.id">
+</app-proyectos>
 
 <!--Pie de página-->
 <app-footer></app-footer>

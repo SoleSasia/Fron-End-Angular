@@ -10,18 +10,32 @@ import { PortfolioService } from 'src/app/servicios/portfolio.service';
 
 export class PortfolioComponent implements OnInit {
 
-  miPort : PortfolioDTO;
+  miPortfolio : PortfolioDTO = {
+                id: 0,
+                nombre: "",
+                ocupacion: "",
+                bannerUrl : "",
+                email: "",
+                linkedinUrl : "",
+                githubUrl : "",
+                descripcion : "",
+                imgUrl : "",
+                educaciones: [], 
+                experiencias: [],
+                habilidadesTecnicas: [],
+                habilidadesBlandas: [],
+                proyectos: []
+  };
+
   isLogged : boolean = false;
 
   constructor(private portfolioServ : PortfolioService) { }
 
-  ngOnInit(): void {
-    
-    this.portfolioServ.obtenerDatos().subscribe(
-      data => {
-        console.log("llegando data desde getPortfolio() a miPortfolio"); 
-        this.miPort = data})
-
+  ngOnInit(): void {    
+    this.cargarVista();
   }
 
+  cargarVista(){
+    this.portfolioServ.obtenerDatos().subscribe(data => {this.miPortfolio = data})
+  }
 }

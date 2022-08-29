@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { EduDTO } from 'src/app/dto/eduDTO';
 import { PortfolioService } from 'src/app/servicios/portfolio.service';
 
@@ -11,22 +11,25 @@ import { PortfolioService } from 'src/app/servicios/portfolio.service';
 export class EducacionComponent implements OnInit {
   
   //TODO: resolver login
-  isAdmin: boolean = true;
+  @Input() isAdmin: boolean = true;
   
-  @Input() listaEdu: EduDTO[] = [];
   @Input() idPerso : number;
+  @Input() listaEdu: EduDTO[] = [];
+  //recarga vista portfolio
+  @Output() recargandoPortfolio = new EventEmitter<any>();
+
   educacion: EduDTO;
   
   tituloModal: string = "";
   agregarEditarActivado: boolean = false;
+
   
   constructor(private portfolioServ : PortfolioService) { }
 
   ngOnInit(): void {
-    //control
-    console.log("IdPerso en Educacion traido de portfolio: " + this.idPerso);
+    
   }
-
+//recarga solo esta seccion
   listarEducaciones() {
     this.portfolioServ.obtenerDatos().subscribe(data => {this.listaEdu = data.educaciones})
   }
@@ -51,14 +54,14 @@ export class EducacionComponent implements OnInit {
     if(eduId != undefined && confirm("¿Estás segura de querer eliminar este elemento?")){
       this.portfolioServ.borrarEdu(eduId).subscribe(data => {
         alert("Educación eliminada con éxito");
-        this.listarEducaciones();
+        this.recargandoPortfolio.emit();
         });
     }
   }
 
   cerrarModal(){
     this.agregarEditarActivado = false;
-    this.listarEducaciones();
+    this.recargandoPortfolio.emit();
   }
 
 }

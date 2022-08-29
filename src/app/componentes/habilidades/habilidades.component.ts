@@ -15,7 +15,7 @@ export class HabilidadesComponent implements OnInit {
   //TODO: resolver login
   isLogged: boolean = true;
   
-  @Input() IdPerso : number;
+  @Input() idPerso : number;
   @Input() listaHabTecnica: HabTecnicaDTO[] = [];
   habTecnica: HabTecnicaDTO;
 
@@ -57,7 +57,7 @@ export class HabilidadesComponent implements OnInit {
       this.tituloModal = "Agregar elemento a Habilidades Blandas";
       this.agregarEditarActivado = true; 
     } else if (this.esHabTecnica){
-      let habTec = {id:0,personaId:this.IdPerso,nivelId:0, nombreHabilidad:"",urlIcono:""};
+      let habTec = {id:0,personaId:this.idPerso,nivelId:0, nombreHabilidad:"",urlIcono:""};
       this.habTecnica = habTec;
       this.tituloModal = "Agregar elemento a Habilidades Técnicas";
       this.agregarEditarActivado = true;

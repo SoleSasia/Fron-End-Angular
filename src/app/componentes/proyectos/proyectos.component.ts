@@ -13,6 +13,7 @@ export class ProyectosComponent implements OnInit {
   //TODO: resolver login
   isAdmin: boolean = true;
   
+  @Input() idPerso : number;
   @Input() listaProyectos: Proyecto[] = [];
   proyecto: Proyecto;
 
