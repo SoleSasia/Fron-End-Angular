@@ -14,7 +14,7 @@ export class EducacionComponent implements OnInit {
   isAdmin: boolean = true;
   
   @Input() listaEdu: EduDTO[] = [];
-  @Input() IdPerso : number;
+  @Input() idPerso : number;
   educacion: EduDTO;
   
   tituloModal: string = "";
@@ -23,6 +23,8 @@ export class EducacionComponent implements OnInit {
   constructor(private portfolioServ : PortfolioService) { }
 
   ngOnInit(): void {
+    //control
+    console.log("IdPerso en Educacion traido de portfolio: " + this.idPerso);
   }
 
   listarEducaciones() {
@@ -31,13 +33,15 @@ export class EducacionComponent implements OnInit {
 
   abrirModalAgregar(){
     
-    let edu = {id:0,personaId:this.IdPerso, tituloEdu:"",periodoEdu:"",institucionEdu:"",descripcionEdu:"",urlLogoEdu:""};
+    let edu = {id:0,personaId:this.idPerso, tituloEdu:"",periodoEdu:"",institucionEdu:"",descripcionEdu:"",urlLogoEdu:""};
     this.educacion = edu;
     this.tituloModal = "Agregar elemento a Educación";
     this.agregarEditarActivado = true;
   }
 
   abrirModalEditar(edu: EduDTO){
+    //control
+    console.log("objeto en el modal: idPersona => " + edu.personaId + "; idEdu: " + edu.id);
     this.educacion = edu;
     this.tituloModal = "Editar elemento en Educación";
     this.agregarEditarActivado = true;
