@@ -17,6 +17,7 @@ const routes: Routes = [
   {path: 'habilidades', component: HabilidadesComponent},
   {path: 'proyectos', component: ProyectosComponent},
   {path: 'ingresar', component: LoginComponent},
+  {path: '**', redirectTo:'', pathMatch: 'full'}
   
 ];
 

@@ -4,9 +4,9 @@
     <div class="title-section py-2 d-flex justify-content-between align-items-center">
         
     <!-- Boton modal Agregar Experiencia-->
-        <span *ngIf="isAdmin" class="edit-icon">
+        <span *ngIf="isLogged" class="edit-icon">
             <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalExperiencia">
-                <i class="bi bi-plus-circle-fill d-flex justify-content-end" (click)="abrirModal()"></i>
+                <i class="bi bi-plus-circle-fill d-flex justify-content-end" (click)="abrirModalAgregar()"></i>
             </button>
         </span>
 
@@ -26,8 +26,7 @@
                     <app-agregar-editar-expe
                         [experiencia]="experiencia" 
                         *ngIf="agregarEditarActivado"
-                        (agregandoEdu)="procesarAgregar($event)"
-                        (editandoEdu)="procesarEditar($event)">
+                        (cerrandoModal)="cerrarModal()">
                     </app-agregar-editar-expe>
                 </div>
             </div>
@@ -41,13 +40,13 @@
                 <div class="col-sm-8 card-body">
                     <div class="card-title d-flex justify-content-between align-items-center">
                         <h4 class="py-1">{{expe.puestoExpe}}</h4>
-                        <span *ngIf="isAdmin" class="edit-icon p-1 justify-content-between" >
+                        <span *ngIf="isLogged" class="edit-icon p-1 justify-content-between" >
                 <!-- Boton modal Editar Experiencia-->
-                            <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalExperiencia" (click)="editarClick(expe)">
+                            <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalExperiencia" (click)="abrirModalEditar(expe)">
                                 <i class="bi bi-pencil-fill"></i>
                             </button>
                 <!-- Boton Eliminar Experiencia-->
-                            <button type="button" class="btn btn-outline-danger" (click)="eliminarClick(expe.id)">
+                            <button type="button" class="btn btn-outline-danger" (click)="eliminarExpe(expe.id)">
                                 <i class="bi bi-x-circle-fill"></i>
                             </button>   
                         </span>

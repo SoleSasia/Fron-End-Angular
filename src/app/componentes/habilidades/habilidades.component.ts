@@ -13,7 +13,7 @@ import { PortfolioService } from 'src/app/servicios/portfolio.service';
 export class HabilidadesComponent implements OnInit {
 
   //TODO: resolver login
-  isLogged: boolean = true;
+  @Input() isLogged: boolean;
   
   @Input() idPerso : number;
   @Input() listaHabTecnica: HabTecnicaDTO[] = [];

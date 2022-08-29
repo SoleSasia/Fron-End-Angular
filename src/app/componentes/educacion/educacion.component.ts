@@ -11,15 +11,13 @@ import { PortfolioService } from 'src/app/servicios/portfolio.service';
 export class EducacionComponent implements OnInit {
   
   //TODO: resolver login
-  @Input() isAdmin: boolean = true;
-  
+  @Input() isLogged: boolean;
   @Input() idPerso : number;
   @Input() listaEdu: EduDTO[] = [];
   //recarga vista portfolio
   @Output() recargandoPortfolio = new EventEmitter<any>();
 
   educacion: EduDTO;
-  
   tituloModal: string = "";
   agregarEditarActivado: boolean = false;
 
@@ -29,13 +27,13 @@ export class EducacionComponent implements OnInit {
   ngOnInit(): void {
     
   }
-//recarga solo esta seccion
+/*recarga solo esta seccion
   listarEducaciones() {
     this.portfolioServ.obtenerDatos().subscribe(data => {this.listaEdu = data.educaciones})
   }
+  */
 
   abrirModalAgregar(){
-    
     let edu = {id:0,personaId:this.idPerso, tituloEdu:"",periodoEdu:"",institucionEdu:"",descripcionEdu:"",urlLogoEdu:""};
     this.educacion = edu;
     this.tituloModal = "Agregar elemento a Educación";
@@ -43,8 +41,6 @@ export class EducacionComponent implements OnInit {
   }
 
   abrirModalEditar(edu: EduDTO){
-    //control
-    console.log("objeto en el modal: idPersona => " + edu.personaId + "; idEdu: " + edu.id);
     this.educacion = edu;
     this.tituloModal = "Editar elemento en Educación";
     this.agregarEditarActivado = true;
@@ -53,7 +49,7 @@ export class EducacionComponent implements OnInit {
   eliminarEdu(eduId:any){
     if(eduId != undefined && confirm("¿Estás segura de querer eliminar este elemento?")){
       this.portfolioServ.borrarEdu(eduId).subscribe(data => {
-        alert("Educación eliminada con éxito");
+        alert("¡Educación eliminada con éxito!");
         this.recargandoPortfolio.emit();
         });
     }

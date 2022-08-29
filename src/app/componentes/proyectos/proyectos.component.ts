@@ -11,7 +11,7 @@ import { PortfolioService } from 'src/app/servicios/portfolio.service';
 export class ProyectosComponent implements OnInit {
 
   //TODO: resolver login
-  isAdmin: boolean = true;
+  @Input() isLogged: boolean;
   
   @Input() idPerso : number;
   @Input() listaProyectos: Proyecto[] = [];

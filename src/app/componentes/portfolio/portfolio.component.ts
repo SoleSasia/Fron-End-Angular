@@ -27,7 +27,7 @@ export class PortfolioComponent implements OnInit {
                 proyectos: []
   };
 
-  isLogged : boolean = false;
+  isLogged : boolean = true;
 
   constructor(private portfolioServ : PortfolioService) { }
 

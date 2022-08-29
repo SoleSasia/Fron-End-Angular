@@ -1,8 +1,18 @@
 <div>
     <div class="mb-3">
         <label for="puestoExpe" class="form-label">Puesto</label>
-        <input type="text" [(ngModel)]="expe.puestoExpe" class="form-control" required id="puestoExpe" placeholder="Ingresar el nombre del puesto">
+        <input type="text" 
+            [(ngModel)]="expe.puestoExpe"  
+            class="form-control" 
+            required
+            #puestoExpe="ngModel"
+            [ngClass]="{'is-invalid': puestoExpe?.errors && puestoExpe?.touched}"
+            placeholder="Ingresar el nombre del puesto">
     </div>
+    <div *ngIf="puestoExpe.invalid && (puestoExpe.dirty || puestoExpe.touched)">
+        <p *ngIf="puestoExpe?.hasError('required')" class="text-danger">El nombre del puesto es requerido</p>
+    </div>
+
     <div class="mb-3">
         <label for="periodoExpe" class="form-label">Período</label>
         <input type="text" [(ngModel)]="expe.periodoExpe" class="form-control" id="periodoExpe" placeholder="Ingresar el período de trabajo">
@@ -20,8 +30,16 @@
         <input type="text" [(ngModel)]="expe.urlLogoExpe" class="form-control" id="urlLogoExpe" placeholder="Ingresar url del logotipo">
     </div>
 </div>
-<div class="modal-footer">
-    
-    <button (click)="agregarExpe()" *ngIf="expe.id==0" type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Agregar</button>
-    <button (click)="editarExpe()" *ngIf="expe.id!=0" type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Editar</button>
+<div *ngIf="mostrarMsj" [ngClass]="!respta.salioBien? 'alert alert-danger': 'alert alert-success'" role="alert" >
+    <p *ngIf="respta.msj==''">Enviando datos...</p>
+    <p *ngIf="respta.msj!=''">{{respta.msj}}</p>
 </div>
+
+<div *ngIf="!respta.salioBien" class="modal-footer">
+    <button (click)="agregarExpe(expe)" *ngIf="expe.id==0" type="submit" class="btn btn-secondary">Agregar</button>
+    <button (click)="editarExpe(expe)" *ngIf="expe.id!=0" type="submit" class="btn btn-secondary">Editar</button>
+</div>
+<div *ngIf="respta.salioBien" class="modal-footer">
+    <button (click)="cerrarModal()" type="close" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+</div>
+

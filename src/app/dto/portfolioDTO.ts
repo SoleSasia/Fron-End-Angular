@@ -1,5 +1,5 @@
 import { EduDTO } from "./eduDTO";
-import { Experiencia } from "./experiencia";
+import { ExpeDTO } from "./expeDTO";
 import { HabBlanda } from "./habBlanda";
 import { HabTecnicaDTO } from "./habTecnicaDTO";
 import { Proyecto } from "./proyecto";
@@ -16,7 +16,7 @@ export class PortfolioDTO {
     descripcion : string;
     imgUrl : string;
     educaciones: EduDTO[]; 
-    experiencias: Experiencia[];
+    experiencias: ExpeDTO[];
     habilidadesTecnicas: HabTecnicaDTO[];
     habilidadesBlandas: HabBlanda[];
     proyectos: Proyecto[];
@@ -32,7 +32,7 @@ export class PortfolioDTO {
                 descripcion : string,
                 imgUrl : string,
                 educaciones: EduDTO[], 
-                experiencias: Experiencia[],
+                experiencias: ExpeDTO[],
                 habilidadesTecnicas: HabTecnicaDTO[],
                 habilidadesBlandas: HabBlanda[],
                 proyectos: Proyecto[]){ 

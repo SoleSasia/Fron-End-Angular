@@ -7,7 +7,7 @@
             required
             #tituloEdu="ngModel"
             [ngClass]="{'is-invalid': tituloEdu?.errors && tituloEdu?.touched}"  
-            placeholder="">
+            placeholder="Ingresar el título de la formación">
         <div *ngIf="tituloEdu.invalid && (tituloEdu.dirty || tituloEdu.touched)">
             <p *ngIf="tituloEdu?.hasError('required')" class="text-danger">El título es requerido</p>
         </div>

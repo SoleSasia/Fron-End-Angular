@@ -9,28 +9,35 @@
 
 <!--Sección Experiencia-->
 <app-experiencia
+    [isLogged]="isLogged"    
+    [idPerso]="miPortfolio.id"
     [listaExpe]="miPortfolio.experiencias"
-    [idPerso]="miPortfolio.id">
+    (recargandoPortfolio)="cargarVista()">
 </app-experiencia>
 
 <!--Sección Educación-->
-<app-educacion 
-    [listaEdu]="miPortfolio.educaciones"
+<app-educacion
+    [isLogged]="isLogged"
     [idPerso]="miPortfolio.id"
+    [listaEdu]="miPortfolio.educaciones"
     (recargandoPortfolio)="cargarVista()">
 </app-educacion>
 
 <!--Sección Habilidades-->
 <app-habilidades 
+    [isLogged]="isLogged"
+    [idPerso]="miPortfolio.id"    
     [listaHabTecnica]="miPortfolio.habilidadesTecnicas"
     [listaHabBlanda]="miPortfolio.habilidadesBlandas"
-    [idPerso]="miPortfolio.id">
+    (recargandoPortfolio)="cargarVista()">
 </app-habilidades>
 
 <!--Sección Proyectos-->
 <app-proyectos
+    [isLogged]="isLogged"
+    [idPerso]="miPortfolio.id"
     [listaProyectos]="miPortfolio.proyectos"
-    [idPerso]="miPortfolio.id">
+    (recargandoPortfolio)="cargarVista()">
 </app-proyectos>
 
 <!--Pie de página-->

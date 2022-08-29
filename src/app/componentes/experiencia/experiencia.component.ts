@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Experiencia } from 'src/app/dto/experiencia';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ExpeDTO } from 'src/app/dto/expeDTO';
 import { PortfolioService } from 'src/app/servicios/portfolio.service';
 
 @Component({
@@ -10,11 +10,13 @@ import { PortfolioService } from 'src/app/servicios/portfolio.service';
 export class ExperienciaComponent implements OnInit {
   
   //TODO: resolver login
-  isAdmin: boolean = true;
-
+  @Input() isLogged: boolean;
   @Input() idPerso : number;
-  @Input() listaExpe: Experiencia[] = [];
-  experiencia: Experiencia;
+  @Input() listaExpe: ExpeDTO[] = [];
+  //recarga vista portfolio
+  @Output() recargandoPortfolio = new EventEmitter<any>();
+
+  experiencia: ExpeDTO;
   tituloModal: string = "";
   agregarEditarActivado: boolean = false;
 
@@ -24,66 +26,39 @@ export class ExperienciaComponent implements OnInit {
   ngOnInit(): void {
     
   }
-
+/*
   listarExperiencias() : void{
     console.log("llegando data de experiencia");
     this.portfolioServ.obtenerDatos().subscribe(data => {this.listaExpe = data.experiencias});
     //this.portfolioServ.listarExperiencias().subscribe(data => {this.listaExpe = data})
   }
+  */
 
-  abrirModal(){
-    let expe = {id:0,puestoExpe:"",periodoExpe:"",organismoExpe:"",descripcionExpe:"",urlLogoExpe:""};
+  abrirModalAgregar(){
+    let expe = {id:0,personaId:this.idPerso,puestoExpe:"",periodoExpe:"",organismoExpe:"",descripcionExpe:"",urlLogoExpe:""};
     this.experiencia = expe;
     this.tituloModal = "Agregar elemento a Experiencia";
     this.agregarEditarActivado = true;
   }
 
-  procesarAgregar(nuevaExpe:any){
-    this.portfolioServ.agregarExpe(nuevaExpe).subscribe(data => {
-      alert("Experiencia agregada correctamente");
-      this.listaExpe = data;
-      this.listarExperiencias();
-      }, error =>{
-        alert("No se a cargado el elemento");
-      }
-    );
-    this.cerrarModal();
-  }
-
-  editarClick(expe: Experiencia){
+  abrirModalEditar(expe: ExpeDTO){
     this.experiencia = expe;
     this.tituloModal = "Editar elemento en Experiencia";
     this.agregarEditarActivado = true;
   }
 
-  procesarEditar(expeEditada:any){
-
-    let idExpeEditada: any = expeEditada.id;
-    this.portfolioServ.editarExpe(idExpeEditada, expeEditada).subscribe(data => {
-      alert("Experiencia modificada correctamente");
-      this.listaExpe = data;
-      this.listarExperiencias();
-      }, error =>{
-        alert("No se a cargado el elemento");
-      }
-    );
-    this.cerrarModal();
-  }
-
-  eliminarClick(expeId:any){
+  eliminarExpe(expeId:any){
     if(expeId != undefined && confirm("¿Estás segura de querer eliminar este elemento?")){
       this.portfolioServ.borrarExpe(expeId).subscribe(data => {
-        alert("Experiencia eliminada correctamente");
-        this.listarExperiencias();
-        }, error => { 
-        alert("No se pudo eliminar el elemento");
-        })
+        alert("¡Experiencia eliminada con éxito!");
+        this.recargandoPortfolio.emit();
+        });
     }
   }
 
   cerrarModal(){
     this.agregarEditarActivado = false;
-    this.listarExperiencias();
+    this.recargandoPortfolio.emit();
   }
 
 }

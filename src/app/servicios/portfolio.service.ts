@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { EduDTO } from '../dto/eduDTO';
-import { Experiencia } from '../dto/experiencia';
+import { ExpeDTO } from '../dto/expeDTO';
 import { HabBlanda } from '../dto/habBlanda';
 import { HabTecnicaDTO } from '../dto/habTecnicaDTO';
 import { PersoDTO } from '../dto/persoDTO';
@@ -39,22 +39,22 @@ export class PortfolioService {
     return this.http.post<RespuestaDTO>(this.urlBackend + 'nuevaEdu', edu);    
   }
 
-  public editarEdu(id :number, edu :EduDTO): Observable<RespuestaDTO> {
+  public editarEdu(id: number, edu: EduDTO): Observable<RespuestaDTO> {
     return this.http.put<RespuestaDTO>(this.urlBackend + `editarEdu/${id}`, edu);
   }
 
-  public borrarEdu(id :number): Observable<any> {
+  public borrarEdu(id: number): Observable<any> {
     return this.http.delete<any>(this.urlBackend + `borrarEdu/${id}`);
   }
 
   // ABM Experiencia //
 
-  public agregarExpe(expe:Experiencia): Observable<any> {
-    return this.http.post<any>(this.urlBackend + 'nuevaExpe', expe);    
+  public agregarExpe(expe: ExpeDTO): Observable<RespuestaDTO> {
+    return this.http.post<RespuestaDTO>(this.urlBackend + 'nuevaExpe', expe);    
   }
 
-  public editarExpe(id :number, expe :Experiencia): Observable<any> {
-    return this.http.put<any>(this.urlBackend + `editarExpe/${id}`, expe);
+  public editarExpe(id: number, expe: ExpeDTO): Observable<RespuestaDTO> {
+    return this.http.put<RespuestaDTO>(this.urlBackend + `editarExpe/${id}`, expe);
   }
 
   public borrarExpe(id :number): Observable<any> {
