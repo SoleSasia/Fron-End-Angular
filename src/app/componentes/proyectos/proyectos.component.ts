@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Proyecto } from 'src/app/dto/proyecto';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ProyeDTO } from 'src/app/dto/proyeDTO';
 import { PortfolioService } from 'src/app/servicios/portfolio.service';
 
 @Component({
@@ -12,31 +12,36 @@ export class ProyectosComponent implements OnInit {
 
   //TODO: resolver login
   @Input() isLogged: boolean;
-  
   @Input() idPerso : number;
-  @Input() listaProyectos: Proyecto[] = [];
-  proyecto: Proyecto;
-
+  @Input() listaProyectos: ProyeDTO[] = [];
+  @Output() recargandoPortfolio = new EventEmitter<any>();
+  
+  proyecto: ProyeDTO;
   tituloModal: string = "";
   agregarEditarActivado: boolean = false;
   
+
   constructor(private portfolioServ : PortfolioService) { }
 
   ngOnInit(): void {
-  }
 
+  }
+/*
   listarProyectos() {
     this.portfolioServ.obtenerDatos().subscribe(data => {this.listaProyectos = data.proyectos})
   }
-
+*/
   abrirModalAgregar(){
-    let proye = {id:0,nombreProye:"",descripcionProye:"",imgUrl:"",repoUrl:"",liveUrl:""};
+    console.log("idPerso al abrir agregarModal: "+ this.idPerso);
+    let proye = {id:0,personaId:this.idPerso,nombreProye:"",descripcionProye:"",imgUrl:"",repoUrl:"",liveUrl:""};
     this.proyecto = proye;
     this.tituloModal = "Agregar elemento a Proyectos";
     this.agregarEditarActivado = true;
   }
 
-  abrirModalEditar(proye: Proyecto){
+  abrirModalEditar(proye: ProyeDTO){
+    console.log("idPerso al abrir editarModal: "+ proye.personaId);
+    console.log("id al abrir editarModal: "+ proye.id);
     this.proyecto = proye;
     this.tituloModal = "Editar elemento en Proyecto";
     this.agregarEditarActivado = true;
@@ -46,14 +51,14 @@ export class ProyectosComponent implements OnInit {
     if(proyeId != undefined && confirm("¿Estás segura de querer eliminar este elemento?")){
       this.portfolioServ.borrarProyecto(proyeId).subscribe(data => {
         alert("Proyecto eliminado con éxito");
-        this.listarProyectos();
+        this.recargandoPortfolio.emit();
         });
     }
   }
 
   cerrarModal(){
     this.agregarEditarActivado = false;
-    this.listarProyectos();
+    this.recargandoPortfolio.emit();
   }
 
 }

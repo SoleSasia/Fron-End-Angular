@@ -6,7 +6,7 @@ import { ExpeDTO } from '../dto/expeDTO';
 import { HabBlandaDTO } from '../dto/habBlandaDTO';
 import { HabTecnicaDTO } from '../dto/habTecnicaDTO';
 import { PersoDTO } from '../dto/persoDTO';
-import { Proyecto } from '../dto/proyecto';
+import { ProyeDTO } from '../dto/proyeDTO';
 import { RespuestaDTO } from '../dto/respuestaDTO';
 
 @Injectable({
@@ -91,11 +91,11 @@ export class PortfolioService {
 
   // ABM Proyecto //
 
-  public agregarProyecto(proye:Proyecto): Observable<any> {
+  public agregarProyecto(proye:ProyeDTO): Observable<any> {
     return this.http.post<any>(this.urlBackend + 'nuevoProyecto', proye);    
   }
 
-  public editarProyecto(id :number, proye :Proyecto): Observable<any> {
+  public editarProyecto(id :number, proye :ProyeDTO): Observable<any> {
     return this.http.put<any>(this.urlBackend + `editarProyecto/${id}`, proye);
   }
 

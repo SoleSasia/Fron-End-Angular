@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Proyecto } from 'src/app/dto/proyecto';
+import { ProyeDTO } from 'src/app/dto/proyeDTO';
 import { RespuestaDTO } from 'src/app/dto/respuestaDTO';
 import { PortfolioService } from 'src/app/servicios/portfolio.service';
 
@@ -11,10 +11,10 @@ import { PortfolioService } from 'src/app/servicios/portfolio.service';
 
 export class AgregarEditarProyectosComponent implements OnInit {
 
-  @Input() proyecto: Proyecto;
+  @Input() proyecto: ProyeDTO;
   @Output() cerrandoModal = new EventEmitter<any>();
 
-  proye : Proyecto;
+  proye : ProyeDTO;
   //respuesta que viene del Backend
   respta: RespuestaDTO = {salioBien: false, msj: ""};
   //variable que permite la vista del msj de la respuesta
@@ -26,20 +26,21 @@ export class AgregarEditarProyectosComponent implements OnInit {
     this.proye = this.proyecto;
   }
 
-  agregarProye(nuevoProye:Proyecto){
+  agregarProye(nuevoProye:ProyeDTO){
     if (nuevoProye.nombreProye != ""){
       this.mostrarMsj = true;
       this.portfolioServ.agregarProyecto(nuevoProye).subscribe(data => {
         this.respta = data;
         }
       );
+      console.log("idPerso al enviar agregarModal: "+ nuevoProye.personaId);
     } else {
       this.mostrarMsj = true;
       this.respta.msj = "No se puede agregar un elemento sin título";
     }
   }
 
-  editarProye(proyeEditado:Proyecto){
+  editarProye(proyeEditado:ProyeDTO){
     if (proyeEditado.nombreProye != ""){
       this.mostrarMsj = true;
       let idProyeEditado: any = proyeEditado.id;
@@ -47,6 +48,7 @@ export class AgregarEditarProyectosComponent implements OnInit {
         this.respta = data;
         }
       );
+      console.log("idPerso al enviar editarModal: "+ proyeEditado.personaId);
     } else {
       this.mostrarMsj = true;
       this.respta.msj = "No se puede modificar un elemento sin título";      

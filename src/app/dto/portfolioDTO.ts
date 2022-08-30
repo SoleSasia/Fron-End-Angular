@@ -2,7 +2,7 @@ import { EduDTO } from "./eduDTO";
 import { ExpeDTO } from "./expeDTO";
 import { HabBlandaDTO } from "./habBlandaDTO";
 import { HabTecnicaDTO } from "./habTecnicaDTO";
-import { Proyecto } from "./proyecto";
+import { ProyeDTO } from "./proyeDTO";
 
 export class PortfolioDTO {
 
@@ -19,7 +19,7 @@ export class PortfolioDTO {
     experiencias: ExpeDTO[];
     habTecnicas: HabTecnicaDTO[];
     habBlandas: HabBlandaDTO[];
-    proyectos: Proyecto[];
+    proyectos: ProyeDTO[];
 
     constructor(
                 id: number,
@@ -35,7 +35,7 @@ export class PortfolioDTO {
                 experiencias: ExpeDTO[],
                 habTecnicas: HabTecnicaDTO[],
                 habBlandas: HabBlandaDTO[],
-                proyectos: Proyecto[]){ 
+                proyectos: ProyeDTO[]){ 
         
         this.id = id;
         this.nombre = nombre;
