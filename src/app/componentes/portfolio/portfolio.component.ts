@@ -9,7 +9,7 @@ import { PortfolioService } from 'src/app/servicios/portfolio.service';
 })
 
 export class PortfolioComponent implements OnInit {
-
+//soluciona error ctx.miPortfolio
   miPortfolio : PortfolioDTO = {
                 id: 0,
                 nombre: "",

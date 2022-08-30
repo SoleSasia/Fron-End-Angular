@@ -15,15 +15,15 @@ export class HabilidadesComponent implements OnInit {
   //TODO: resolver login
   @Input() isLogged: boolean;
   @Input() idPerso : number;
-  @Input() listaHabTecnica: HabTecnicaDTO[] = [];
+  @Input() listaHabTecnica: HabTecnicaDTO[];
   @Input() listaHabBlanda: HabBlandaDTO[] = [];
   //recarga vista portfolio
   @Output() recargandoPortfolio = new EventEmitter<any>();
 
   //listas separadas por nivel de suficiencia (habTecnica)
-  listaAvanzado: HabTecnicaDTO[] = [];
-  listaIntermedio: HabTecnicaDTO[] = [];
-  listaBasico: HabTecnicaDTO[] = [];
+  listaAvanzado: HabTecnicaDTO[];
+  listaIntermedio: HabTecnicaDTO[];
+  listaBasico: HabTecnicaDTO[];
 
   habTecnica: HabTecnicaDTO;
   habBlanda: HabBlandaDTO;
@@ -33,14 +33,14 @@ export class HabilidadesComponent implements OnInit {
   agregarEditarActivado: boolean = false;
   //variable para mostrar contenido del modal segun tipo de habilidad
   esHabTecnica: boolean = false;
-  esHabBlanda: boolean =false;
+  esHabBlanda: boolean = false;
 
   constructor(private portfolioServ : PortfolioService) { }
 
   ngOnInit(): void {
     
     
-    this.separarPorNivel();
+    this.separando();
 
     //console.log(this.listaIntermedio[0].nombreHabilidad);
   }
@@ -57,6 +57,12 @@ export class HabilidadesComponent implements OnInit {
         this.listaBasico.push(hab);
       }
     }
+  }
+
+  separando(){
+    this.listaAvanzado = this.listaHabTecnica.filter((el) => el.nivelId == 1);
+    this.listaIntermedio = this.listaHabTecnica.filter((el) => el.nivelId == 2);
+    this.listaBasico = this.listaHabTecnica.filter((el) => el.nivelId == 3);
   }
 
   abrirModalAgregar() : void {

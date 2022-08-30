@@ -108,7 +108,7 @@
         <div class="container my-2" id="basico">
             
             <ul class="row d-flex list-unstyled">
-                <div *ngFor="let habTec of listaBasico" class="col">
+                <li *ngFor="let habTec of listaBasico" class="col">
                     
                     <span class="edit-icon justify-content-between">
                         <button class="btn-outline-danger"><i class="bi bi-pencil-fill"></i></button>
@@ -116,7 +116,7 @@
                     </span>
                     <i [class]="habTec.urlIcono"></i>
                 
-                </div>
+                </li>
                     
             </ul>
                 
