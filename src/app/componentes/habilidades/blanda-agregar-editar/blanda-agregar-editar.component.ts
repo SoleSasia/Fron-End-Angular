@@ -1,33 +1,63 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { HabBlanda } from 'src/app/dto/habBlanda';
+import { HabBlandaDTO } from 'src/app/dto/habBlandaDTO';
+import { RespuestaDTO } from 'src/app/dto/respuestaDTO';
+import { PortfolioService } from 'src/app/servicios/portfolio.service';
 
 @Component({
   selector: 'app-blanda-agregar-editar',
   templateUrl: './blanda-agregar-editar.component.html',
   styleUrls: ['./blanda-agregar-editar.component.css']
 })
+
 export class BlandaAgregarEditarComponent implements OnInit {
 
-  @Input() habilidadBlanda: HabBlanda;
-  @Output() agregandoHabBlanda = new EventEmitter<HabBlanda>();
-  @Output() editandoHabBlanda = new EventEmitter<HabBlanda>();
+  @Input() habilidadBlanda: HabBlandaDTO;
+  @Output() cerrandoModal = new EventEmitter<any>();
 
-  habBlanda: HabBlanda;
+  habBlanda: HabBlandaDTO;
+  //respuesta que viene del Backend
+  respta: RespuestaDTO = {salioBien: false, msj: ""};
+  //variable que permite la vista del msj de la respuesta
+  mostrarMsj: boolean = false;
 
-  constructor() { }
+  constructor(private portfolioServ : PortfolioService) { }
 
   ngOnInit(): void {
-    console.log("iniciando componenteblanda-agregar");
-    console.log("esto llega del padre: ");
-   //this.habBlanda = this.habilidadBlanda;
+    this.habBlanda = this.habilidadBlanda;
   }
 
-  agregarHabBlanda(){
-    this.agregandoHabBlanda.emit(this.habBlanda);
+  agregarHabBlanda(nuevaBlanda: HabBlandaDTO){
+    if (nuevaBlanda.nombreHabilidad != ""){
+      this.mostrarMsj = true;
+      this.portfolioServ.agregarHabBlanda(nuevaBlanda).subscribe(data => {
+        this.respta = data;
+        }
+      );
+    } else {
+      this.mostrarMsj = true;
+      this.respta.msj = "No se puede agregar un elemento sin su nombre";
+    }
   }
 
-  editarHabBlanda(){
-    this.editandoHabBlanda.emit(this.habBlanda);
+  editarHabBlanda(blandaEditada: HabBlandaDTO){
+    if (blandaEditada.nombreHabilidad != ""){
+      this.mostrarMsj = true;
+      let idBlandaEditada: any = blandaEditada.id;
+      this.portfolioServ.editarHabBlanda(idBlandaEditada, blandaEditada).subscribe(data => {
+        this.respta = data;
+        }
+      );
+    } else {
+      this.mostrarMsj = true;
+      this.respta.msj = "No se puede modificar un elemento sin su nombre";      
+    }
+  }
+
+  cerrarModal(){
+    this.mostrarMsj=false
+    this.respta = {salioBien: false, msj: ""};
+    //recargar vista de esta seccion del portfolio
+    this.cerrandoModal.emit();
   }
 
 }

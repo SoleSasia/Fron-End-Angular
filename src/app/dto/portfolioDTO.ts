@@ -1,6 +1,6 @@
 import { EduDTO } from "./eduDTO";
 import { ExpeDTO } from "./expeDTO";
-import { HabBlanda } from "./habBlanda";
+import { HabBlandaDTO } from "./habBlandaDTO";
 import { HabTecnicaDTO } from "./habTecnicaDTO";
 import { Proyecto } from "./proyecto";
 
@@ -17,8 +17,8 @@ export class PortfolioDTO {
     imgUrl : string;
     educaciones: EduDTO[]; 
     experiencias: ExpeDTO[];
-    habilidadesTecnicas: HabTecnicaDTO[];
-    habilidadesBlandas: HabBlanda[];
+    habTecnicas: HabTecnicaDTO[];
+    habBlandas: HabBlandaDTO[];
     proyectos: Proyecto[];
 
     constructor(
@@ -33,8 +33,8 @@ export class PortfolioDTO {
                 imgUrl : string,
                 educaciones: EduDTO[], 
                 experiencias: ExpeDTO[],
-                habilidadesTecnicas: HabTecnicaDTO[],
-                habilidadesBlandas: HabBlanda[],
+                habTecnicas: HabTecnicaDTO[],
+                habBlandas: HabBlandaDTO[],
                 proyectos: Proyecto[]){ 
         
         this.id = id;
@@ -48,8 +48,8 @@ export class PortfolioDTO {
         this.imgUrl = imgUrl;
         this.educaciones = educaciones;
         this.experiencias = experiencias;
-        this.habilidadesTecnicas = habilidadesTecnicas;
-        this.habilidadesBlandas = habilidadesBlandas;
+        this.habTecnicas = habTecnicas;
+        this.habBlandas = habBlandas;
         this.proyectos = proyectos;
     }
 }

@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { HabBlanda } from 'src/app/dto/habBlanda';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { HabBlandaDTO } from 'src/app/dto/habBlandaDTO';
 import { HabTecnicaDTO } from 'src/app/dto/habTecnicaDTO';
 import { NivelHabilidad } from 'src/app/dto/nivelHabilidad';
 import { PortfolioService } from 'src/app/servicios/portfolio.service';
@@ -14,21 +14,19 @@ export class HabilidadesComponent implements OnInit {
 
   //TODO: resolver login
   @Input() isLogged: boolean;
-  
   @Input() idPerso : number;
   @Input() listaHabTecnica: HabTecnicaDTO[] = [];
+  @Input() listaHabBlanda: HabBlandaDTO[] = [];
+  //recarga vista portfolio
+  @Output() recargandoPortfolio = new EventEmitter<any>();
+
+  //listas separadas por nivel de suficiencia (habTecnica)
+  listaAvanzado: HabTecnicaDTO[] = [];
+  listaIntermedio: HabTecnicaDTO[] = [];
+  listaBasico: HabTecnicaDTO[] = [];
+
   habTecnica: HabTecnicaDTO;
-
-  //TODO: armar NIvelDTO
-  listaNiveles: NivelHabilidad[] = [
-    /*{ id : 1, nombreNivel : "Avanzado", style : "width: 75%" },
-    { id : 2, nombreNivel : "Intermedio", style : "width: 50%" },
-    { id : 3, nombreNivel : "Básico", style : "width: 25%" }*/
-  ];
-
-  @Input() listaHabBlanda: HabBlanda[] = [];
-  //TODO: armar HabBlandaDTO
-  habBlanda: HabBlanda;
+  habBlanda: HabBlandaDTO;
 
   tituloModal: string = "";
   //variable para mostrar el modal
@@ -40,19 +38,30 @@ export class HabilidadesComponent implements OnInit {
   constructor(private portfolioServ : PortfolioService) { }
 
   ngOnInit(): void {
+    
+    
+    this.separarPorNivel();
+
+    //console.log(this.listaIntermedio[0].nombreHabilidad);
   }
-  
-  listarHabTecnicas(){
-    this.portfolioServ.obtenerDatos().subscribe(data => {this.listaHabTecnica = data.habilidadesTecnicas})
-  }
-  
-  listarHabBlandas(){
-    this.portfolioServ.obtenerDatos().subscribe(data => {this.listaHabBlanda = data.habilidadesBlandas})
+
+  //seṕarando listas y reasignango por nivel
+  separarPorNivel(){
+    
+    for (let hab of this.listaHabTecnica){
+      if (hab.nivelId == 1){
+        this.listaAvanzado.push(hab);
+      } else if (hab.nivelId == 2){
+        this.listaIntermedio.push(hab);
+      } else {
+        this.listaBasico.push(hab);
+      }
+    }
   }
 
   abrirModalAgregar() : void {
     if (this.esHabBlanda){
-      let habBlan = {id:0,nombreHabilidad:"",urlIcono:""};
+      let habBlan = {id:0,personaId:this.idPerso,nombreHabilidad:"",urlIcono:""};
       this.habBlanda = habBlan;
       this.tituloModal = "Agregar elemento a Habilidades Blandas";
       this.agregarEditarActivado = true; 
@@ -64,69 +73,32 @@ export class HabilidadesComponent implements OnInit {
     }
   }
 
-  procesarAgregarTecnica(nuevaHabTecnica:HabTecnicaDTO) : void { 
-    this.portfolioServ.agregarHabTecnica(nuevaHabTecnica).subscribe(data => {alert("Habilidad agregada con éxito");
-    this.listarHabTecnicas();
-    }, error =>{alert("Ha ocurrido un error");
-    })
-    this.cerrarModal();
-  } 
-
-  procesarAgregarBlanda(nuevaHabBlanda:HabBlanda) : void {
-
-    this.portfolioServ.agregarHabBlanda(nuevaHabBlanda).subscribe(data => {alert("Habilidad agregada con éxito");
-    this.listarHabBlandas();
-    }, error =>{alert("Ha ocurrido un error");
-    })
-    this.cerrarModal();
-  }
-  
   editarHabTecnica(habTec: HabTecnicaDTO): void {
-
     this.habTecnica = habTec;
     this.tituloModal = "Editar elemento en Habilidades Técnicas";
-    this.agregarEditarActivado = true;
-    
+    this.agregarEditarActivado = true;    
   }
 
-  editarHabBlanda(habBlan: HabBlanda): void {
+  eliminarHabTecnica(habTecId: any): void {
+    if(habTecId != undefined && confirm("¿Estás segura de querer eliminar este elemento?")){
+      this.portfolioServ.borrarHabTecnica(habTecId).subscribe(data => {
+        alert("El elemento ha sido eliminado");
+        this.recargandoPortfolio.emit();
+        });
+    }
+  }
 
+  editarHabBlanda(habBlan: HabBlandaDTO): void {
     this.habBlanda = habBlan;
     this.tituloModal = "Editar elemento en Habilidades Blandas";
     this.agregarEditarActivado = true;
   }
 
-  procesarEditarTecnica(habTecEditada: HabTecnicaDTO): void {
-
-    let idHabTecEditada: any = habTecEditada.id;
-    this.portfolioServ.editarHabTecnica(idHabTecEditada, habTecEditada).subscribe(data => {
-      alert("Habilidad editada con éxito");
-      this.listarHabTecnicas();
-      }, error =>{
-        alert("Ha ocurrido un error");
-      }
-    );
-    this.cerrarModal();
-  }
-
-  procesarEditarBlanda(habBlanEditada: HabBlanda): void {
-
-    let idHabBlanEditada: any = habBlanEditada.id;
-    this.portfolioServ.editarHabBlanda(idHabBlanEditada, habBlanEditada).subscribe(data => {
-      alert("Habilidad editada con éxito");
-      this.listarHabBlandas();
-      }, error =>{
-        alert("Ha ocurrido un error");
-      }
-    );
-    this.cerrarModal();
-  }
-
-  eliminarClick(habTecId: any): void {
-    if(habTecId != undefined && confirm("¿Estás segura de querer eliminar este elemento?")){
-      this.portfolioServ.borrarHabTecnica(habTecId).subscribe(data => {
-        alert("Educación eliminada con éxito");
-        this.listarHabTecnicas();
+  eliminarHabBlanda(habBlanId: any): void {
+    if(habBlanId != undefined && confirm("¿Estás segura de querer eliminar este elemento?")){
+      this.portfolioServ.borrarHabBlanda(habBlanId).subscribe(data => {
+        alert("El elemento ha sido eliminado");
+        this.recargandoPortfolio.emit();
         });
     }
   }
@@ -135,8 +107,6 @@ export class HabilidadesComponent implements OnInit {
     this.esHabTecnica = false;
     this.esHabBlanda = false;
     this.agregarEditarActivado = false;
-    this.listarHabTecnicas();
-    this.listarHabBlandas();
-
+    this.recargandoPortfolio.emit();
   }
 }

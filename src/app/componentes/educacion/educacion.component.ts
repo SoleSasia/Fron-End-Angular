@@ -27,11 +27,6 @@ export class EducacionComponent implements OnInit {
   ngOnInit(): void {
     
   }
-/*recarga solo esta seccion
-  listarEducaciones() {
-    this.portfolioServ.obtenerDatos().subscribe(data => {this.listaEdu = data.educaciones})
-  }
-  */
 
   abrirModalAgregar(){
     let edu = {id:0,personaId:this.idPerso, tituloEdu:"",periodoEdu:"",institucionEdu:"",descripcionEdu:"",urlLogoEdu:""};

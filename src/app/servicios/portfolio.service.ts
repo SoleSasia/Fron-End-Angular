@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { EduDTO } from '../dto/eduDTO';
 import { ExpeDTO } from '../dto/expeDTO';
-import { HabBlanda } from '../dto/habBlanda';
+import { HabBlandaDTO } from '../dto/habBlandaDTO';
 import { HabTecnicaDTO } from '../dto/habTecnicaDTO';
 import { PersoDTO } from '../dto/persoDTO';
 import { Proyecto } from '../dto/proyecto';
@@ -77,11 +77,11 @@ export class PortfolioService {
 
   // ABM Habilidad Blanda //
 
-  public agregarHabBlanda(habBlan: HabBlanda): Observable<any> {
+  public agregarHabBlanda(habBlan: HabBlandaDTO): Observable<any> {
     return this.http.post<any>(this.urlBackend + 'nuevaHabBlanda', habBlan);    
   }
 
-  public editarHabBlanda(id: number, habBlan :HabBlanda): Observable<any> {
+  public editarHabBlanda(id: number, habBlan :HabBlandaDTO): Observable<any> {
     return this.http.put<any>(this.urlBackend + `editarHabBlanda/${id}`, habBlan);
   }
 

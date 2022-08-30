@@ -22,8 +22,8 @@ export class PortfolioComponent implements OnInit {
                 imgUrl : "",
                 educaciones: [], 
                 experiencias: [],
-                habilidadesTecnicas: [],
-                habilidadesBlandas: [],
+                habTecnicas: [],
+                habBlandas: [],
                 proyectos: []
   };
 
