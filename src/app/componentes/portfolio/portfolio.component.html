@@ -1,16 +1,24 @@
 <!--Barra de navegacion-->
-<app-navbar></app-navbar>
+<app-navbar
+    [isLogged]="isLogged"
+    [persona]="miPortfolio.persona">
+</app-navbar>
 
 <!--Header-->
-<app-encabezado></app-encabezado>
+<app-encabezado
+    [persona]="miPortfolio.persona">
+</app-encabezado>
 
 <!--Sección Sobre Mí-->
-<app-sobre-mi ></app-sobre-mi>
+<app-sobre-mi
+    [isLogged]="isLogged"
+    [persona]="miPortfolio.persona">
+</app-sobre-mi>
 
 <!--Sección Experiencia-->
 <app-experiencia
     [isLogged]="isLogged"    
-    [idPerso]="miPortfolio.id"
+    [idPerso]="miPortfolio.persona.id"
     [listaExpe]="miPortfolio.experiencias"
     (recargandoPortfolio)="cargarVista()">
 </app-experiencia>
@@ -18,7 +26,7 @@
 <!--Sección Educación-->
 <app-educacion
     [isLogged]="isLogged"
-    [idPerso]="miPortfolio.id"
+    [idPerso]="miPortfolio.persona.id"
     [listaEdu]="miPortfolio.educaciones"
     (recargandoPortfolio)="cargarVista()">
 </app-educacion>
@@ -26,7 +34,7 @@
 <!--Sección Habilidades-->
 <app-habilidades 
     [isLogged]="isLogged"
-    [idPerso]="miPortfolio.id"    
+    [idPerso]="miPortfolio.persona.id"    
     [listaHabTecnica]="miPortfolio.habTecnicas"
     [listaHabBlanda]="miPortfolio.habBlandas"
     (recargandoPortfolio)="cargarVista()">
@@ -35,7 +43,7 @@
 <!--Sección Proyectos-->
 <app-proyectos
     [isLogged]="isLogged"
-    [idPerso]="miPortfolio.id"
+    [idPerso]="miPortfolio.persona.id"
     [listaProyectos]="miPortfolio.proyectos"
     (recargandoPortfolio)="cargarVista()">
 </app-proyectos>

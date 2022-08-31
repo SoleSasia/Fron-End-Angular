@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PersoDTO } from 'src/app/dto/persoDTO';
 import { PortfolioDTO } from 'src/app/dto/portfolioDTO';
 import { PortfolioService } from 'src/app/servicios/portfolio.service';
 
@@ -10,8 +11,8 @@ import { PortfolioService } from 'src/app/servicios/portfolio.service';
 
 export class PortfolioComponent implements OnInit {
 //soluciona error ctx.miPortfolio
-  miPortfolio : PortfolioDTO = {
-                id: 0,
+  miPortfolio : PortfolioDTO;
+  /*              id: 0,
                 nombre: "",
                 ocupacion: "",
                 bannerUrl : "",
@@ -25,9 +26,10 @@ export class PortfolioComponent implements OnInit {
                 habTecnicas: [],
                 habBlandas: [],
                 proyectos: []
-  };
+  };*/
 
   isLogged : boolean = true;
+//  persona : PersoDTO;
 
   constructor(private portfolioServ : PortfolioService) { }
 
@@ -36,6 +38,7 @@ export class PortfolioComponent implements OnInit {
   }
 
   cargarVista(){
-    this.portfolioServ.obtenerDatos().subscribe(data => {this.miPortfolio = data})
+    this.portfolioServ.obtenerDatos().subscribe(data => {this.miPortfolio = data});
+    //this.persona = this.miPortfolio.persona;
   }
 }

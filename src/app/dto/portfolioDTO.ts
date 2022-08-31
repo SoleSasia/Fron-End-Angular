@@ -2,19 +2,12 @@ import { EduDTO } from "./eduDTO";
 import { ExpeDTO } from "./expeDTO";
 import { HabBlandaDTO } from "./habBlandaDTO";
 import { HabTecnicaDTO } from "./habTecnicaDTO";
+import { PersoDTO } from "./persoDTO";
 import { ProyeDTO } from "./proyeDTO";
 
 export class PortfolioDTO {
 
-    id: number;
-    nombre: string;
-    ocupacion: string;
-    bannerUrl : string;
-    email: string;
-    linkedinUrl : string;
-    githubUrl : string;
-    descripcion : string;
-    imgUrl : string;
+    persona: PersoDTO;
     educaciones: EduDTO[]; 
     experiencias: ExpeDTO[];
     habTecnicas: HabTecnicaDTO[];
@@ -22,30 +15,14 @@ export class PortfolioDTO {
     proyectos: ProyeDTO[];
 
     constructor(
-                id: number,
-                nombre: string,
-                ocupacion: string,
-                bannerUrl : string,
-                email: string,
-                linkedinUrl : string,
-                githubUrl : string,
-                descripcion : string,
-                imgUrl : string,
+                persona: PersoDTO,
                 educaciones: EduDTO[], 
                 experiencias: ExpeDTO[],
                 habTecnicas: HabTecnicaDTO[],
                 habBlandas: HabBlandaDTO[],
                 proyectos: ProyeDTO[]){ 
         
-        this.id = id;
-        this.nombre = nombre;
-        this.ocupacion = ocupacion;
-        this.bannerUrl = bannerUrl;
-        this.email = email;
-        this.linkedinUrl = linkedinUrl;
-        this.githubUrl = githubUrl;
-        this.descripcion = descripcion;
-        this.imgUrl = imgUrl;
+        this.persona = persona;
         this.educaciones = educaciones;
         this.experiencias = experiencias;
         this.habTecnicas = habTecnicas;
