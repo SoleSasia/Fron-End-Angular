@@ -12,7 +12,8 @@
 <!--Sección Sobre Mí-->
 <app-sobre-mi
     [isLogged]="isLogged"
-    [persona]="miPortfolio.persona">
+    [persona]="miPortfolio.persona"
+    (recargandoPortfolio)="cargarVista()">
 </app-sobre-mi>
 
 <!--Sección Experiencia-->

@@ -56,7 +56,7 @@ export class AgregarEditarEduComponent implements OnInit {
   cerrarModal(){
     this.mostrarMsj=false
     this.respta = {salioBien: false, msj: ""};
-    //recargar vista de esta seccion del portfolio
+    //recargar vista 
     this.cerrandoModal.emit();
   }
 
