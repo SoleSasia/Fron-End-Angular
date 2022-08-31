@@ -62,8 +62,9 @@ export class AgregarEditarExpeComponent implements OnInit {
   cerrarModal(){
     this.mostrarMsj=false
     this.respta = {salioBien: false, msj: ""};
-    //recargar vista de esta seccion del portfolio
+    //recargar vista del portfolio
     this.cerrandoModal.emit();
+    //recargar vista de esta seccion del portfolio
   }
 
 }

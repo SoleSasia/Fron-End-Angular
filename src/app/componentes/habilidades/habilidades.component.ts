@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { HabBlandaDTO } from 'src/app/dto/habBlandaDTO';
 import { HabTecnicaDTO } from 'src/app/dto/habTecnicaDTO';
-import { NivelHabilidad } from 'src/app/dto/nivelHabilidad';
 import { PortfolioService } from 'src/app/servicios/portfolio.service';
 
 @Component({
@@ -15,15 +14,15 @@ export class HabilidadesComponent implements OnInit {
   //TODO: resolver login
   @Input() isLogged: boolean;
   @Input() idPerso : number;
-  @Input() listaHabTecnica: HabTecnicaDTO[];
+  @Input() listaHabTecnica: HabTecnicaDTO[] = [];
   @Input() listaHabBlanda: HabBlandaDTO[] = [];
   //recarga vista portfolio
   @Output() recargandoPortfolio = new EventEmitter<any>();
 
   //listas separadas por nivel de suficiencia (habTecnica)
-  listaAvanzado: HabTecnicaDTO[];
-  listaIntermedio: HabTecnicaDTO[];
-  listaBasico: HabTecnicaDTO[];
+  listaAvanzado: HabTecnicaDTO[]=[];
+  listaIntermedio: HabTecnicaDTO[]=[];
+  listaBasico: HabTecnicaDTO[]=[];
 
   habTecnica: HabTecnicaDTO;
   habBlanda: HabBlandaDTO;
@@ -39,27 +38,11 @@ export class HabilidadesComponent implements OnInit {
 
   ngOnInit(): void {
     
-    
-    this.separando();
+    this.listarPorNIvel();
 
-    //console.log(this.listaIntermedio[0].nombreHabilidad);
   }
 
-  //seṕarando listas y reasignango por nivel
-  separarPorNivel(){
-    
-    for (let hab of this.listaHabTecnica){
-      if (hab.nivelId == 1){
-        this.listaAvanzado.push(hab);
-      } else if (hab.nivelId == 2){
-        this.listaIntermedio.push(hab);
-      } else {
-        this.listaBasico.push(hab);
-      }
-    }
-  }
-
-  separando(){
+  listarPorNIvel(){
     this.listaAvanzado = this.listaHabTecnica.filter((el) => el.nivelId == 1);
     this.listaIntermedio = this.listaHabTecnica.filter((el) => el.nivelId == 2);
     this.listaBasico = this.listaHabTecnica.filter((el) => el.nivelId == 3);
@@ -79,7 +62,7 @@ export class HabilidadesComponent implements OnInit {
     }
   }
 
-  editarHabTecnica(habTec: HabTecnicaDTO): void {
+  abrirEditarHabTecnica(habTec: HabTecnicaDTO): void {
     this.habTecnica = habTec;
     this.tituloModal = "Editar elemento en Habilidades Técnicas";
     this.agregarEditarActivado = true;    
@@ -90,11 +73,12 @@ export class HabilidadesComponent implements OnInit {
       this.portfolioServ.borrarHabTecnica(habTecId).subscribe(data => {
         alert("El elemento ha sido eliminado");
         this.recargandoPortfolio.emit();
+        this.listarPorNIvel();
         });
     }
   }
 
-  editarHabBlanda(habBlan: HabBlandaDTO): void {
+  abrirEditarHabBlanda(habBlan: HabBlandaDTO): void {
     this.habBlanda = habBlan;
     this.tituloModal = "Editar elemento en Habilidades Blandas";
     this.agregarEditarActivado = true;
@@ -105,6 +89,7 @@ export class HabilidadesComponent implements OnInit {
       this.portfolioServ.borrarHabBlanda(habBlanId).subscribe(data => {
         alert("El elemento ha sido eliminado");
         this.recargandoPortfolio.emit();
+        this.listarPorNIvel();
         });
     }
   }
@@ -114,5 +99,6 @@ export class HabilidadesComponent implements OnInit {
     this.esHabBlanda = false;
     this.agregarEditarActivado = false;
     this.recargandoPortfolio.emit();
+    this.listarPorNIvel();
   }
 }

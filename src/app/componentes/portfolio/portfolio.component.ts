@@ -39,6 +39,5 @@ export class PortfolioComponent implements OnInit {
 
   cargarVista(){
     this.portfolioServ.obtenerDatos().subscribe(data => {this.miPortfolio = data});
-    //this.persona = this.miPortfolio.persona;
   }
 }

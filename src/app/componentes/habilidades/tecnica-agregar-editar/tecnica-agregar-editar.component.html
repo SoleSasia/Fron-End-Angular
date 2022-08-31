@@ -8,7 +8,6 @@
         <label for="nivelId" class="form-label">Nivel (selecciona uno)</label>
         <select [(ngModel)]="habTecnica.nivelId" class="form-select" 
          #nivelId="ngModel" required>
-            <!--  [ngClass]="{'is-invalid': nivelId?.errors && nivelId?.touched}"-->
             <option selected disabled value="">Selecciona uno</option>
             <option value="1">Avanzado</option>
             <option value="2">Intermedio</option>
@@ -26,9 +25,7 @@
             class="form-control" 
             #urlIcono="ngModel" 
             placeholder="Ej.:'fa-brands fa-html5'"
-            required>
-            <!--[ngClass]="{'is-invalid': urlIcono?.errors && urlIcono?.touched, 'is-valid': !urlIcono?.errors && !urlIcono?.touched}"-->  
-            
+            required>            
         <div *ngIf="urlIcono.invalid && (urlIcono.dirty || urlIcono.touched)">
             <p *ngIf="urlIcono?.hasError('required')" class="text-danger">El icono es requerido</p>
         </div>
