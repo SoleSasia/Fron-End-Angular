@@ -43,7 +43,8 @@
                 </li>
             </ul>
             <form class="d-flex py-2">
-                <button class="btn btn-outline-secondary" routerLink="/ingresar" type="submit">{{isLogged ? "Cerrar Sesión" : "Ingresar"}}</button>
+                <button *ngIf="!isLogged" class="btn btn-outline-secondary" routerLink="/ingresar" type="submit">Ingresar</button>
+                <button *ngIf="isLogged" (click)="cerrarSesion()" class="btn btn-outline-secondary" type="close">Cerrar Sesión</button>
             </form>
         </div>
     </div>
