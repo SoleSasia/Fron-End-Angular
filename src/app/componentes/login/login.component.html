@@ -30,9 +30,14 @@
             </div>
         </div>
 
+        <div *ngIf="mostrarMsj" [ngClass]="!respta.salioBien? 'alert alert-danger': 'alert alert-success'" role="alert" >
+            <p *ngIf="respta.msj==''">Enviando datos...</p>
+            <p *ngIf="respta.msj!=''">{{respta.msj}}</p>
+        </div>
+
         <div class="modal-footer">
             <button routerLink="/inicio" type="close" class="btn btn-outline-secondary">Cancelar</button>
-            <button type="submit" class="btn btn-secondary">Ingresar</button>
+            <button *ngIf="!respta.salioBien" type="submit" class="btn btn-secondary">Ingresar</button>
         </div>
 
     </form>

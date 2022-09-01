@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PersoDTO } from 'src/app/dto/persoDTO';
 import { PortfolioDTO } from 'src/app/dto/portfolioDTO';
+import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 import { PortfolioService } from 'src/app/servicios/portfolio.service';
 
 @Component({
@@ -31,10 +32,11 @@ export class PortfolioComponent implements OnInit {
   isLogged : boolean = true;
 //  persona : PersoDTO;
 
-  constructor(private portfolioServ : PortfolioService) { }
+  constructor(private portfolioServ : PortfolioService, private autenticacion: AutenticacionService) { }
 
   ngOnInit(): void {    
     this.cargarVista();
+    this.isLogged = this.autenticacion.verificarisLogged();
   }
 
   cargarVista(){

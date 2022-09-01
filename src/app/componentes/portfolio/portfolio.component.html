@@ -1,7 +1,8 @@
 <!--Barra de navegacion-->
 <app-navbar
     [isLogged]="isLogged"
-    [persona]="miPortfolio.persona">
+    [persona]="miPortfolio.persona"
+    (recargandoPortfolio)="cargarVista()">
 </app-navbar>
 
 <!--Header-->
