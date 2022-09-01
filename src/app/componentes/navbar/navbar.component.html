@@ -2,12 +2,12 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark" id="barraNavegacion">
     
     <div class="container-fluid flex-wrap flex-md-nowrap">
-        <a class="navbar-brand p-0 me-2" href="https://argentinaprograma.inti.gob.ar">
+        <a class="nav-link p-0 me-2" href="https://argentinaprograma.inti.gob.ar">
             <img style="width:6em" src="assets/APLogo-20-20.png" alt="Argentina Programa">
         </a>
         
         <!--Boton desplegable-->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavBar">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavBar" aria-label="desplegar menú">
                 <span class="navbar-toggler-icon"></span>
         </button>
         
@@ -17,13 +17,13 @@
                     <a class="nav-link" href="/">Inicio</a>
                 </li>
                 <li class="nav-item col-6 col-md-auto">
-                        <a class="nav-link" href="/sobre-mi">Sobre mí</a>
+                    <a class="nav-link" (click)="irALaSeccion('sobreMi')">Sobre mí</a>
                 </li>
                 <li class="nav-item col-6 col-md-auto">
-                    <a class="nav-link" href="/habilidades">Habilidades</a>
+                    <a class="nav-link" (click)="irALaSeccion('habilidades')">Habilidades</a>
                 </li>
                 <li class="nav-item col-6 col-md-auto">
-                        <a class="nav-link" href="/proyectos">Proyectos</a>
+                        <a class="nav-link" (click)="irALaSeccion('proyectos')">Proyectos</a>
                 </li>
             </ul>
             <ul class="navbar-nav flex-row flex-wrap ms-md-auto">

@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 
 import { PersoDTO } from 'src/app/dto/persoDTO';
 import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
-import { PortfolioService } from 'src/app/servicios/portfolio.service';
 
 @Component({
   selector: 'app-navbar',
@@ -12,11 +11,8 @@ import { PortfolioService } from 'src/app/servicios/portfolio.service';
 })
 export class NavbarComponent implements OnInit {
 
-  //TODO: resolver login
   @Input() isLogged: boolean;
   @Input() persona: PersoDTO;
-  //recarga vista portfolio
-  @Output() recargandoPortfolio = new EventEmitter<any>();
 
   githubUrl: string;
   linkedinUrl: string;
@@ -28,13 +24,13 @@ export class NavbarComponent implements OnInit {
     this.linkedinUrl = this.persona.linkedinUrl;
   }
 
+  irALaSeccion(seccion : string){
+    window.location.hash = "";
+    window.location.hash = seccion;
+  }
+
   cerrarSesion() {
     this.autenticacion.cerrarSesion();
-<<<<<<< HEAD
-    //this.recargandoPortfolio.emit();
     window.location.reload();
-=======
-    this.recargandoPortfolio.emit();
->>>>>>> 515170ab373c6747d5dabfb3278303f7dc52638e
   }
 }

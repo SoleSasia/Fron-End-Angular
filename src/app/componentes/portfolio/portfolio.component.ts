@@ -11,37 +11,16 @@ import { PortfolioService } from 'src/app/servicios/portfolio.service';
 })
 
 export class PortfolioComponent implements OnInit {
-//soluciona error ctx.miPortfolio
+
   miPortfolio : PortfolioDTO;
-  /*              id: 0,
-                nombre: "",
-                ocupacion: "",
-                bannerUrl : "",
-                email: "",
-                linkedinUrl : "",
-                githubUrl : "",
-                descripcion : "",
-                imgUrl : "",
-                educaciones: [], 
-                experiencias: [],
-                habTecnicas: [],
-                habBlandas: [],
-                proyectos: []
-  };*/
 
   isLogged : boolean = false;
-//  persona : PersoDTO;
 
   constructor(private portfolioServ : PortfolioService, private autenticacion: AutenticacionService) { }
 
   ngOnInit(): void {    
     this.cargarVista();
-<<<<<<< HEAD
-    //zk
     this.isLogged = !!this.autenticacion.getToken();
-=======
-    this.isLogged = this.autenticacion.verificarisLogged();
->>>>>>> 515170ab373c6747d5dabfb3278303f7dc52638e
   }
 
   cargarVista(){
