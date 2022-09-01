@@ -30,7 +30,11 @@ export class NavbarComponent implements OnInit {
 
   cerrarSesion() {
     this.autenticacion.cerrarSesion();
+<<<<<<< HEAD
     //this.recargandoPortfolio.emit();
     window.location.reload();
+=======
+    this.recargandoPortfolio.emit();
+>>>>>>> 515170ab373c6747d5dabfb3278303f7dc52638e
   }
 }

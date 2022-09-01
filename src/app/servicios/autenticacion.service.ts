@@ -13,10 +13,17 @@ const TOKEN_KEY : string = "auth";
 export class AutenticacionService {
 
   //url: string = "../../../src/assets/data/data.json";
+<<<<<<< HEAD
   //usuarioActualSubject: BehaviorSubject<any>;
    
   //opcion 2
   //isLogged: boolean = false;
+=======
+  usuarioActualSubject: BehaviorSubject<any>;
+   
+  //opcion 2
+  isLogged: boolean = false;
+>>>>>>> 515170ab373c6747d5dabfb3278303f7dc52638e
 
   /*
   //opciones Sole
@@ -25,7 +32,11 @@ export class AutenticacionService {
   */
 
   constructor(private http:HttpClient) { 
+<<<<<<< HEAD
     //this.usuarioActualSubject = new BehaviorSubject<any>(sessionStorage.getItem("usuarioActual"));
+=======
+    this.usuarioActualSubject = new BehaviorSubject<any>(sessionStorage.getItem("usuarioActual"));
+>>>>>>> 515170ab373c6747d5dabfb3278303f7dc52638e
   }
 
   /*
@@ -37,10 +48,17 @@ export class AutenticacionService {
   }
   */
   iniciarSesion(): void {
+<<<<<<< HEAD
     //this.isLogged = true;
     window.sessionStorage.setItem(TOKEN_KEY, "solecita");
   }
 /*
+=======
+    this.isLogged = true;
+    sessionStorage.setItem("usuarioActual", "solecita");
+  }
+
+>>>>>>> 515170ab373c6747d5dabfb3278303f7dc52638e
   verificarisLogged(): boolean {
     if(this.isLogged){
       return true;
@@ -49,6 +67,7 @@ export class AutenticacionService {
     }
     
   }
+<<<<<<< HEAD
 */
   cerrarSesion(): void {
     //this.isLogged = false;
@@ -58,6 +77,12 @@ export class AutenticacionService {
   
   getToken(){
     return sessionStorage.getItem(TOKEN_KEY);
+=======
+
+  cerrarSesion(): void {
+    this.isLogged = false;
+    sessionStorage.removeItem("usuarioActual");
+>>>>>>> 515170ab373c6747d5dabfb3278303f7dc52638e
   }
 
 

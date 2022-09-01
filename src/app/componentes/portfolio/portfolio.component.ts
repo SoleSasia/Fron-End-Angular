@@ -36,8 +36,12 @@ export class PortfolioComponent implements OnInit {
 
   ngOnInit(): void {    
     this.cargarVista();
+<<<<<<< HEAD
     //zk
     this.isLogged = !!this.autenticacion.getToken();
+=======
+    this.isLogged = this.autenticacion.verificarisLogged();
+>>>>>>> 515170ab373c6747d5dabfb3278303f7dc52638e
   }
 
   cargarVista(){
