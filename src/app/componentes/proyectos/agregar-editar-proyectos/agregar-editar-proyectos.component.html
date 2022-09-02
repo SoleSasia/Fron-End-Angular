@@ -6,8 +6,7 @@
             class="form-control"   
             required
             #nombreProye="ngModel" 
-            [ngClass]="{'is-invalid': nombreProye?.errors && nombreProye?.touched}" 
-            placeholder="">
+            placeholder="Ingrese el nombre del proyecto">
         <div *ngIf="nombreProye.invalid && (nombreProye.dirty || nombreProye.touched)">
             <p *ngIf="nombreProye?.hasError('required')" class="text-danger">El nombre es requerido</p>
         </div>
@@ -15,22 +14,22 @@
 
     <div class="mb-3">
         <label for="descripcionProye" class="form-label">Descripción</label>
-        <textarea [(ngModel)]="proye.descripcionProye" class="form-control" id="descripcionProye" rows="3" placeholder="Breve descripción..."></textarea>
+        <textarea [(ngModel)]="proye.descripcionProye" class="form-control" id="descripcionProye" rows="3" placeholder="Ingrese una breve descripción..."></textarea>
     </div>
 
     <div class="mb-3">
         <label for="imgUrl" class="form-label">Url de la imagen</label>
-        <input type="text" [(ngModel)]="proye.imgUrl" class="form-control" id="imgUrl" placeholder="">
+        <input type="text" [(ngModel)]="proye.imgUrl" class="form-control" id="imgUrl" placeholder="Ingrese url de la imagen">
     </div>
 
     <div class="mb-3">
         <label for="repoUrl" class="form-label">Url del repositorio</label>
-        <input type="text" [(ngModel)]="proye.repoUrl" class="form-control" id="repoUrl" placeholder="">
+        <input type="text" [(ngModel)]="proye.repoUrl" class="form-control" id="repoUrl" placeholder="Ingrese url del repositorio">
     </div>
 
     <div class="mb-3">
         <label for="liveUrl" class="form-label">Url del live/sitio</label>
-        <input type="text" [(ngModel)]="proye.liveUrl" class="form-control" id="liveUrl" placeholder="">
+        <input type="text" [(ngModel)]="proye.liveUrl" class="form-control" id="liveUrl" placeholder="Ingrese url del sitio">
     </div>
 </div>
 

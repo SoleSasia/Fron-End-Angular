@@ -6,7 +6,6 @@
         class="form-control" 
         #nombreHabilidad="ngModel" 
         required 
-        [ngClass]="{'is-invalid': nombreHabilidad?.errors && nombreHabilidad?.touched}"
         placeholder="Ej.: Resolución de problemas">
     <div *ngIf="nombreHabilidad.invalid && (nombreHabilidad.dirty || nombreHabilidad.touched)">
         <p *ngIf="nombreHabilidad?.hasError('required')" class="text-danger">El nombre es requerido</p>

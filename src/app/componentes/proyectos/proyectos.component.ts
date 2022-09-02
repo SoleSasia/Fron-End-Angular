@@ -32,7 +32,6 @@ export class ProyectosComponent implements OnInit {
   }
 */
   abrirModalAgregar(){
-    console.log("idPerso al abrir agregarModal: "+ this.idPerso);
     let proye = {id:0,personaId:this.idPerso,nombreProye:"",descripcionProye:"",imgUrl:"",repoUrl:"",liveUrl:""};
     this.proyecto = proye;
     this.tituloModal = "Agregar elemento a Proyectos";
@@ -40,8 +39,6 @@ export class ProyectosComponent implements OnInit {
   }
 
   abrirModalEditar(proye: ProyeDTO){
-    console.log("idPerso al abrir editarModal: "+ proye.personaId);
-    console.log("id al abrir editarModal: "+ proye.id);
     this.proyecto = proye;
     this.tituloModal = "Editar elemento en Proyecto";
     this.agregarEditarActivado = true;

@@ -33,7 +33,6 @@ export class AgregarEditarProyectosComponent implements OnInit {
         this.respta = data;
         }
       );
-      console.log("idPerso al enviar agregarModal: "+ nuevoProye.personaId);
     } else {
       this.mostrarMsj = true;
       this.respta.msj = "No se puede agregar un elemento sin título";
@@ -48,7 +47,6 @@ export class AgregarEditarProyectosComponent implements OnInit {
         this.respta = data;
         }
       );
-      console.log("idPerso al enviar editarModal: "+ proyeEditado.personaId);
     } else {
       this.mostrarMsj = true;
       this.respta.msj = "No se puede modificar un elemento sin título";      
