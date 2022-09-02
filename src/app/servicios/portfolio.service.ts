@@ -19,7 +19,7 @@ export class PortfolioService {
   //urlBackend: string = "src/assets/data/data.json";
 
   //esta url sale del @RequestMapping del Controller del backend "http://localhost:8080/"
-  urlBackend: string = "http://localhost:8080/"
+  urlBackend: string = "https://soledadsasia.herokuapp.com/"
 
   constructor(private http:HttpClient) { }
 
