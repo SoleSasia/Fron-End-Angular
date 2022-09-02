@@ -43,8 +43,10 @@
                 </li>
             </ul>
             <form class="d-flex py-2">
-                <button *ngIf="!isLogged" class="btn btn-outline-secondary" routerLink="/ingresar" type="submit">Ingresar</button>
-                <button *ngIf="isLogged" (click)="cerrarSesion()" class="btn btn-outline-secondary" type="close">Cerrar Sesión</button>
+                <button *ngIf="!isLogged" class="btn btn-secondary" routerLink="/ingresar" type="submit" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Ingresar">
+                    <i class="bi bi-box-arrow-right"></i><small class="d-md-none ms-2">Ingresar</small></button>
+                <button *ngIf="isLogged" (click)="cerrarSesion()" class="btn btn-secondary" type="close"  data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Cerrar Sesión">
+                    <i class="bi bi-box-arrow-left"></i><small class="d-md-none ms-2">Cerrar Sesión</small></button>
             </form>
         </div>
     </div>

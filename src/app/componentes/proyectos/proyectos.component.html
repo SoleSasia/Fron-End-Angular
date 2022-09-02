@@ -12,7 +12,7 @@
         </span>
 
     </div>
-    <p>Aquí algunos de los proyectos en los que he estado trabajando.</p>
+    <p></p>
 
     <!-- Modal Agregar/Editar Proyectos-->
     <div class="modal fade" id="modalProyectos" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -20,7 +20,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="staticBackdropLabel">{{tituloModal}}</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"(click)="cerrarModal()"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="cerrar"(click)="cerrarModal()"></button>
                 </div>
                 <div class="modal-body">
                     <app-agregar-editar-proyectos
@@ -61,8 +61,8 @@
                     <p class="card-text">{{proye.descripcionProye}}</p>
                     
                     <div class="gap-2 d-flex justify-content-end">
-                        <a [href]="proye.liveUrl" target="_BLANK" class="btn btn-outline-secondary">Live</a>
-                        <a [href]="proye.repoUrl" target="_BLANK" class="btn btn-secondary"><i class="bi bi-github"></i> Repo</a>
+                        <a [href]="proye.liveUrl" target="_BLANK" class="btn btn-outline-secondary" aria-label="ir al sitio"> Al sitio</a>
+                        <a [href]="proye.repoUrl" target="_BLANK" class="btn btn-secondary"><i class="bi bi-github" aria-label="ir al repositorio"></i> Repo</a>
                     </div>
                 </div>
             </div>

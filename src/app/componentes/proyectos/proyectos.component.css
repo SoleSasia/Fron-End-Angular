@@ -1,10 +1,7 @@
-.btn-secondary {
-	background-color: #38536e;
-	border-color: #38536e;
-}
+#proyectos {
+    background-color: var(--grisfondo);
+    margin-bottom: 0rem;
+    margin-left: 0rem;
+    margin-right: 0rem;
 
-.btn-secondary:hover {
-    color: #fff;
-    background-color: #3e75ac;
-    border-color: #3e75ac;
 }

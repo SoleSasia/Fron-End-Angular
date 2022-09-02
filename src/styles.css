@@ -1,3 +1,11 @@
+:root {
+	--azul: #2c5577;
+	--naranja: #dc5435;
+	--naranjahover: #d37661;
+	--grisfondo: #e9ecef;
+	--grishover: #6c757d;
+}
+
 html {
 	font-family: "source sans pro", sans-serif;
 }
@@ -24,13 +32,24 @@ h2, h3 {
 }
 
 .title-section {
-	color:#38536e
+	color:var(--azul);
+	
+}
+
+.title-section h2::after {
+    content: "";
+    display: block;
+    width: 4.2rem;
+    height: .15rem;
+    background-color: var(--naranja);
+    margin-top: 1rem;
 }
 
 /*Estilo botones de edición*/
 
 .edit-icon button{
 	border: #dc3545;
+	color: var(--naranja);
 	border-radius: 50%;
 	background-color: #fff;
     padding: .3rem;
@@ -51,16 +70,16 @@ h2, h3 {
 }
 
 .modal-title {
-	color:#38536e;
+	color:var(--azul);
 }
 
-.modal-footer .btn-secondary {
-	background-color: #38536e;
-	border-color: #38536e;
+.btn-secondary {
+	background-color: var(--naranja);
+	border-color: var(--naranja);
 }
 
-.modal-footer .btn-secondary:hover {
-    color: #fff;
-    background-color: #3e75ac;
-    border-color: #3e75ac;
+.btn-secondary:hover {
+    color: var(--naranja);	
+    background-color: #fff;
+    border-color: var(--naranja);
 }

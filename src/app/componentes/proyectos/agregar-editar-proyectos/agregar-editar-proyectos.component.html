@@ -40,9 +40,9 @@
 </div>
 
 <div *ngIf="!respta.salioBien" class="modal-footer">
-    <button (click)="agregarProye(proye)" *ngIf="proye.id==0" type="submit" class="btn btn-secondary">Agregar</button>
-    <button (click)="editarProye(proye)" *ngIf="proye.id!=0" type="submit" class="btn btn-secondary">Editar</button>
+    <button (click)="agregarProye(proye)" *ngIf="proye.id==0" type="submit" class="btn btn-secondary" aria-label="agregar" >Agregar</button>
+    <button (click)="editarProye(proye)" *ngIf="proye.id!=0" type="submit" class="btn btn-secondary" aria-label="editar" >Editar</button>
 </div>
 <div *ngIf="respta.salioBien" class="modal-footer">
-    <button (click)="cerrarModal()" type="close" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+    <button (click)="cerrarModal()" type="close" class="btn btn-secondary" aria-label="cerrar" data-bs-dismiss="modal">Cerrar</button>
 </div>
