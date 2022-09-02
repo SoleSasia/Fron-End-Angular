@@ -2,50 +2,61 @@
      
     <div class="title-section py-2 d-flex justify-content-between align-items-center">
         <h2>Educación</h2>
-        <span class="edit-icon">
-            <i class="bi bi-plus d-flex justify-content-end"></i>
+        
+    <!-- Boton modal Agregar Educación-->
+        <span *ngIf="isLogged" class="edit-icon">
+            <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalEducacion" (click)="abrirModalAgregar()">
+                <i class="bi bi-plus-circle-fill d-flex justify-content-end"></i>
+            </button>
         </span>
     </div>
 
-    <ul class="row justify-content-center list-unstyled mt-3">
-
-        <li class="card mb-3">
-            <div class="row">
-                <div class="col-sm-4 d-flex align-items-center">
-                    <img class="card-img img-fluid" src="../../../assets/unc.png" alt="">
-                </div> 
-
-                <div class="col-sm-8 card-body">
-                    <div class="card-title d-flex justify-content-between align-items-center">
-                        <h4 class="py-1">Licenciatura en Composición Musical</h4>
-                        <span class="edit-icon p-1 justify-content-between">
-                            <i class="bi bi-pencil-fill"></i><i class="bi bi-x-circle-fill"></i>
-                        </span>
-                    </div>
-                    <div>
-                        <h6>2006 - 2010</h6>
-                        <p class="card-text pt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt et porro totam sunt pariatur animi sit ullam, unde sapiente voluptate rerum illum placeat fugiat aliquam, voluptatibus nostrum inventore fugit. Nihil.</p>
-                    </div>
+    <!-- Modal Agregar/Editar Educación-->
+    <div class="modal fade" id="modalEducacion" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">{{tituloModal}}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"(click)="cerrarModal()"></button>
+                </div>
+                <div class="modal-body">
+                    <app-agregar-editar-edu
+                        [educacion]="educacion" 
+                        *ngIf="agregarEditarActivado"
+                        (cerrandoModal)="cerrarModal()">
+                    </app-agregar-editar-edu>
                 </div>
             </div>
-        </li>
+        </div>
+    </div>    
+    
 
-        <li class="card mb-3">
+    <ul *ngFor="let edu of listaEdu" class="row justify-content-center list-unstyled mt-3">
+
+        <li class="card">
             <div class="row">
                 <div class="col-sm-4 d-flex align-items-center">
-                    <img class="card-img img-fluid" src="../../../assets/utn_frvm.png" alt="">
+                    <img class="card-img m-1 img-fluid" [src]="edu.urlLogoEdu" alt="">
                 </div> 
 
                 <div class="col-sm-8 card-body">
                     <div class="card-title d-flex justify-content-between align-items-center">
-                        <h4 class="py-1">Teoría y composición musical</h4>
-                        <span class="edit-icon p-1 justify-content-between">
-                            <i class="bi bi-pencil-fill"></i><i class="bi bi-x-circle-fill"></i>
+                        <h4 class="py-1">{{edu.tituloEdu}}</h4>
+                        <span *ngIf="isLogged" class="edit-icon p-1 justify-content-between" >
+                            <!-- Boton modal Editar Educación-->
+                            <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalEducacion" (click)="abrirModalEditar(edu)">
+                                <i class="bi bi-pencil-fill"></i>
+                            </button>
+                            <!-- Boton Eliminar Educación-->
+                            <button type="button" class="btn btn-outline-danger" (click)="eliminarEdu(edu.id)">
+                                <i class="bi bi-x-circle-fill"></i>
+                            </button>   
                         </span>
                     </div>
+
                     <div>
-                        <h6>2006 - 2010</h6>
-                        <p class="card-text pt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt et porro totam sunt pariatur animi sit ullam, unde sapiente voluptate rerum illum placeat fugiat aliquam, voluptatibus nostrum inventore fugit. Nihil.</p>
+                        <h6>{{edu.periodoEdu}}</h6>
+                        <p class="card-text pt-1">{{edu.descripcionEdu}}</p>
                     </div>
                 </div>
             </div>

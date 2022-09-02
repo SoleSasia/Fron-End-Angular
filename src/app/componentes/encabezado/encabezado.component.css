@@ -5,3 +5,13 @@
 	background-position: center center;
 	background-size: cover;
 }
+
+@media (max-width: 575.98px) { 
+	h1, p {
+		text-align: center;	}
+}
+
+@media (min-width: 575.99px) { 
+	h1, p {
+		text-align: end;	}
+}

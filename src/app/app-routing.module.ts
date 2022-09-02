@@ -2,21 +2,21 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 //importo mis componentes
-import { EncabezadoComponent } from './componentes/encabezado/encabezado.component'
 import { SobreMiComponent } from './componentes/sobre-mi/sobre-mi.component'
-import { ExperienciaYEducacionComponent } from './componentes/experiencia-y-educacion/experiencia-y-educacion.component'
 import { HabilidadesComponent } from './componentes/habilidades/habilidades.component'
 import { ProyectosComponent } from './componentes/proyectos/proyectos.component'
-import { ContactoComponent } from './componentes/contacto/contacto.component'
+import { LoginComponent } from './componentes/login/login.component';
+import { PortfolioComponent } from './componentes/portfolio/portfolio.component';
 
 //defino mis rutas
 const routes: Routes = [
-  {path: 'inicio', component: EncabezadoComponent},
+  {path: '', component: PortfolioComponent},
   {path: 'sobre-mi', component: SobreMiComponent},
-  {path: 'experiencia-y-educacion', component: ExperienciaYEducacionComponent},
   {path: 'habilidades', component: HabilidadesComponent},
   {path: 'proyectos', component: ProyectosComponent},
-  {path: 'contacto', component: ContactoComponent},
+  {path: 'ingresar', component: LoginComponent},
+  {path: '**', redirectTo:'', pathMatch: 'full'}
+  
 ];
 
 @NgModule({
