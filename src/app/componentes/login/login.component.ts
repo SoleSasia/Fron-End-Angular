@@ -10,10 +10,11 @@ import { PortfolioService } from 'src/app/servicios/portfolio.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
 export class LoginComponent implements OnInit {
 
   loginForm : FormGroup;
-  //respuesta que viene del Backend
+  //respuesta que viene del servicio
   respta: RespuestaDTO = {salioBien: false, msj: ""};
   //variable que permite la vista del msj de la respuesta
   mostrarMsj: boolean = false;
