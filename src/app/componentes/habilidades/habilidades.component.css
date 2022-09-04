@@ -3,20 +3,13 @@
 }
 
 /*Diferencia tamaños de iconos según tipo de habilidad*/
-#habilidadesTecnicas li i {
+
+
+.iconTecnica{
     font-size: 2rem;
 }
 
-#habilidadesBlandas li i {
-    font-size: 3rem;
-}
-
-/*
-.fa-brands{
-    font-size: 2rem;
-}
-
-.fa-solid{
+.iconBlanda{
     font-size: 3rem;
 }
 */
