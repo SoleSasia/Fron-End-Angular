@@ -51,9 +51,11 @@ export class LoginComponent implements OnInit {
         this.respta.msj = "¡Buena! Ya iniciaste sesión!";
         //navegar a inicio
         this.ruta.navigate(["/portfolio"]);
+      
       } else if(this.loginForm.value.username === '' || this.loginForm.value.password === '') {
         this.mostrarMsj = true;
         this.respta.msj = "Se necesita usuario y contraseña para ingresar";
+      
       } else {
         this.mostrarMsj = true;
         this.respta.msj = "Mmm... Usuario o contraseña inválidos";

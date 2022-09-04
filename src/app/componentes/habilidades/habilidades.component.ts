@@ -73,7 +73,8 @@ export class HabilidadesComponent implements OnInit {
       this.portfolioServ.borrarHabTecnica(habTecId).subscribe(data => {
         alert("El elemento ha sido eliminado");
         this.recargandoPortfolio.emit();
-        this.listarPorNIvel();
+        //this.listarPorNIvel();
+        window.location.reload();
         });
     }
   }
@@ -90,6 +91,7 @@ export class HabilidadesComponent implements OnInit {
         alert("El elemento ha sido eliminado");
         this.recargandoPortfolio.emit();
         this.listarPorNIvel();
+        window.location.reload();
         });
     }
   }
@@ -98,7 +100,10 @@ export class HabilidadesComponent implements OnInit {
     this.esHabTecnica = false;
     this.esHabBlanda = false;
     this.agregarEditarActivado = false;
-    this.recargandoPortfolio.emit();
-    this.listarPorNIvel();
+    //this.recargandoPortfolio.emit();
+    //this.listarPorNIvel();
+
+    //recarga la vista después de cerrar modal agregar o editar
+    window.location.reload();
   }
 }

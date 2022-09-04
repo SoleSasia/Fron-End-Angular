@@ -2,7 +2,6 @@
     background-color: var(--grisfondo);
     margin-top: 0rem;
     margin-left: 0rem;
-    margin-right: 0rem;
 }
 
 #fotoPerfil {
@@ -11,6 +10,7 @@
 
 @media (max-width: 575.98px ) {
     #fotoPerfil {
+        border-radius: .25rem;
         padding-left: 2rem;
         padding-right: 2rem;
     }

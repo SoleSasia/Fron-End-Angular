@@ -1,13 +1,16 @@
 :root {
 	--azul: #2c5577;
 	--naranja: #dc5435;
-	--naranjahover: #d37661;
 	--grisfondo: #e9ecef;
-	--grishover: #6c757d;
 }
 
 html {
 	font-family: "source sans pro", sans-serif;
+	overflow-x: hidden; /*para solucionar overflow en la página*/
+}
+
+body {
+	overflow-x: hidden;
 }
 
 h1 {

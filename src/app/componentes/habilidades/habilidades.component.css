@@ -1,3 +1,17 @@
+#habilidades {
+    margin-left: 0rem;
+}
+
+/*Diferencia tamaños de iconos según tipo de habilidad*/
+#habilidadesTecnicas li i {
+    font-size: 2rem;
+}
+
+#habilidadesBlandas li i {
+    font-size: 3rem;
+}
+
+/*
 .fa-brands{
     font-size: 2rem;
 }
@@ -5,6 +19,7 @@
 .fa-solid{
     font-size: 3rem;
 }
+*/
 
 .edit-icon button {
     padding: .1rem;
