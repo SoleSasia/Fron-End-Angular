@@ -1,4 +1,4 @@
-# Portfolio-FrontEnd
+# portfolio-FrontEnd #YoProgramo
 
 En este Repositorio se encuentra la parte Front-end de mi portfolio personal y proyecto final del curso de formación como Desarrolladora Web Full Stack Jr. "Argentina Programa #YoProgramo 2° Edición". Desarrollado entre febrero y agosto de 2022.
 
