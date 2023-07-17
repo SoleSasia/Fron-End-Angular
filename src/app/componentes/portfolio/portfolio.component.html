@@ -17,6 +17,14 @@
     (recargandoPortfolio)="cargarVista()">
 </app-sobre-mi>
 
+<!--Sección Proyectos-->
+<app-proyectos
+    [isLogged]="isLogged"
+    [idPerso]="miPortfolio.persona.id"
+    [listaProyectos]="miPortfolio.proyectos"
+    (recargandoPortfolio)="cargarVista()">
+</app-proyectos>
+
 <!--Sección Experiencia-->
 <app-experiencia
     [isLogged]="isLogged"    
@@ -41,14 +49,6 @@
     [listaHabBlanda]="miPortfolio.habBlandas"
     (recargandoPortfolio)="cargarVista()">
 </app-habilidades>
-
-<!--Sección Proyectos-->
-<app-proyectos
-    [isLogged]="isLogged"
-    [idPerso]="miPortfolio.persona.id"
-    [listaProyectos]="miPortfolio.proyectos"
-    (recargandoPortfolio)="cargarVista()">
-</app-proyectos>
 
 <!--Pie de página-->
 <app-footer></app-footer>
